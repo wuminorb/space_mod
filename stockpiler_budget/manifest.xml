@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Manifest>
+  <ID>stockpiler_budget_x10</ID>
+  <Name>囤水者预算 ×10</Name>
+  <Author>your_name</Author>
+  <ModVersion>1.0.0</ModVersion>
+  <Description>把上层区「囤水者」（waterStockpiler）顾客的预算提高到原来的 10 倍。
+原版预算 = 500 + 随机 0~100 + 游戏天数，装了本模组后同一套数值再 ×10；声望/人脉/魅力带来的加成先按原版结算，然后整体放大。
+纯运行时 Harmony 补丁：不新增存档字段、不写存档文件。停用或删除模组后，之后刷新出来的囤水者立即恢复原版预算。
+按 F8 可在控制台看到 [囤水者预算 ×10] 的日志。</Description>
+  <GameVersions>
+    <Version>1.0.0</Version>
+  </GameVersions>
+  <Prerequisites />
+  <Assemblies>
+    <Assembly>StockpilerBudget.dll</Assembly>
+  </Assemblies>
+  <!--
+    只用了游戏 API（typeof 游戏类型 + ModReflect）和对游戏自身代码的 Harmony 补丁，
+    没有任何 files/network/process 等能力，因此保持为空。
+  -->
+  <Capabilities />
+</Manifest>

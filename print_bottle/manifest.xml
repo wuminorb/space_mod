@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Manifest>
+  <ID>print_bottle</ID>
+  <Name>打印酒瓶</Name>
+  <Author>your_name</Author>
+  <ModVersion>0.2.1</ModVersion>
+  <Description>让水瓶打印机的「标准水瓶」那一档打印酒瓶（wine_bottle），替换原本 750 mL 的瓶装水。
+耗电、输出区判定、解锁条件都沿用原版：累计升级 3 次解锁，单次 6 点电。
+按 F8 可在控制台看到 [打印酒瓶] 的日志；按 F9 的 Spawn 列可以单独生成酒瓶。</Description>
+  <GameVersions>
+    <Version>1.0.0</Version>
+  </GameVersions>
+  <Prerequisites />
+  <Assemblies>
+    <Assembly>PrintBottle.dll</Assembly>
+  </Assemblies>
+  <!--
+    纯游戏 API + Harmony 补丁游戏自身代码时，这里保持为空。
+    reflection-external / native / dynamic-code / threads 自 2026-12-10 起会被直接拒绝。
+  -->
+  <Capabilities />
+</Manifest>
