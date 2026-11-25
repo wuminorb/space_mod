@@ -1,0 +1,73 @@
+﻿### TYPE MachineryPanelRow  base=System.Object  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, BeforeFieldInit
+  FIELD GraphNodeStorage <parent>k__BackingField static=False const=False val=
+  FIELD System.Int32 <widthPixels>k__BackingField static=False const=False val=
+  FIELD System.Int32 <heightPixels>k__BackingField static=False const=False val=
+  FIELD TreeNodeRender <handler>k__BackingField static=False const=False val=
+  FIELD TreeNodeRender <inner>k__BackingField static=False const=False val=
+  FIELD System.Boolean searchUsingPriority static=False const=False val=
+  FIELD System.Int32 columns static=False const=False val=
+  FIELD System.Collections.Generic.List`1<MachineryPanel> panels static=False const=False val=
+  FIELD System.Collections.Generic.List`1<TreeNodeRender> separators static=False const=False val=
+  FIELD System.Collections.Generic.List`1<TreeNodeRender> separatorBackings static=False const=False val=
+  FIELD TreeNodeRender separatorHost static=False const=False val=
+  FIELD System.Collections.Generic.List`1<GraphNodeStorage> linked static=False const=False val=
+  FIELD System.Int32[] displayOrder static=False const=False val=
+  FIELD System.Boolean validateLock static=False const=False val=
+  PROP System.Collections.Generic.List`1<GraphNodeStorage> parents
+  PROP System.Collections.Generic.List`1<GraphNodeStorage> children
+  PROP GraphNodeStorage parent
+  PROP System.Boolean canResize
+  PROP System.Int32 widthPixels
+  PROP System.Int32 heightPixels
+  PROP TreeNodeRender handler
+  PROP UnityEngine.RectTransform rectTransform
+  PROP TreeNodeRender inner
+  PROP System.Collections.Generic.IReadOnlyList`1<MachineryPanel> Panels
+  METHOD List`1 get_parents() public=True static=False
+  METHOD List`1 get_children() public=True static=False
+  METHOD GraphNodeStorage get_parent() public=True static=False
+  METHOD Void set_parent(GraphNodeStorage value) public=True static=False
+  METHOD Boolean get_canResize() public=True static=False
+  METHOD Int32 get_widthPixels() public=True static=False
+  METHOD Void set_widthPixels(Int32 value) public=False static=False
+  METHOD Int32 get_heightPixels() public=True static=False
+  METHOD Void set_heightPixels(Int32 value) public=False static=False
+  METHOD TreeNodeRender get_handler() public=True static=False
+  METHOD Void set_handler(TreeNodeRender value) public=False static=False
+  METHOD RectTransform get_rectTransform() public=True static=False
+  METHOD TreeNodeRender get_inner() public=True static=False
+  METHOD Void set_inner(TreeNodeRender value) public=False static=False
+  METHOD IReadOnlyList`1 get_Panels() public=True static=False
+  METHOD Void .ctor() public=True static=False
+  METHOD Void .ctor(MachineryPanel[] panels) public=True static=False
+  METHOD MachineryPanelRow SetDisplayOrder(Int32[] order) public=True static=False
+  METHOD List`1 DisplayPanels() public=False static=False
+  METHOD MachineryPanelRow SetColumns(Int32 columns) public=True static=False
+  METHOD MachineryPanelRow Add(MachineryPanel panel) public=True static=False
+  METHOD Boolean Attach(PixelElement element) public=True static=False
+  METHOD Boolean Detach(PixelElement element) public=True static=False
+  METHOD MachineryPanel GetPanel(Int32 index) public=True static=False
+  METHOD MachineryPanel GetPanel(String role) public=True static=False
+  METHOD GraphNodeStorage GetStorage(Int32 index) public=True static=False
+  METHOD List`1 CollectStorage() public=False static=False
+  METHOD Void RelinkStorage() public=True static=False
+  METHOD Void Validate() public=True static=False
+  METHOD Void PlaceSeparator(Int32 index, Int32 x, Int32 y, Int32 width, Int32 height, Int32 backingX, Int32 backingWidth, Int32 backingHeight) public=False static=False
+  METHOD Void ResizePixels(Int32 width, Int32 height) public=True static=False
+  METHOD Int32 WidthPixelsClamp(Int32 width) public=True static=False
+  METHOD Int32 HeightPixelsClamp(Int32 height) public=True static=False
+  METHOD Int32 XClamp(Int32 x) public=True static=False
+  METHOD Int32 YClamp(Int32 y) public=True static=False
+  METHOD Boolean AddParent(GraphNodeStorage node) public=True static=False
+  METHOD Boolean RemoveParent(GraphNodeStorage node) public=True static=False
+  METHOD Boolean MayHaveValidInventorySlot(GameItem item) public=True static=False
+  METHOD SlotMarker TryFindOneValidInventorySlot(GameItem item) public=True static=False
+  NESTED MachineryPanelRow/<>c__DisplayClass45_0
+  NESTED MachineryPanelRow/<>c__DisplayClass47_0
+  NESTED MachineryPanelRow/<>c
+### TYPE NOT FOUND: MachineryPanelRow/Align
+### TYPE MachineryStack/Align  base=System.Enum  public=False  attrs=AnsiClass, NotPublic, AutoLayout, NestedPublic, Sealed
+  FIELD System.Int32 value__ static=False const=False val=
+  FIELD MachineryStack/Align Start static=True const=True val=0
+  FIELD MachineryStack/Align Center static=True const=True val=1
+  FIELD MachineryStack/Align End static=True const=True val=2

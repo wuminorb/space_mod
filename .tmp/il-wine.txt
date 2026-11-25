@@ -1,0 +1,25 @@
+﻿=== GameItem WineDirectory::WineBottle()  static=False
+  IL_0   ldarg.0      
+  IL_1   callvirt     Directory`1::Empty
+  IL_6   ldstr        'Items/items_winemaking'
+  IL_11  ldstr        'wine_bottle'
+  IL_16  callvirt     GameItem::SetSpriteAndShape
+  IL_21  dup          
+  IL_22  ldstr        'item_wine_bottle_name'
+  IL_27  call         Array::Empty
+  IL_32  call         LocHelper::GetLocalizedItem
+  IL_37  callvirt     GameItem::set_name
+  IL_42  dup          
+  IL_43  ldc.i4.s     12
+  IL_45  conv.i8      
+  IL_46  callvirt     GameItem::set_unitValue
+  IL_51  dup          
+  IL_52  ldstr        'item_wine_bottle_desc'
+  IL_57  call         Array::Empty
+  IL_62  call         LocHelper::GetLocalizedItem
+  IL_67  callvirt     GameItem::set_shortDescription
+  IL_72  dup          
+  IL_73  call         WineHelper::InitWineBottle
+  IL_78  dup          
+  IL_79  call         AudioHelper::InitGlass
+  IL_84  ret          

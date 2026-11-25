@@ -1,0 +1,359 @@
+﻿### TYPE GameItem  base=GameItemFunc  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, Abstract, BeforeFieldInit
+  FIELD GameInventory <parentInventory>k__BackingField static=False const=False val=
+  FIELD GridShape <shape>k__BackingField static=False const=False val=
+  FIELD GridShape <modifiedShape>k__BackingField static=False const=False val=
+  FIELD System.Int32 <modifiedXOrigin>k__BackingField static=False const=False val=
+  FIELD System.Int32 <modifiedYOrigin>k__BackingField static=False const=False val=
+  FIELD TagSystem <state>k__BackingField static=False const=False val=
+  FIELD TagSystem <modifiedState>k__BackingField static=False const=False val=
+  FIELD System.String <identifier>k__BackingField static=False const=False val=
+  FIELD System.String <identifierName>k__BackingField static=False const=False val=
+  FIELD System.Int32 <uniqueId>k__BackingField static=False const=False val=
+  FIELD System.String <name>k__BackingField static=False const=False val=
+  FIELD System.String <shortDescription>k__BackingField static=False const=False val=
+  FIELD System.String <longDescription>k__BackingField static=False const=False val=
+  FIELD System.String <flavorText>k__BackingField static=False const=False val=
+  FIELD System.Int32 <unitCount>k__BackingField static=False const=False val=
+  FIELD System.Int64 <unitValue>k__BackingField static=False const=False val=
+  FIELD System.Int64 <lateUnitValue>k__BackingField static=False const=False val=
+  FIELD System.Int64 <unitBaseValue>k__BackingField static=False const=False val=
+  FIELD System.Int64 <backupUnitValue>k__BackingField static=False const=False val=
+  FIELD RecipeManager <recipeManager>k__BackingField static=False const=False val=
+  FIELD System.String <customText>k__BackingField static=False const=False val=
+  FIELD PixelWindow <contentWindow>k__BackingField static=False const=False val=
+  FIELD PixelWindow <examineWindow>k__BackingField static=False const=False val=
+  FIELD System.Boolean <forceDisableActivate>k__BackingField static=False const=False val=
+  FIELD System.Boolean <forceDisableUse>k__BackingField static=False const=False val=
+  FIELD System.Boolean <activateDefault>k__BackingField static=False const=False val=
+  FIELD System.Boolean <isCombatBackpack>k__BackingField static=False const=False val=
+  FIELD System.String <spritePath>k__BackingField static=False const=False val=
+  FIELD System.String <spriteAtlasPath>k__BackingField static=False const=False val=
+  FIELD System.Boolean <spriteChanged>k__BackingField static=False const=False val=
+  FIELD System.Boolean <useSpriteFromMod>k__BackingField static=False const=False val=
+  FIELD System.Boolean <isDebugMenu>k__BackingField static=False const=False val=
+  FIELD System.String <soundDragStart>k__BackingField static=False const=False val=
+  FIELD System.String <soundDragEnd>k__BackingField static=False const=False val=
+  FIELD System.String <soundContainerOpen>k__BackingField static=False const=False val=
+  FIELD System.String <soundContainerClose>k__BackingField static=False const=False val=
+  FIELD System.String <soundSelect>k__BackingField static=False const=False val=
+  FIELD System.String <soundExamineOpen>k__BackingField static=False const=False val=
+  FIELD System.String <soundToggle>k__BackingField static=False const=False val=
+  FIELD System.String <soundActivate>k__BackingField static=False const=False val=
+  FIELD System.String <soundUse>k__BackingField static=False const=False val=
+  FIELD System.String ITEM_TYPE_STRING static=True const=False val=
+  FIELD System.Collections.Generic.List`1<ItemFeature> itemFeatures static=False const=False val=
+  FIELD System.Collections.Generic.List`1<System.String> itemTypes static=False const=False val=
+  FIELD System.Collections.Generic.HashSet`1<System.String> warnedMisalignedSprites static=True const=False val=
+  FIELD System.Int32 <bonusAccuracy>k__BackingField static=False const=False val=
+  FIELD System.Collections.Generic.List`1<CombatAbilityEffect> <effects>k__BackingField static=False const=False val=
+  FIELD System.Boolean <triggerOverwatch>k__BackingField static=False const=False val=
+  FIELD System.Boolean <canUseOutsideCombat>k__BackingField static=False const=False val=
+  FIELD System.String CONTENT_TABS_STRING static=True const=True val=CONTENT_TABS_STRING
+  PROP System.Collections.Generic.List`1<GraphNodeStorage> parents
+  PROP System.Collections.Generic.List`1<GraphNodeStorage> children
+  PROP GameInventory parentInventory
+  PROP GraphNodeWindow child
+  PROP GridShape shape
+  PROP GridShape modifiedShape
+  PROP System.Int32 modifiedXOrigin
+  PROP System.Int32 modifiedYOrigin
+  PROP TagSystem state
+  PROP TagSystem modifiedState
+  PROP System.String identifier
+  PROP System.String identifierName
+  PROP System.Int32 uniqueId
+  PROP System.String name
+  PROP System.String shortDescription
+  PROP System.String longDescription
+  PROP System.String flavorText
+  PROP System.Int32 unitCount
+  PROP System.Int64 unitValue
+  PROP System.Int64 lateUnitValue
+  PROP System.Int64 unitBaseValue
+  PROP System.Int64 backupUnitValue
+  PROP CombatAbility ability
+  PROP RecipeManager recipeManager
+  PROP System.String customText
+  PROP PixelWindow contentWindow
+  PROP PixelWindow examineWindow
+  PROP System.Boolean forceDisableActivate
+  PROP System.Boolean forceDisableUse
+  PROP System.Boolean activateDefault
+  PROP System.Boolean isCombatBackpack
+  PROP System.String spritePath
+  PROP System.String spriteAtlasPath
+  PROP System.Boolean spriteChanged
+  PROP System.Boolean useSpriteFromMod
+  PROP System.Boolean isDebugMenu
+  PROP System.String soundDragStart
+  PROP System.String soundDragEnd
+  PROP System.String soundContainerOpen
+  PROP System.String soundContainerClose
+  PROP System.String soundSelect
+  PROP System.String soundExamineOpen
+  PROP System.String soundToggle
+  PROP System.String soundActivate
+  PROP System.String soundUse
+  PROP System.Int32 bonusAccuracy
+  PROP System.Collections.Generic.List`1<CombatAbilityEffect> effects
+  PROP System.Boolean triggerOverwatch
+  PROP System.Boolean canUseOutsideCombat
+  METHOD GameItem Create(String spriteAtlasPath, String spritePath, PixelWindow window) public=True static=True
+  METHOD List`1 get_parents() public=True static=False
+  METHOD List`1 get_children() public=True static=False
+  METHOD GameInventory get_parentInventory() public=True static=False
+  METHOD Void set_parentInventory(GameInventory value) public=True static=False
+  METHOD GraphNodeWindow get_child() public=True static=False
+  METHOD GridShape get_shape() public=True static=False
+  METHOD Void set_shape(GridShape value) public=True static=False
+  METHOD GridShape get_modifiedShape() public=True static=False
+  METHOD Void set_modifiedShape(GridShape value) public=True static=False
+  METHOD Int32 get_modifiedXOrigin() public=True static=False
+  METHOD Void set_modifiedXOrigin(Int32 value) public=True static=False
+  METHOD Int32 get_modifiedYOrigin() public=True static=False
+  METHOD Void set_modifiedYOrigin(Int32 value) public=True static=False
+  METHOD TagSystem get_state() public=True static=False
+  METHOD Void set_state(TagSystem value) public=True static=False
+  METHOD TagSystem get_modifiedState() public=True static=False
+  METHOD Void set_modifiedState(TagSystem value) public=True static=False
+  METHOD String get_identifier() public=True static=False
+  METHOD Void set_identifier(String value) public=True static=False
+  METHOD String get_identifierName() public=True static=False
+  METHOD Void set_identifierName(String value) public=True static=False
+  METHOD Int32 get_uniqueId() public=True static=False
+  METHOD Void set_uniqueId(Int32 value) public=True static=False
+  METHOD String get_name() public=True static=False
+  METHOD Void set_name(String value) public=True static=False
+  METHOD String get_shortDescription() public=True static=False
+  METHOD Void set_shortDescription(String value) public=True static=False
+  METHOD String get_longDescription() public=True static=False
+  METHOD Void set_longDescription(String value) public=True static=False
+  METHOD String get_flavorText() public=True static=False
+  METHOD Void set_flavorText(String value) public=True static=False
+  METHOD Int32 get_unitCount() public=True static=False
+  METHOD Void set_unitCount(Int32 value) public=True static=False
+  METHOD Int64 get_unitValue() public=True static=False
+  METHOD Void set_unitValue(Int64 value) public=True static=False
+  METHOD Int64 get_lateUnitValue() public=True static=False
+  METHOD Void set_lateUnitValue(Int64 value) public=True static=False
+  METHOD Int64 get_unitBaseValue() public=True static=False
+  METHOD Void set_unitBaseValue(Int64 value) public=True static=False
+  METHOD Int64 get_backupUnitValue() public=True static=False
+  METHOD Void set_backupUnitValue(Int64 value) public=True static=False
+  METHOD CombatAbility get_ability() public=True static=False
+  METHOD Void set_ability(CombatAbility value) public=True static=False
+  METHOD RecipeManager get_recipeManager() public=True static=False
+  METHOD Void set_recipeManager(RecipeManager value) public=True static=False
+  METHOD String get_customText() public=True static=False
+  METHOD Void set_customText(String value) public=True static=False
+  METHOD PixelWindow get_contentWindow() public=True static=False
+  METHOD Void set_contentWindow(PixelWindow value) public=False static=False
+  METHOD PixelWindow get_examineWindow() public=True static=False
+  METHOD Void set_examineWindow(PixelWindow value) public=False static=False
+  METHOD Boolean get_forceDisableActivate() public=True static=False
+  METHOD Void set_forceDisableActivate(Boolean value) public=True static=False
+  METHOD Boolean get_forceDisableUse() public=True static=False
+  METHOD Void set_forceDisableUse(Boolean value) public=True static=False
+  METHOD Boolean get_activateDefault() public=True static=False
+  METHOD Void set_activateDefault(Boolean value) public=True static=False
+  METHOD Boolean get_isCombatBackpack() public=True static=False
+  METHOD Void set_isCombatBackpack(Boolean value) public=True static=False
+  METHOD String get_spritePath() public=True static=False
+  METHOD Void set_spritePath(String value) public=True static=False
+  METHOD String get_spriteAtlasPath() public=True static=False
+  METHOD Void set_spriteAtlasPath(String value) public=True static=False
+  METHOD Boolean get_spriteChanged() public=False static=False
+  METHOD Void set_spriteChanged(Boolean value) public=False static=False
+  METHOD Boolean get_useSpriteFromMod() public=True static=False
+  METHOD Void set_useSpriteFromMod(Boolean value) public=True static=False
+  METHOD Boolean get_isDebugMenu() public=True static=False
+  METHOD Void set_isDebugMenu(Boolean value) public=True static=False
+  METHOD String get_soundDragStart() public=True static=False
+  METHOD Void set_soundDragStart(String value) public=True static=False
+  METHOD String get_soundDragEnd() public=True static=False
+  METHOD Void set_soundDragEnd(String value) public=True static=False
+  METHOD String get_soundContainerOpen() public=True static=False
+  METHOD Void set_soundContainerOpen(String value) public=True static=False
+  METHOD String get_soundContainerClose() public=True static=False
+  METHOD Void set_soundContainerClose(String value) public=True static=False
+  METHOD String get_soundSelect() public=True static=False
+  METHOD Void set_soundSelect(String value) public=True static=False
+  METHOD String get_soundExamineOpen() public=True static=False
+  METHOD Void set_soundExamineOpen(String value) public=True static=False
+  METHOD String get_soundToggle() public=True static=False
+  METHOD Void set_soundToggle(String value) public=True static=False
+  METHOD String get_soundActivate() public=True static=False
+  METHOD Void set_soundActivate(String value) public=True static=False
+  METHOD String get_soundUse() public=True static=False
+  METHOD Void set_soundUse(String value) public=True static=False
+  METHOD Void .ctor(String identifier, PixelWindow window) public=True static=False
+  METHOD Void AddClientItemBuyingFeature() public=True static=False
+  METHOD GameItem CloneLinked() public=True static=False
+  METHOD GameItem SetSprite(String spriteAtlasPath, String spritePath) public=True static=False
+  METHOD GameItem SetSpriteQuick(String spriteAtlasPath, String spritePath) public=True static=False
+  METHOD GameItem SetShape(GridShape itemShape) public=True static=False
+  METHOD GameItem SetSpriteAndShape(String spriteAtlasPath, String spritePath) public=True static=False
+  METHOD GridShapeBuilder BuildShapeFromSprite(String spriteAtlasPath, String spritePath) public=True static=True
+  METHOD Void WarnIfSliceNotGridAligned(String spriteAtlasPath, String spritePath, Rect r, Int32 gridSize) public=False static=True
+  METHOD GameItem SetSpriteAndShapeFromMod(String modId, String spriteKey) public=True static=False
+  METHOD Int64 GetValue(List`1 party, GameCharacterItem vendor, Boolean singleValue) public=True static=False
+  METHOD GameItem SetValue(Int64 num) public=True static=False
+  METHOD Int64 ValueModifier(GameItem item, List`1 party, GameCharacterItem vendor) public=False static=True
+  METHOD GameItem SetUnitCount(Int32 num) public=True static=False
+  METHOD GameItem SetAmount(Int32 num) public=True static=False
+  METHOD GameItem SetStack(Int32 num) public=True static=False
+  METHOD GameItem SetContentWindow(PixelWindow window) public=True static=False
+  METHOD Void DestroyContentWindow() public=False static=False
+  METHOD GameItem SetExamineWindow(PixelWindow window) public=True static=False
+  METHOD GameItem Transform(Action`1 transformFunc) public=True static=False
+  METHOD Boolean AddParent(GraphNodeStorage node) public=True static=False
+  METHOD Boolean RemoveParent(GraphNodeStorage node) public=True static=False
+  METHOD Boolean IsAdjacent(GameItem item) public=True static=False
+  METHOD List`1 FindAdjacentType() public=True static=False
+  METHOD List`1 GetAdjacentGameItemsWithTouchingSides() public=True static=False
+  METHOD Int32 CountTouchingSides(GridShape shapeA, GridShape shapeB) public=False static=False
+  METHOD Boolean MayHaveValidInventorySlot(GameItem item) public=True static=False
+  METHOD SlotMarker TryFindOneValidInventorySlot(GameItem item) public=True static=False
+  METHOD Void Destroy() public=True static=False
+  METHOD Void Validate() public=True static=False
+  METHOD String GetDisplayName(Boolean preferCustomName) public=True static=False
+  METHOD Boolean IsTag(String tagName) public=True static=False
+  METHOD Boolean IsOneOfTags(List`1 tags) public=True static=False
+  METHOD TagState GetTagReadonly(String tagName) public=True static=False
+  METHOD GameItem ModifyTag(String tagName, Action`1 action, Boolean skipValidate) public=True static=False
+  METHOD Boolean EnableTag(String tagName, Boolean skipValidate) public=True static=False
+  METHOD Boolean DisableTag(String tagName, Boolean skipValidate) public=True static=False
+  METHOD Boolean SetEnableDisableTag(String tagName, Boolean isEnabled) public=True static=False
+  METHOD Boolean IsTag(T tagName) public=True static=False
+  METHOD TagState GetTagReadonly(T tagName) public=True static=False
+  METHOD GameItem ModifyTag(T tagName, Action`1 action) public=True static=False
+  METHOD Boolean EnableTag(T tagName) public=True static=False
+  METHOD Boolean DisableTag(T tagName) public=True static=False
+  METHOD GameItem SetName(String name) public=True static=False
+  METHOD Boolean MayToggleSlotItem() public=True static=False
+  METHOD Boolean CanToggleSlotItem() public=True static=False
+  METHOD Void ToggleSlotItem() public=True static=False
+  METHOD Boolean MayConfigureSlotItem() public=True static=False
+  METHOD Boolean CanConfigureSlotItem() public=True static=False
+  METHOD Void ConfigureSlotItem() public=True static=False
+  METHOD Boolean MayActivateSlotItem() public=True static=False
+  METHOD Boolean CanActivateSlotItem() public=True static=False
+  METHOD Void ActivateSlotItem() public=True static=False
+  METHOD Boolean MaySelectSlotItem() public=True static=False
+  METHOD Boolean CanSelectSlotItem() public=True static=False
+  METHOD Boolean MayTarget(GameItem targetItem) public=True static=False
+  METHOD Boolean CanTarget(GameItem targetItem) public=True static=False
+  METHOD Void Target(GameItem targetItem) public=True static=False
+  METHOD Boolean MayParentShapeModifier() public=True static=False
+  METHOD ValueTuple`2 GetParentShapeModifier(GameItem newParentItem, SlotMarker newSlot, GridShape newModifiedShape, TagSystem newState) public=True static=False
+  METHOD ValueTuple`2 GetParentStateModifier(GameItem newParentItem, SlotMarker newSlot, GridShape newModifiedShape, TagSystem newState) public=True static=False
+  METHOD Boolean MayRemove() public=True static=False
+  METHOD Int32 MaxNumRemove() public=True static=False
+  METHOD Int32 MaxNumAdd() public=True static=False
+  METHOD Int32 MaxNumAdd(SlotMarker slot) public=True static=False
+  METHOD Boolean MayStack(GameItem otherItem) public=True static=False
+  METHOD SlotMarker GetStackSlot(GameItem itemToBeStacked) public=True static=False
+  METHOD SlotMarker GetIncompleteSlotInInventory() public=True static=False
+  METHOD GameItem GetSplitItem(Int32 requestedAmount) public=True static=False
+  METHOD Boolean CheckIsStateValid(GameInventory parentInventory, SlotMarker slot, GridShape tempShape, TagSystem itemState) public=True static=False
+  METHOD Boolean CheckValidShapeState() public=True static=False
+  METHOD Void SyncModifiedState() public=True static=False
+  METHOD Void ValidateShapeState() public=True static=False
+  METHOD ValueTuple`4 ComputeModifiedShapeState(GridShape addModItem, GridShape addModInv, List`1 addStateItem, List`1 addStateInv, GameItem ignoreItem) public=True static=False
+  METHOD List`1 GetSiblingItems() public=True static=False
+  METHOD GameItem TryAcceptAll(GameItem item) public=True static=False
+  METHOD GameItem ExpelAll() public=True static=False
+  METHOD GameItem TryUnloadAll() public=True static=False
+  METHOD GameItem TryUnloadAll(Boolean skipPinned) public=True static=False
+  METHOD List`1 FindAllChildItems() public=True static=False
+  METHOD List`1 FindAllRecipes() public=True static=False
+  METHOD Int32 get_bonusAccuracy() public=True static=False
+  METHOD Void set_bonusAccuracy(Int32 value) public=True static=False
+  METHOD List`1 get_effects() public=True static=False
+  METHOD Void set_effects(List`1 value) public=True static=False
+  METHOD Boolean get_triggerOverwatch() public=True static=False
+  METHOD Void set_triggerOverwatch(Boolean value) public=True static=False
+  METHOD Boolean get_canUseOutsideCombat() public=True static=False
+  METHOD Void set_canUseOutsideCombat(Boolean value) public=True static=False
+  METHOD TargetType GetPrimaryTarget() public=True static=False
+  METHOD Boolean IsAlwaysAccurate() public=True static=False
+  METHOD Void AddAmenities(String type, Int32 value, Int32 use) public=True static=False
+  METHOD Void EnableProficiency(String proficiencyType) public=True static=False
+  METHOD Void EnableManufacturer(String manufacturer) public=True static=False
+  METHOD Void DisplayManufacturer(RichTextBuilder builder, String manufacturer) public=True static=False
+  METHOD Void SetType(String type) public=True static=False
+  METHOD Void AccumulateFeatureStages(Int64& innateMult, Int64& marketMult, Double& finalFactor, Boolean skipEventFeatures) public=False static=False
+  METHOD Int64 ComposeStagedValue(Int64 totalBaseValue, Int64 innateMult, Int64 marketMult, Double finalFactor, Int32 miscValue, Int32 marketScaledValue) public=False static=True
+  METHOD Int64 GetNegociatedValue() public=True static=False
+  METHOD Int64 GetDonationCreditValue() public=True static=False
+  METHOD Int64 GetCurrentValue(Boolean useRetailMarkup, Boolean withChild, Boolean includeEvents, Boolean forceMarkup, Int64 extraMarketMod) public=True static=False
+  METHOD Int64 CheckValueSafe(Int64 finalValue) public=True static=True
+  METHOD Int64 GetComplexeItemValue() public=True static=False
+  METHOD Int64 GetRefreshedValue() public=True static=False
+  METHOD Int64 GetBaseValue() public=True static=False
+  METHOD Int32 GetItemMiscValue(Boolean useMarkup, Boolean withChild, Boolean includeEvents, Boolean forceMarkup, Boolean inheritClientMods) public=True static=False
+  METHOD Boolean IsApplyMarkUp() public=True static=False
+  METHOD Int32 GetCurrentChildValue(Boolean useMarkup, Boolean includeEvents, Boolean forceMarkup, Boolean inheritClientMods) public=True static=False
+  METHOD Int64 GetInheritableClientMarketMod() public=True static=False
+  METHOD Void ApplyContrabandFeatureToChildren() public=True static=False
+  METHOD Void RemoveContrabandFeature() public=True static=False
+  METHOD Void RemoveContrabandFeatureFromChildren() public=True static=False
+  METHOD Boolean IsInsideContainerPlacedForSelling() public=True static=False
+  METHOD Boolean IsAlreadyContainFeatureWithId(String identifier) public=True static=False
+  METHOD ItemFeature FindItemFeatureByID(String id) public=True static=False
+  METHOD Void RemoveItemFeatureByID(String id) public=True static=False
+  METHOD ItemFeature FindItemFeatureByCategory(String category) public=True static=False
+  METHOD Int32 GetIndexByCategory(String category) public=True static=False
+  METHOD ItemFeature GetWeightItemFeature() public=True static=False
+  METHOD Void OnAddedToClientArea() public=True static=False
+  METHOD Void OnAddedToShowcaseArea() public=True static=False
+  METHOD Void OnAddedToWeightedArea(Boolean ignoreOnItemAddedToWeighted) public=True static=False
+  METHOD Void OnRemovedFromWeightedArea() public=True static=False
+  METHOD Void AddFeatureRelatedToBuyer() public=True static=False
+  METHOD Void RemoveFeatureRelatedToBuyer() public=True static=False
+  METHOD Void RemoveFeatureRelatedToEvent() public=True static=False
+  METHOD Void RemoveFeatureTemporaryBuying() public=True static=False
+  METHOD Void RemoveFeatureTemporarySelling() public=True static=False
+  METHOD Void RemoveFeatureByCategory(String category) public=True static=False
+  METHOD Void AddFeatureRelatedToEvent() public=True static=False
+  METHOD Void SetGameItemType(String gameItemType) public=True static=False
+  METHOD Boolean IsGameItemType(String gameItemType) public=True static=False
+  METHOD Void RemoveGameItemType(String gameItemType) public=True static=False
+  METHOD Void RemoveAllGameItemType() public=True static=False
+  METHOD Void TransferGameItemTypeFrom(GameItem sourceItem, Boolean overwrite) public=True static=False
+  METHOD List`1 GetGameItemType() public=True static=False
+  METHOD Boolean HaveType(String gameItemType) public=True static=False
+  METHOD Void AddItemFeature(ItemFeature itemFeature) public=True static=False
+  METHOD Void RemoveItemFeature(ItemFeature itemFeature) public=True static=False
+  METHOD Void RemoveTemporaryClientFeature() public=True static=False
+  METHOD Void CloseContentWindow(Boolean includeChildren) public=True static=False
+  METHOD Void RememberContentWindowPositionIfMine(PixelWindow window) public=True static=False
+  METHOD List`1 FindContentTabs() public=False static=False
+  METHOD String GetContentTabsSelection() public=True static=False
+  METHOD Void ApplyContentTabsSelection(String selection) public=True static=False
+  METHOD Void RememberContentTabs() public=False static=False
+  METHOD Void RestoreContentTabsIfMine(PixelWindow window) public=True static=False
+  METHOD Void RestoreContentWindowPosition() public=True static=False
+  METHOD GraphNodeStorage GetRootNode(GraphNodeStorage node) public=True static=True
+  METHOD Boolean IsRootedInBackInv() public=True static=False
+  METHOD Boolean IsRootedInSmugglerBay() public=True static=False
+  METHOD GameInventory GetParentWithIdentifier(String targetIdentifier) public=True static=False
+  METHOD GameInventory FindParentWithIdentifier(GraphNodeStorage node, String targetIdentifier) public=True static=True
+  METHOD Int32 GetUniqueID() public=True static=False
+  METHOD Void RemoveAllFeature() public=True static=False
+  METHOD Boolean IsConditionActive(String conditionID) public=True static=False
+  METHOD Boolean IsID(String id) public=True static=False
+  METHOD Int32 GetItemSize() public=True static=False
+  METHOD Int32 GetModifiedItemSize() public=True static=False
+  METHOD Void .cctor() public=False static=True
+  METHOD Void <.ctor>b__177_0(GameItem _, GameInventory _, SlotMarker _) public=False static=False
+  NESTED GameItem/<>c__DisplayClass187_0
+  NESTED GameItem/<>c__DisplayClass251_0
+  NESTED GameItem/<>c
+  NESTED GameItem/<>c__DisplayClass256_0
+  NESTED GameItem/<>c__DisplayClass277_0
+  NESTED GameItem/<>c__DisplayClass278_0
+  NESTED GameItem/<>c__DisplayClass279_0
+  NESTED GameItem/<>c__DisplayClass281_0
+  NESTED GameItem/<>c__DisplayClass323_0
+  NESTED GameItem/<>c__DisplayClass332_0

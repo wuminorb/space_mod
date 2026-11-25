@@ -1,0 +1,155 @@
+﻿=== System.Void ModLoader::LoadLocalization(LoadedMod)  static=False
+  local String V_0
+  local Int32 V_1
+  local String[] V_2
+  local Int32 V_3
+  local String V_4
+  local String V_5
+  local Dictionary`2 V_6
+  local String[] V_7
+  local Int32 V_8
+  local String V_9
+  local Int32 V_10
+  local String V_11
+  IL_0   ldarg.1      
+  IL_1   ldfld        LoadedMod::FolderPath
+  IL_6   ldstr        'Localization'
+  IL_11  call         Path::Combine
+  IL_16  stloc.0      
+  IL_17  ldloc.0      
+  IL_18  call         Directory::Exists
+  IL_23  brtrue.s     IL_001a: ldc.i4.0
+  IL_25  ret          
+  IL_26  ldc.i4.0     
+  IL_27  stloc.1      
+  IL_28  ldloc.0      
+  IL_29  ldstr        '*.csv'
+  IL_34  call         Directory::GetFiles
+  IL_39  stloc.2      
+  IL_40  ldc.i4.0     
+  IL_41  stloc.3      
+  IL_42  br           IL_0147: ldloc.3
+  IL_47  ldloc.2      
+  IL_48  ldloc.3      
+  IL_49  ldelem.ref   
+  IL_50  stloc.s      V_4
+  IL_52  ldloc.s      V_4
+  IL_54  call         Path::GetFileNameWithoutExtension
+  IL_59  stloc.s      V_5
+  IL_61  newobj       Dictionary`2::.ctor
+  IL_66  stloc.s      V_6
+  IL_68  ldloc.s      V_4
+  IL_70  call         File::ReadAllLines
+  IL_75  stloc.s      V_7
+  IL_77  ldc.i4.0     
+  IL_78  stloc.s      V_8
+  IL_80  br           IL_011f: ldloc.s V_8
+  IL_85  ldloc.s      V_7
+  IL_87  ldloc.s      V_8
+  IL_89  ldelem.ref   
+  IL_90  stloc.s      V_9
+  IL_92  ldloc.s      V_9
+  IL_94  call         String::IsNullOrWhiteSpace
+  IL_99  brtrue       IL_0119: ldloc.s V_8
+  IL_104 ldloc.s      V_9
+  IL_106 callvirt     String::TrimStart
+  IL_111 ldstr        '#'
+  IL_116 callvirt     String::StartsWith
+  IL_121 brtrue       IL_0119: ldloc.s V_8
+  IL_126 ldloc.s      V_9
+  IL_128 ldc.i4.s     44
+  IL_130 callvirt     String::IndexOf
+  IL_135 stloc.s      V_10
+  IL_137 ldloc.s      V_10
+  IL_139 ldc.i4.0     
+  IL_140 bge.s        IL_00ba: ldloc.s V_9
+  IL_142 ldstr        '[ModLoader] {0} line {1}: no comma separator, line skipped ({2})'
+  IL_147 ldloc.s      V_4
+  IL_149 call         Path::GetFileName
+  IL_154 ldloc.s      V_8
+  IL_156 ldc.i4.1     
+  IL_157 add          
+  IL_158 box          System.Int32
+  IL_163 ldarg.1      
+  IL_164 ldfld        LoadedMod::Manifest
+  IL_169 ldfld        ModManifest::Name
+  IL_174 call         String::Format
+  IL_179 call         Debug::LogWarning
+  IL_184 br.s         IL_0119: ldloc.s V_8
+  IL_186 ldloc.s      V_9
+  IL_188 ldc.i4.0     
+  IL_189 ldloc.s      V_10
+  IL_191 callvirt     String::Substring
+  IL_196 callvirt     String::Trim
+  IL_201 stloc.s      V_11
+  IL_203 ldloc.s      V_11
+  IL_205 callvirt     String::get_Length
+  IL_210 brtrue.s     IL_0100: ldloc.s V_6
+  IL_212 ldstr        '[ModLoader] {0} line {1}: empty key, line skipped ({2})'
+  IL_217 ldloc.s      V_4
+  IL_219 call         Path::GetFileName
+  IL_224 ldloc.s      V_8
+  IL_226 ldc.i4.1     
+  IL_227 add          
+  IL_228 box          System.Int32
+  IL_233 ldarg.1      
+  IL_234 ldfld        LoadedMod::Manifest
+  IL_239 ldfld        ModManifest::Name
+  IL_244 call         String::Format
+  IL_249 call         Debug::LogWarning
+  IL_254 br.s         IL_0119: ldloc.s V_8
+  IL_256 ldloc.s      V_6
+  IL_258 ldloc.s      V_11
+  IL_260 ldloc.s      V_9
+  IL_262 ldloc.s      V_10
+  IL_264 ldc.i4.1     
+  IL_265 add          
+  IL_266 callvirt     String::Substring
+  IL_271 call         ModLoader::ParseCsvValue
+  IL_276 callvirt     Dictionary`2::set_Item
+  IL_281 ldloc.s      V_8
+  IL_283 ldc.i4.1     
+  IL_284 add          
+  IL_285 stloc.s      V_8
+  IL_287 ldloc.s      V_8
+  IL_289 ldloc.s      V_7
+  IL_291 ldlen        
+  IL_292 conv.i4      
+  IL_293 blt          IL_0055: ldloc.s V_7
+  IL_298 ldarg.1      
+  IL_299 ldfld        LoadedMod::Localization
+  IL_304 ldloc.s      V_5
+  IL_306 ldloc.s      V_6
+  IL_308 callvirt     Dictionary`2::set_Item
+  IL_313 ldloc.1      
+  IL_314 ldloc.s      V_6
+  IL_316 callvirt     Dictionary`2::get_Count
+  IL_321 add          
+  IL_322 stloc.1      
+  IL_323 ldloc.3      
+  IL_324 ldc.i4.1     
+  IL_325 add          
+  IL_326 stloc.3      
+  IL_327 ldloc.3      
+  IL_328 ldloc.2      
+  IL_329 ldlen        
+  IL_330 conv.i4      
+  IL_331 blt          IL_002f: ldloc.2
+  IL_336 ldarg.1      
+  IL_337 ldfld        LoadedMod::Localization
+  IL_342 callvirt     Dictionary`2::get_Count
+  IL_347 ldc.i4.0     
+  IL_348 ble.s        IL_018e: ret
+  IL_350 ldstr        '[ModLoader] {0}: {1} locale(s), {2} localization entries loaded'
+  IL_355 ldarg.1      
+  IL_356 ldfld        LoadedMod::Manifest
+  IL_361 ldfld        ModManifest::Name
+  IL_366 ldarg.1      
+  IL_367 ldfld        LoadedMod::Localization
+  IL_372 callvirt     Dictionary`2::get_Count
+  IL_377 box          System.Int32
+  IL_382 ldloc.1      
+  IL_383 box          System.Int32
+  IL_388 call         String::Format
+  IL_393 call         Debug::Log
+  IL_398 ret          

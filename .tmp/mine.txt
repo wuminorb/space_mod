@@ -1,0 +1,86 @@
+﻿--- assembly references ---
+  mscorlib 4.0.0.0
+  Assembly-CSharp 0.0.0.0
+  0Harmony 2.4.2.0
+  System.Core 4.0.0.0
+--- types ---
+  <Module>
+  PrintBottle.PrintBottleMod
+  PrintBottle.PrinterButtons
+  PrintBottle.PrinterButtons/<>c__DisplayClass2
+  PrintBottle.PrinterCapacity
+--- methods ---
+  Init
+  OnEnable
+  OnDisable
+  ApplyPatches
+  Patch
+  RemovePatches
+  SpawnWineBottle
+  SpawnWaterJug
+  SpawnItem
+  .ctor
+  IsOutputGrid
+  ClearTracked
+  WindowPostfix
+  TryPrint
+  CreateButton
+  FindStack
+  Label
+  .cctor
+  SetShapePrefix
+--- method references outside our assembly ---
+DirectoryMaster::Item
+FIELD System.ValueTuple`6<PixelWindow,GameSlotInventory,GameGridInventory,MachineryButton,MachineryButton,MachineryButton>::Item1
+FIELD System.ValueTuple`6<PixelWindow,GameSlotInventory,GameGridInventory,MachineryButton,MachineryButton,MachineryButton>::Item2
+FIELD System.ValueTuple`6<PixelWindow,GameSlotInventory,GameGridInventory,MachineryButton,MachineryButton,MachineryButton>::Item3
+GameInventory::get_childItems
+GameSlotInventory::get_childItem
+GraphUtils::CanAccept
+GraphUtils::TryAcceptAll
+HarmonyLib.Harmony::.ctor
+HarmonyLib.Harmony::get_Id
+HarmonyLib.Harmony::Patch
+HarmonyLib.Harmony::Unpatch
+HarmonyLib.HarmonyMethod::.ctor
+MachineryButton::.ctor
+MachineryIntake::get_content
+MachineryPanel::get_content
+MachineryPanel::Validate
+MachineryPanelRow::GetPanel
+MachineryPanelRow::Validate
+MachineryStack::Add
+ModHelper::AddDebugFunction
+ModHelper::GetLocalized
+ModHelper::MoveItemToFrontCounter
+ModHelper::RemoveDebugFunctions
+ModHelper::SpawnItem
+ModLog::.ctor
+ModLog::Error
+ModLog::Log
+ModLog::Warning
+ModReflect::Target
+PixelWindow::get_childElement
+PixelWindow::Validate
+PowerHelper::CanDrawPowerSource
+PowerHelper::DrawPowerSource
+System.Action::.ctor
+System.Collections.Generic.HashSet`1<GameGridInventory>::.ctor
+System.Collections.Generic.HashSet`1<GameGridInventory>::Add
+System.Collections.Generic.HashSet`1<GameGridInventory>::Clear
+System.Collections.Generic.HashSet`1<GameGridInventory>::Contains
+System.Collections.Generic.List`1<GameItem>::get_Count
+System.Collections.Generic.List`1<System.Reflection.MethodBase>::.ctor
+System.Collections.Generic.List`1<System.Reflection.MethodBase>::Add
+System.Collections.Generic.List`1<System.Reflection.MethodBase>::Clear
+System.Collections.Generic.List`1<System.Reflection.MethodBase>::get_Count
+System.Collections.Generic.List`1<System.Reflection.MethodBase>::get_Item
+System.Exception::get_Message
+System.Object::.ctor
+System.Reflection.MemberInfo::get_Name
+System.Reflection.MethodInfo::op_Equality
+System.String::Concat
+System.String::IsNullOrEmpty
+System.String::op_Inequality
+System.Type::GetMethod
+System.Type::GetTypeFromHandle

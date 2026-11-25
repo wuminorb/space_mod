@@ -1,0 +1,265 @@
+﻿=== GameItem MiscItemDirectory::EnergyCredit()  static=False
+  IL_0   ldarg.0      
+  IL_1   callvirt     Directory`1::Empty
+  IL_6   ldstr        'Items/items_tool'
+  IL_11  ldstr        'battery100'
+  IL_16  callvirt     GameItem::SetSpriteAndShape
+  IL_21  dup          
+  IL_22  ldstr        'item_energy_credit_name'
+  IL_27  call         Array::Empty
+  IL_32  call         LocHelper::GetLocalizedItem
+  IL_37  callvirt     GameItem::set_name
+  IL_42  dup          
+  IL_43  ldstr        'eminence'
+  IL_48  callvirt     GameItem::EnableManufacturer
+  IL_53  dup          
+  IL_54  ldstr        'item_energy_credit_flavor'
+  IL_59  call         Array::Empty
+  IL_64  call         LocHelper::GetLocalizedItem
+  IL_69  callvirt     GameItem::set_flavorText
+  IL_74  dup          
+  IL_75  ldstr        'item_energy_credit_desc'
+  IL_80  call         Array::Empty
+  IL_85  call         LocHelper::GetLocalizedItem
+  IL_90  callvirt     GameItem::set_shortDescription
+  IL_95  dup          
+  IL_96  ldc.i4.s     100
+  IL_98  ldc.i4.s     10
+  IL_100 call         PowerHelper::InitPowerSourceItem
+  IL_105 dup          
+  IL_106 ldc.i4.s     10
+  IL_108 conv.i8      
+  IL_109 callvirt     GameItem::set_unitBaseValue
+  IL_114 ret          
+=== GameItem MiscItemDirectory::DisposableBattery()  static=False
+  IL_0   ldarg.0      
+  IL_1   callvirt     Directory`1::Empty
+  IL_6   ldstr        'Items/items_tool'
+  IL_11  ldstr        'battery_dis100'
+  IL_16  callvirt     GameItem::SetSpriteAndShape
+  IL_21  dup          
+  IL_22  ldstr        'Item'
+  IL_27  ldstr        'item_energy_credit_dis_name'
+  IL_32  ldstr        'Disposable Battery'
+  IL_37  call         Array::Empty
+  IL_42  call         LocHelper::GetLocalizedOrDefault
+  IL_47  callvirt     GameItem::set_name
+  IL_52  dup          
+  IL_53  ldstr        'Item'
+  IL_58  ldstr        'item_energy_credit_dis_desc'
+  IL_63  ldstr        'A high capacity single-use energy cell. Cannot be recharged.'
+  IL_68  call         Array::Empty
+  IL_73  call         LocHelper::GetLocalizedOrDefault
+  IL_78  callvirt     GameItem::set_shortDescription
+  IL_83  dup          
+  IL_84  ldstr        'Item'
+  IL_89  ldstr        'item_energy_credit_dis_flavor'
+  IL_94  ldstr        'Favored in the Upper Levels for its convenience.'
+  IL_99  call         Array::Empty
+  IL_104 call         LocHelper::GetLocalizedOrDefault
+  IL_109 callvirt     GameItem::set_flavorText
+  IL_114 dup          
+  IL_115 ldstr        'eminence'
+  IL_120 callvirt     GameItem::EnableManufacturer
+  IL_125 dup          
+  IL_126 ldc.i4       1000
+  IL_131 ldc.i4.s     10
+  IL_133 call         PowerHelper::InitPowerSourceItem
+  IL_138 dup          
+  IL_139 call         PowerHelper::InitDisposable
+  IL_144 dup          
+  IL_145 ldc.i4.s     33
+  IL_147 call         PowerHelper::SetPowerSourceValuePercent
+  IL_152 dup          
+  IL_153 ldc.i4.1     
+  IL_154 call         ContrabandHelper::InitContrabandItem
+  IL_159 dup          
+  IL_160 ldc.i4.1     
+  IL_161 conv.i8      
+  IL_162 callvirt     GameItem::set_unitBaseValue
+  IL_167 ret          
+=== GameItem MiscItemDirectory::EnergyCreditHypertech()  static=False
+  IL_0   ldarg.0      
+  IL_1   callvirt     Directory`1::Empty
+  IL_6   ldstr        'Items/items_tool2'
+  IL_11  ldstr        'battery_hyp'
+  IL_16  callvirt     GameItem::SetSpriteAndShape
+  IL_21  dup          
+  IL_22  ldstr        'item_hypertech_power_cell_name'
+  IL_27  call         Array::Empty
+  IL_32  call         LocHelper::GetLocalizedItem
+  IL_37  callvirt     GameItem::set_name
+  IL_42  dup          
+  IL_43  ldstr        'item_hypertech_power_cell_desc'
+  IL_48  call         Array::Empty
+  IL_53  call         LocHelper::GetLocalizedItem
+  IL_58  callvirt     GameItem::set_shortDescription
+  IL_63  dup          
+  IL_64  ldstr        'eminence'
+  IL_69  callvirt     GameItem::EnableManufacturer
+  IL_74  dup          
+  IL_75  ldc.i4       2500
+  IL_80  conv.i8      
+  IL_81  callvirt     GameItem::set_unitValue
+  IL_86  dup          
+  IL_87  ldc.i4.s     12
+  IL_89  call         HypertechBatteryHelper::InitHypertechBattery
+  IL_94  ret          
+=== GameItem MiscItemDirectory::EnergyCreditBreeder()  static=False
+  local <>c__DisplayClass8_0 V_0
+  IL_0   newobj       <>c__DisplayClass8_0::.ctor
+  IL_5   stloc.0      
+  IL_6   ldloc.0      
+  IL_7   ldarg.0      
+  IL_8   callvirt     Directory`1::Empty
+  IL_13  ldstr        'Items/items_tool2'
+  IL_18  ldstr        'sbattery100'
+  IL_23  callvirt     GameItem::SetSpriteAndShape
+  IL_28  stfld        <>c__DisplayClass8_0::item
+  IL_33  ldloc.0      
+  IL_34  ldfld        <>c__DisplayClass8_0::item
+  IL_39  ldstr        'item_energy_credit_breeder_name'
+  IL_44  call         Array::Empty
+  IL_49  call         LocHelper::GetLocalizedItem
+  IL_54  callvirt     GameItem::set_name
+  IL_59  ldloc.0      
+  IL_60  ldfld        <>c__DisplayClass8_0::item
+  IL_65  ldstr        'item_energy_credit_breeder_desc'
+  IL_70  call         Array::Empty
+  IL_75  call         LocHelper::GetLocalizedItem
+  IL_80  callvirt     GameItem::set_shortDescription
+  IL_85  ldloc.0      
+  IL_86  ldfld        <>c__DisplayClass8_0::item
+  IL_91  ldstr        'eminence'
+  IL_96  callvirt     GameItem::EnableManufacturer
+  IL_101 ldloc.0      
+  IL_102 ldfld        <>c__DisplayClass8_0::item
+  IL_107 ldc.i4.s     100
+  IL_109 ldc.i4.4     
+  IL_110 call         PowerHelper::InitPowerSourceItem
+  IL_115 ldloc.0      
+  IL_116 ldfld        <>c__DisplayClass8_0::item
+  IL_121 ldc.i4.4     
+  IL_122 call         PowerHelper::InitRecharge
+  IL_127 ldloc.0      
+  IL_128 ldfld        <>c__DisplayClass8_0::item
+  IL_133 ldloc.0      
+  IL_134 ldftn        <>c__DisplayClass8_0::<EnergyCreditBreeder>b__0
+  IL_140 newobj       Action`3::.ctor
+  IL_145 callvirt     GameItemFunc::set_onCycleEndEarlySlotItemFunc
+  IL_150 ldloc.0      
+  IL_151 ldfld        <>c__DisplayClass8_0::item
+  IL_156 ldc.i4       400
+  IL_161 conv.i8      
+  IL_162 callvirt     GameItem::set_unitBaseValue
+  IL_167 ldloc.0      
+  IL_168 ldfld        <>c__DisplayClass8_0::item
+  IL_173 ret          
+=== GameItem MiscItemDirectory::EnergyCreditExtended()  static=False
+  IL_0   ldarg.0      
+  IL_1   callvirt     Directory`1::Empty
+  IL_6   ldstr        'Items/items_tool'
+  IL_11  ldstr        'battery_ext100'
+  IL_16  callvirt     GameItem::SetSpriteAndShape
+  IL_21  dup          
+  IL_22  ldstr        'item_energy_credit_ext_name'
+  IL_27  call         Array::Empty
+  IL_32  call         LocHelper::GetLocalizedItem
+  IL_37  callvirt     GameItem::set_name
+  IL_42  dup          
+  IL_43  ldstr        'eminence'
+  IL_48  callvirt     GameItem::EnableManufacturer
+  IL_53  dup          
+  IL_54  ldstr        'item_energy_credit_ext_flavor'
+  IL_59  call         Array::Empty
+  IL_64  call         LocHelper::GetLocalizedItem
+  IL_69  callvirt     GameItem::set_flavorText
+  IL_74  dup          
+  IL_75  ldstr        'item_energy_credit_ext_desc'
+  IL_80  call         Array::Empty
+  IL_85  call         LocHelper::GetLocalizedItem
+  IL_90  callvirt     GameItem::set_shortDescription
+  IL_95  dup          
+  IL_96  ldc.i4       250
+  IL_101 ldc.i4.s     10
+  IL_103 call         PowerHelper::InitPowerSourceItem
+  IL_108 dup          
+  IL_109 ldc.i4.s     30
+  IL_111 conv.i8      
+  IL_112 callvirt     GameItem::set_unitBaseValue
+  IL_117 ret          
+=== System.Void PowerHelper::InitPowerSourceItem(GameItem,System.Int32,System.Int32)  static=True
+  local <>c__DisplayClass24_0 V_0
+  IL_0   newobj       <>c__DisplayClass24_0::.ctor
+  IL_5   stloc.0      
+  IL_6   ldloc.0      
+  IL_7   ldarg.1      
+  IL_8   stfld        <>c__DisplayClass24_0::energy
+  IL_13  ldloc.0      
+  IL_14  ldarg.2      
+  IL_15  stfld        <>c__DisplayClass24_0::bandiwith
+  IL_20  ldarg.0      
+  IL_21  ldstr        'ENERGY_CELL'
+  IL_26  callvirt     GameItem::SetGameItemType
+  IL_31  ldarg.0      
+  IL_32  ldstr        'power_source_item'
+  IL_37  ldc.i4.0     
+  IL_38  callvirt     GameItem::EnableTag
+  IL_43  pop          
+  IL_44  ldarg.0      
+  IL_45  ldstr        'power_source_item_energy'
+  IL_50  ldloc.0      
+  IL_51  ldftn        <>c__DisplayClass24_0::<InitPowerSourceItem>b__0
+  IL_57  newobj       Action`1::.ctor
+  IL_62  ldc.i4.0     
+  IL_63  callvirt     GameItem::ModifyTag
+  IL_68  pop          
+  IL_69  ldarg.0      
+  IL_70  ldstr        'power_source_item_max_energy'
+  IL_75  ldloc.0      
+  IL_76  ldftn        <>c__DisplayClass24_0::<InitPowerSourceItem>b__1
+  IL_82  newobj       Action`1::.ctor
+  IL_87  ldc.i4.0     
+  IL_88  callvirt     GameItem::ModifyTag
+  IL_93  pop          
+  IL_94  ldarg.0      
+  IL_95  ldstr        'power_source_item_bandwidth'
+  IL_100 ldloc.0      
+  IL_101 ldftn        <>c__DisplayClass24_0::<InitPowerSourceItem>b__2
+  IL_107 newobj       Action`1::.ctor
+  IL_112 ldc.i4.0     
+  IL_113 callvirt     GameItem::ModifyTag
+  IL_118 pop          
+  IL_119 ldarg.0      
+  IL_120 ldc.i4.1     
+  IL_121 callvirt     GameItem::set_canUseOutsideCombat
+  IL_126 ldarg.0      
+  IL_127 dup          
+  IL_128 callvirt     GameItemFunc::get_mayThisTargetItemFunc
+  IL_133 ldnull       
+  IL_134 ldftn        PowerHelper::MayBatterySwap
+  IL_140 newobj       Func`3::.ctor
+  IL_145 call         Delegate::Combine
+  IL_150 castclass    System.Func`3<GameItem,GameItem,System.Boolean>
+  IL_155 callvirt     GameItemFunc::set_mayThisTargetItemFunc
+  IL_160 ldarg.0      
+  IL_161 dup          
+  IL_162 callvirt     GameItemFunc::get_canThisTargetItemFunc
+  IL_167 ldnull       
+  IL_168 ldftn        PowerHelper::MayBatterySwap
+  IL_174 newobj       Func`3::.ctor
+  IL_179 call         Delegate::Combine
+  IL_184 castclass    System.Func`3<GameItem,GameItem,System.Boolean>
+  IL_189 callvirt     GameItemFunc::set_canThisTargetItemFunc
+  IL_194 ldarg.0      
+  IL_195 dup          
+  IL_196 callvirt     GameItemFunc::get_onThisTargetItemFunc
+  IL_201 ldnull       
+  IL_202 ldftn        PowerHelper::SwapBatteries
+  IL_208 newobj       Action`2::.ctor
+  IL_213 call         Delegate::Combine
+  IL_218 castclass    System.Action`2<GameItem,GameItem>
+  IL_223 callvirt     GameItemFunc::set_onThisTargetItemFunc
+  IL_228 ldarg.0      
+  IL_229 call         AudioHelper::InitBattery
+  IL_234 ret          

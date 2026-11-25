@@ -1,0 +1,19 @@
+﻿### STRINGS containing 'wine_bottle'
+  'item_wine_bottle_desc'
+      @ WineDirectory::WineBottle
+      @ WineHelper::ResetToEmptyBottle
+  'item_wine_bottle_name'
+      @ WineDirectory::WineBottle
+      @ WineHelper::ResetToEmptyBottle
+  'wine_bottle'
+      @ WineDirectory::InitDirectory
+      @ WineDirectory::WineBottle
+      @ WineHelper::ResetToEmptyBottle
+      @ WineHelper::CreateFinishedWineForDebug
+      @ MachineFridge::MayZoneAcceptItem
+      @ NetworkUpgradeList/<>c::<.cctor>b__136_35
+      @ StoreClientList::AddScavGeneralStock
+      @ StoreClientList::PlaceSupplierInventory
+      @ StoreClientList/<>c::<CreateJunker>b__19_0
+      @ StoreClientListSpec/<>c::<CreateRetiredWinemaker>b__9_0
+      @ DebugPanel/<>c::<AddProceduralDebugFunction>b__115_32

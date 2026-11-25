@@ -1,0 +1,177 @@
+﻿=== GraphNodeStorage MachineHelper::GetBodyStorage(GameItem,System.Int32)  static=True
+  local PixelElement V_0
+  local MachineryPanelRow V_1
+  local GridPixelElement V_2
+  IL_0   ldarg.0      
+  IL_1   brtrue.s     IL_0006: ldarg.0
+  IL_3   ldnull       
+  IL_4   br.s         IL_0018: stloc.0
+  IL_6   ldarg.0      
+  IL_7   call         GameItem::get_contentWindow
+  IL_12  dup          
+  IL_13  brtrue.s     IL_0013: call PixelElement PixelWindow::get_childElement()
+  IL_15  pop          
+  IL_16  ldnull       
+  IL_17  br.s         IL_0018: stloc.0
+  IL_19  call         PixelWindow::get_childElement
+  IL_24  stloc.0      
+  IL_25  ldloc.0      
+  IL_26  isinst       MachineryPanelRow
+  IL_31  stloc.1      
+  IL_32  ldloc.1      
+  IL_33  brfalse.s    IL_002b: ldloc.0
+  IL_35  ldloc.1      
+  IL_36  ldarg.1      
+  IL_37  callvirt     MachineryPanelRow::GetStorage
+  IL_42  ret          
+  IL_43  ldloc.0      
+  IL_44  isinst       GridPixelElement
+  IL_49  stloc.2      
+  IL_50  ldloc.2      
+  IL_51  brfalse.s    IL_0043: ldnull
+  IL_53  ldloc.2      
+  IL_54  ldarg.1      
+  IL_55  ldc.i4.1     
+  IL_56  callvirt     GridPixelElement::GetElement
+  IL_61  isinst       GraphNodeStorage
+  IL_66  ret          
+  IL_67  ldnull       
+  IL_68  ret          
+=== MachineryPanel MachineHelper::IconPanel(UnityEngine.Sprite,PixelElement,System.String)  static=True
+  IL_0   ldarg.0      
+  IL_1   ldarg.1      
+  IL_2   ldc.i4.1     
+  IL_3   call         MachineHelper::WrapInIntake
+  IL_8   ldarg.2      
+  IL_9   newobj       MachineryPanel::.ctor
+  IL_14  ret          
+=== GameItem MachineBottlePrinter::BottlePrinter()  static=True
+  local <>c__DisplayClass8_0 V_0
+  local PixelWindow V_1
+  local ValueTuple`6 V_2
+  IL_0   newobj       <>c__DisplayClass8_0::.ctor
+  IL_5   stloc.0      
+  IL_6   ldc.i4.1     
+  IL_7   ldc.i4.1     
+  IL_8   ldc.i4       150
+  IL_13  call         MachineBottlePrinter::CreateMachineInventoryWindow
+  IL_18  stloc.2      
+  IL_19  ldloc.2      
+  IL_20  ldfld        ValueTuple`6::Item1
+  IL_25  stloc.1      
+  IL_26  ldloc.0      
+  IL_27  ldloc.2      
+  IL_28  ldfld        ValueTuple`6::Item2
+  IL_33  stfld        <>c__DisplayClass8_0::itemInventory
+  IL_38  ldloc.0      
+  IL_39  ldloc.2      
+  IL_40  ldfld        ValueTuple`6::Item3
+  IL_45  stfld        <>c__DisplayClass8_0::outputGrid
+  IL_50  ldloc.2      
+  IL_51  ldfld        ValueTuple`6::Item4
+  IL_56  ldloc.0      
+  IL_57  ldloc.2      
+  IL_58  ldfld        ValueTuple`6::Item5
+  IL_63  stfld        <>c__DisplayClass8_0::buttonNormal
+  IL_68  ldloc.0      
+  IL_69  ldloc.2      
+  IL_70  ldfld        ValueTuple`6::Item6
+  IL_75  stfld        <>c__DisplayClass8_0::buttonLarge
+  IL_80  ldloc.0      
+  IL_81  ldfld        <>c__DisplayClass8_0::outputGrid
+  IL_86  ldsfld       <>c::<>9__8_0
+  IL_91  dup          
+  IL_92  brtrue.s     IL_0075: callvirt System.Void GameInventoryFunc::set_mayInventoryAddItemFunc(System.Func`3<GameItem,GameInventory,System.Boolean>)
+  IL_94  pop          
+  IL_95  ldsfld       <>c::<>9
+  IL_100 ldftn        <>c::<BottlePrinter>b__8_0
+  IL_106 newobj       Func`3::.ctor
+  IL_111 dup          
+  IL_112 stsfld       <>c::<>9__8_0
+  IL_117 callvirt     GameInventoryFunc::set_mayInventoryAddItemFunc
+  IL_122 ldloc.0      
+  IL_123 ldnull       
+  IL_124 call         ItemDirectory::CreateEmptyItem
+  IL_129 ldloc.1      
+  IL_130 callvirt     GameItem::SetContentWindow
+  IL_135 ldstr        'Items/items_tool'
+  IL_140 ldstr        'bottle_printer'
+  IL_145 callvirt     GameItem::SetSpriteAndShape
+  IL_150 stfld        <>c__DisplayClass8_0::machine
+  IL_155 ldloc.0      
+  IL_156 ldfld        <>c__DisplayClass8_0::machine
+  IL_161 ldstr        'item_bottle_printer_name'
+  IL_166 call         Array::Empty
+  IL_171 call         LocHelper::GetLocalizedItem
+  IL_176 callvirt     GameItem::set_name
+  IL_181 ldloc.0      
+  IL_182 ldfld        <>c__DisplayClass8_0::machine
+  IL_187 ldstr        'item_bottle_printer_flavor'
+  IL_192 call         Array::Empty
+  IL_197 call         LocHelper::GetLocalizedItem
+  IL_202 callvirt     GameItem::set_flavorText
+  IL_207 ldloc.0      
+  IL_208 ldfld        <>c__DisplayClass8_0::itemInventory
+  IL_213 ldloc.0      
+  IL_214 ldfld        <>c__DisplayClass8_0::machine
+  IL_219 call         MachineHelper::SetupBatterySlot
+  IL_224 ldloc.0      
+  IL_225 ldfld        <>c__DisplayClass8_0::machine
+  IL_230 ldstr        'IMPORTANT_TAG'
+  IL_235 ldc.i4.0     
+  IL_236 callvirt     GameItem::EnableTag
+  IL_241 pop          
+  IL_242 ldloc.0      
+  IL_243 ldfld        <>c__DisplayClass8_0::machine
+  IL_248 ldstr        'CONTAINER_TAG'
+  IL_253 ldc.i4.0     
+  IL_254 callvirt     GameItem::EnableTag
+  IL_259 pop          
+  IL_260 ldloc.0      
+  IL_261 ldfld        <>c__DisplayClass8_0::machine
+  IL_266 ldc.i4.s     100
+  IL_268 conv.i8      
+  IL_269 callvirt     GameItem::set_unitValue
+  IL_274 ldloc.0      
+  IL_275 ldftn        <>c__DisplayClass8_0::<BottlePrinter>b__3
+  IL_281 newobj       Action::.ctor
+  IL_286 callvirt     MachineryButton::SetCallback
+  IL_291 pop          
+  IL_292 ldloc.0      
+  IL_293 ldfld        <>c__DisplayClass8_0::buttonNormal
+  IL_298 ldloc.0      
+  IL_299 ldftn        <>c__DisplayClass8_0::<BottlePrinter>b__4
+  IL_305 newobj       Action::.ctor
+  IL_310 callvirt     MachineryButton::SetCallback
+  IL_315 pop          
+  IL_316 ldloc.0      
+  IL_317 ldfld        <>c__DisplayClass8_0::buttonLarge
+  IL_322 ldloc.0      
+  IL_323 ldftn        <>c__DisplayClass8_0::<BottlePrinter>b__5
+  IL_329 newobj       Action::.ctor
+  IL_334 callvirt     MachineryButton::SetCallback
+  IL_339 pop          
+  IL_340 ldloc.0      
+  IL_341 ldfld        <>c__DisplayClass8_0::machine
+  IL_346 dup          
+  IL_347 callvirt     GameItemFunc::get_onItemTargetThisFunc
+  IL_352 ldloc.0      
+  IL_353 ldftn        <>c__DisplayClass8_0::<BottlePrinter>b__7
+  IL_359 newobj       Action`2::.ctor
+  IL_364 call         Delegate::Combine
+  IL_369 castclass    System.Action`2<GameItem,GameItem>
+  IL_374 callvirt     GameItemFunc::set_onItemTargetThisFunc
+  IL_379 ldloc.0      
+  IL_380 ldfld        <>c__DisplayClass8_0::machine
+  IL_385 ldloc.0      
+  IL_386 ldftn        <>c__DisplayClass8_0::<BottlePrinter>b__6
+  IL_392 newobj       Action`1::.ctor
+  IL_397 callvirt     GameItemFunc::set_onLoaded
+  IL_402 ldloc.0      
+  IL_403 callvirt     <>c__DisplayClass8_0::<BottlePrinter>g__ApplyUpgradeState|2
+  IL_408 ldloc.0      
+  IL_409 ldfld        <>c__DisplayClass8_0::machine
+  IL_414 call         AudioHelper::InitSmallMachine
+  IL_419 ldloc.0      
+  IL_420 ldfld        <>c__DisplayClass8_0::machine
+  IL_425 ret          

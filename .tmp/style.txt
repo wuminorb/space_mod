@@ -1,0 +1,217 @@
+﻿### TYPE MachineryStyle  base=System.Object  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, Abstract, Sealed, BeforeFieldInit
+  FIELD System.String ATLAS static=True const=True val=Window/machinery
+  FIELD System.Int32 HEADER_H static=True const=True val=20
+  FIELD System.Int32 TITLE_SIZE static=True const=True val=10
+  FIELD System.Int32 TITLE_MARGIN static=True const=True val=4
+  FIELD System.Int32 RULE_H static=True const=True val=1
+  FIELD System.Int32 RULE_INSET static=True const=True val=4
+  FIELD System.Int32 CLOSE_SIZE static=True const=True val=16
+  FIELD System.Int32 CLOSE_MARGIN static=True const=True val=2
+  FIELD System.Int32 HEADER_BUTTON_GAP static=True const=True val=2
+  FIELD System.Int32 TOP_PADDING static=True const=True val=21
+  FIELD System.Int32 PANEL_PAD static=True const=True val=4
+  FIELD System.Int32 LABEL_Y static=True const=True val=4
+  FIELD System.Int32 LABEL_H static=True const=True val=10
+  FIELD System.Int32 CONTENT_Y static=True const=True val=18
+  FIELD System.Int32 LABEL_TEXT_SIZE static=True const=True val=6
+  FIELD System.Int32 LABEL_TEXT_PAD static=True const=True val=6
+  FIELD System.Int32 LABEL_MIN_W static=True const=True val=32
+  FIELD System.Int32 LABEL_ICON_W static=True const=True val=21
+  FIELD System.Int32 LABEL_ICON_PAD static=True const=True val=3
+  FIELD System.Int32 SEPARATOR_W static=True const=True val=1
+  FIELD System.Int32 SEPARATOR_BOTTOM_PAD static=True const=True val=4
+  FIELD System.Int32 INTAKE_PAD static=True const=True val=4
+  FIELD System.Int32 VENT_H static=True const=True val=3
+  FIELD System.Int32 VENT_GAP static=True const=True val=1
+  FIELD System.Int32 VENT_STEP static=True const=True val=4
+  FIELD System.Int32 VENT_EDGE_PAD static=True const=True val=7
+  FIELD System.Int32 VENT_CONTENT_GAP static=True const=True val=5
+  FIELD System.Int32 VENT_MIN_SPACE static=True const=True val=16
+  FIELD System.Int32 BUTTON_H static=True const=True val=16
+  FIELD System.Int32 BUTTON_MIN_W static=True const=True val=16
+  FIELD System.Int32 BUTTON_TEXT_SIZE static=True const=True val=7
+  FIELD System.Int32 BUTTON_TEXT_PAD static=True const=True val=6
+  FIELD System.Int32 BUTTON_ICON_GAP static=True const=True val=3
+  FIELD System.Int32 RADIO_SIZE static=True const=True val=16
+  FIELD System.Int32 RADIO_LABEL_GAP static=True const=True val=6
+  FIELD System.Int32 RADIO_LIST_GAP static=True const=True val=6
+  FIELD System.Int32 PROGRESS_H static=True const=True val=8
+  FIELD System.Int32 PROGRESS_W static=True const=True val=70
+  FIELD System.Int32 PROGRESS_INSET static=True const=True val=2
+  FIELD System.Int32 SLIDER_W static=True const=True val=96
+  FIELD System.Int32 SLIDER_H static=True const=True val=8
+  FIELD System.Int32 SLIDER_TRACK_H static=True const=True val=4
+  FIELD System.Int32 SLIDER_TRACK_Y static=True const=True val=2
+  FIELD System.Int32 SLIDER_THUMB_W static=True const=True val=16
+  FIELD System.Int32 SLIDER_THUMB_H static=True const=True val=8
+  FIELD System.Int32 TAB_H static=True const=True val=10
+  FIELD System.Int32 TAB_MIN_W static=True const=True val=32
+  FIELD System.Int32 TAB_TEXT_PAD static=True const=True val=4
+  FIELD System.Int32 TAB_GAP static=True const=True val=2
+  FIELD System.Int32 TAB_INSET static=True const=True val=4
+  FIELD System.Int32 TAB_UNDERLINE_H static=True const=True val=1
+  FIELD System.Int32 TAB_PAGE_GAP static=True const=True val=3
+  FIELD System.Int32 TEXT_SIZE static=True const=True val=6
+  FIELD System.Int32 STACK_GAP static=True const=True val=4
+  FIELD UnityEngine.Color PANEL static=True const=False val=
+  FIELD UnityEngine.Color TITLE_TEXT static=True const=False val=
+  FIELD UnityEngine.Color CELL_COLOR static=True const=False val=
+  FIELD UnityEngine.Color RULE static=True const=False val=
+  FIELD UnityEngine.Color LABEL_PLATE static=True const=False val=
+  FIELD UnityEngine.Color LABEL_TEXT static=True const=False val=
+  FIELD UnityEngine.Color BODY_TEXT static=True const=False val=
+  FIELD UnityEngine.Color VALUE_TEXT static=True const=False val=
+  FIELD UnityEngine.Color BUTTON_TEXT static=True const=False val=
+  FIELD UnityEngine.Color BUTTON_TEXT_DISABLED static=True const=False val=
+  FIELD UnityEngine.Color BUTTON_DISABLED_TINT static=True const=False val=
+  FIELD UnityEngine.Color PROGRESS_FILL static=True const=False val=
+  FIELD UnityEngine.Color PROGRESS_FILL_WARNING static=True const=False val=
+  FIELD UnityEngine.Color PROGRESS_FILL_DANGER static=True const=False val=
+  FIELD UnityEngine.Color SLIDER_TRACK static=True const=False val=
+  FIELD UnityEngine.Color SLIDER_FILL static=True const=False val=
+  FIELD UnityEngine.Color SLIDER_EMPTY static=True const=False val=
+  FIELD UnityEngine.Color TAB_PLATE static=True const=False val=
+  FIELD System.Single TAB_PLATE_ALPHA static=True const=True val=0.15
+  FIELD System.Single TAB_PLATE_ALPHA_ACTIVE static=True const=True val=0.3
+  FIELD UnityEngine.Color TAB_TEXT static=True const=False val=
+  FIELD UnityEngine.Color TAB_TEXT_ACTIVE static=True const=False val=
+  FIELD UnityEngine.Color TAB_TEXT_HOVER static=True const=False val=
+  FIELD UnityEngine.Color TAB_UNDERLINE static=True const=False val=
+  PROP UnityEngine.Sprite BevelFrame
+  PROP UnityEngine.Sprite Intake
+  PROP UnityEngine.Sprite PlateNotched
+  PROP UnityEngine.Sprite TabPlate
+  PROP UnityEngine.Sprite ButtonNormal
+  PROP UnityEngine.Sprite ButtonHover
+  PROP UnityEngine.Sprite ButtonPressed
+  PROP UnityEngine.Sprite RadioOn
+  PROP UnityEngine.Sprite RadioOnHover
+  PROP UnityEngine.Sprite RadioOff
+  PROP UnityEngine.Sprite RadioOffHover
+  PROP UnityEngine.Sprite RadioPressed
+  PROP UnityEngine.Sprite ProgressFrame
+  PROP UnityEngine.Sprite SliderThumbNormal
+  PROP UnityEngine.Sprite SliderThumbHover
+  PROP UnityEngine.Sprite Cell
+  PROP UnityEngine.Sprite Vent
+  PROP UnityEngine.Sprite IconPower
+  PROP UnityEngine.Sprite IconNote
+  PROP UnityEngine.Sprite White
+  METHOD Sprite get_BevelFrame() public=True static=True
+  METHOD Sprite get_Intake() public=True static=True
+  METHOD Sprite get_PlateNotched() public=True static=True
+  METHOD Sprite get_TabPlate() public=True static=True
+  METHOD Sprite get_ButtonNormal() public=True static=True
+  METHOD Sprite get_ButtonHover() public=True static=True
+  METHOD Sprite get_ButtonPressed() public=True static=True
+  METHOD Sprite get_RadioOn() public=True static=True
+  METHOD Sprite get_RadioOnHover() public=True static=True
+  METHOD Sprite get_RadioOff() public=True static=True
+  METHOD Sprite get_RadioOffHover() public=True static=True
+  METHOD Sprite get_RadioPressed() public=True static=True
+  METHOD Sprite get_ProgressFrame() public=True static=True
+  METHOD Sprite get_SliderThumbNormal() public=True static=True
+  METHOD Sprite get_SliderThumbHover() public=True static=True
+  METHOD Sprite get_Cell() public=True static=True
+  METHOD Sprite get_Vent() public=True static=True
+  METHOD Sprite get_IconPower() public=True static=True
+  METHOD Sprite get_IconNote() public=True static=True
+  METHOD Sprite get_White() public=True static=True
+  METHOD Sprite Sprite(String name) public=True static=True
+  METHOD Color Hex(String rgb, Single alpha) public=True static=True
+  METHOD Void SetSliced(TreeNodeRender node, Sprite sprite, Color color) public=True static=True
+  METHOD Void SetSliced(TreeNodeRender node, Sprite sprite) public=True static=True
+  METHOD Void SetFlat(TreeNodeRender node, Color color) public=True static=True
+  METHOD Void SetSimple(TreeNodeRender node, Sprite sprite, Color color) public=True static=True
+  METHOD Void Place(TreeNodeRender node, Int32 x, Int32 y, Int32 width, Int32 height) public=True static=True
+  METHOD Void InitText(TreeNodeRender node, Int32 size, Color color, HorizontalAlignmentOptions horizontal, Boolean uppercase) public=True static=True
+  METHOD Int32 TextWidth(TreeNodeRender node) public=True static=True
+  METHOD Int32 TextHeight(TreeNodeRender node) public=True static=True
+  METHOD Void ApplyInventoryStyle(PixelElement element) public=True static=True
+  METHOD Int32 Even(Int32 value) public=True static=True
+  METHOD Void .cctor() public=False static=True
+### TYPE RenderHandler  base=UnityEngine.MonoBehaviour  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, BeforeFieldInit
+  FIELD RenderHandler current static=True const=False val=
+  FIELD UnityEngine.GameObject windowUICanvasObject static=False const=False val=
+  FIELD UnityEngine.Canvas windowUICanvas static=False const=False val=
+  FIELD UnityEngine.GameObject renderNodePrefab static=False const=False val=
+  FIELD UnityEngine.GameObject renderNodeTextPrefab static=False const=False val=
+  FIELD UnityEngine.GameObject windowRootObject static=False const=False val=
+  FIELD UnityEngine.GameObject tempRootObject static=False const=False val=
+  FIELD UnityEngine.GameObject overlayRootObject static=False const=False val=
+  FIELD TreeNodeRender overlayRoot static=False const=False val=
+  FIELD TreeNodeRender tempRoot static=False const=False val=
+  FIELD TreeNodeRender windowRoot static=False const=False val=
+  FIELD TreeNodeRender scenesRoot static=False const=False val=
+  FIELD UnityEngine.Color textColorWhite static=False const=False val=
+  FIELD UnityEngine.Color textColorRed static=False const=False val=
+  FIELD UnityEngine.Color textColorDarkRed static=False const=False val=
+  FIELD UnityEngine.Sprite unknownSprite static=True const=False val=
+  FIELD UnityEngine.Sprite healthBarOutline static=False const=False val=
+  FIELD UnityEngine.Sprite healthBarBackground static=False const=False val=
+  FIELD UnityEngine.Sprite healthBar static=False const=False val=
+  FIELD UnityEngine.Sprite healthIcon static=False const=False val=
+  FIELD UnityEngine.Sprite healthIconLow static=False const=False val=
+  FIELD UnityEngine.Sprite moraleBarOutline static=False const=False val=
+  FIELD UnityEngine.Sprite moraleBarBackground static=False const=False val=
+  FIELD UnityEngine.Sprite moraleBar static=False const=False val=
+  FIELD UnityEngine.Sprite moraleIcon static=False const=False val=
+  FIELD UnityEngine.Sprite moraleIconLow static=False const=False val=
+  FIELD System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.Dictionary`2<System.String,UnityEngine.Sprite>> atlasCache static=True const=False val=
+  FIELD UnityEngine.Sprite fill static=False const=False val=
+  FIELD UnityEngine.Sprite redSquare static=False const=False val=
+  FIELD UnityEngine.Sprite greenSquare static=False const=False val=
+  FIELD UnityEngine.Sprite blueSquare static=False const=False val=
+  FIELD UnityEngine.Sprite whiteSquare static=False const=False val=
+  FIELD UnityEngine.Sprite blackSquare static=False const=False val=
+  FIELD UnityEngine.Sprite tanSquare static=False const=False val=
+  FIELD UnityEngine.Sprite red static=False const=False val=
+  FIELD UnityEngine.Sprite green static=False const=False val=
+  FIELD UnityEngine.Sprite blue static=False const=False val=
+  FIELD UnityEngine.Sprite white static=False const=False val=
+  FIELD UnityEngine.Sprite black static=False const=False val=
+  FIELD UnityEngine.Sprite tan static=False const=False val=
+  FIELD UnityEngine.Sprite redBorder static=False const=False val=
+  FIELD UnityEngine.Sprite greenBorder static=False const=False val=
+  FIELD UnityEngine.Sprite blueBorder static=False const=False val=
+  FIELD UnityEngine.Sprite whiteBorder static=False const=False val=
+  FIELD UnityEngine.Sprite blackBorder static=False const=False val=
+  FIELD UnityEngine.Sprite tanBorder static=False const=False val=
+  FIELD UnityEngine.Sprite inside static=False const=False val=
+  FIELD UnityEngine.Sprite outside static=False const=False val=
+  FIELD UnityEngine.Sprite outsideCrop static=False const=False val=
+  FIELD UnityEngine.Sprite outsideBottomRight static=False const=False val=
+  FIELD UnityEngine.Sprite outsideBottomLeft static=False const=False val=
+  FIELD UnityEngine.Sprite outsideBottom static=False const=False val=
+  FIELD UnityEngine.Sprite outsideTopRight static=False const=False val=
+  FIELD UnityEngine.Sprite outsideTopLeft static=False const=False val=
+  FIELD UnityEngine.Sprite outsideTop static=False const=False val=
+  FIELD UnityEngine.Sprite outsideLeft static=False const=False val=
+  FIELD UnityEngine.Sprite outsideRight static=False const=False val=
+  FIELD UnityEngine.Sprite borderOutsideTopRounded static=False const=False val=
+  FIELD UnityEngine.Sprite borderOutsideTopRoundedCrop static=False const=False val=
+  FIELD System.Collections.Generic.List`1<UnityEngine.Color32> color32Palette static=False const=False val=
+  PROP UnityEngine.Canvas OverlayCanvas
+  METHOD Canvas get_OverlayCanvas() public=True static=False
+  METHOD RectTransform GetTempTransform() public=True static=False
+  METHOD Void ResetTempTransform() public=True static=False
+  METHOD Void Awake() public=False static=False
+  METHOD Sprite LoadFromAtlasRaw(String atlasPath, String name) public=False static=True
+  METHOD Sprite LoadFromAtlas(String atlasPath, String name) public=True static=True
+  METHOD Sprite TryLoadFromAtlas(String atlasPath, String name) public=True static=True
+  METHOD Sprite LoadFromFile(String spritePath) public=True static=True
+  METHOD Void SetGridFillBackground(GridShape shape, Int32 x, Int32 y, TreeNodeRender background, TreeNodeRender r0, TreeNodeRender r1, TreeNodeRender r2, TreeNodeRender r3, Sprite freeSprite, Sprite solidSprite, Boolean bevel) public=True static=False
+  METHOD T RaycastFindParentElement(Vector2 screenPosition, TreeNodeRender ignore) public=True static=True
+  METHOD T RaycastElement(Vector2 screenPosition, TreeNodeRender ignore) public=True static=True
+  METHOD String InsertColorTag(String text, String hexColor) public=False static=True
+  METHOD String GetStringFromColorPalette(ColorPalette color) public=True static=True
+  METHOD Color32 GetColorFromPalette(ColorPalette color) public=True static=True
+  METHOD String ApplyRichTextColorTag(String text, ColorPalette color) public=True static=True
+  METHOD Void SetHighlightColor(Image image, BackgroundColor color, BackgroundType type) public=True static=False
+  METHOD Void .ctor() public=True static=False
+  METHOD Void .cctor() public=False static=True
+  NESTED RenderHandler/ColorPalette
+  NESTED RenderHandler/BackgroundColor
+  NESTED RenderHandler/BackgroundType
+  NESTED RenderHandler/<>c__DisplayClass20_0
+  NESTED RenderHandler/<>c

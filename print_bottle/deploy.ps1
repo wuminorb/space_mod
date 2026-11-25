@@ -20,5 +20,13 @@ New-Item -ItemType Directory -Force -Path $dest | Out-Null
 Copy-Item $dll -Destination $dest -Force
 Copy-Item (Join-Path $root 'manifest.xml') -Destination $dest -Force
 
+# Optional mod resources: Localization/*.csv (button labels), plus any future asset folders.
+foreach ($dir in @('Localization', 'Textures', 'Sounds', 'Books', 'LootTables')) {
+    $src = Join-Path $root $dir
+    if (Test-Path $src) {
+        Copy-Item $src -Destination $dest -Recurse -Force
+    }
+}
+
 Write-Host "deployed to: $dest"
-Write-Host "First install: start game -> Mods -> select the mod -> Activate -> restart game."
+Write-Host "First install / changed DLL: start game -> Mods -> select the mod -> Activate -> restart game."

@@ -1,0 +1,35 @@
+﻿### TYPE ModTrust  base=System.Object  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, Abstract, Sealed, BeforeFieldInit
+  FIELD System.String ES3_KEY static=True const=True val=modTrust
+  FIELD ModTrust/Store store static=True const=False val=
+  FIELD System.Boolean loaded static=True const=False val=
+  FIELD System.String MAC_ES3_KEY static=True const=True val=modTrustMac
+  FIELD System.Boolean <TamperedOnLoad>k__BackingField static=True const=False val=
+  PROP System.Collections.Generic.IReadOnlyList`1<ModTrustRecord> Records
+  PROP System.Boolean TamperedOnLoad
+  PROP System.Collections.Generic.IReadOnlyList`1<ModTrust/StoppedEntry> Stopped
+  METHOD IReadOnlyList`1 get_Records() public=True static=True
+  METHOD Boolean get_TamperedOnLoad() public=True static=True
+  METHOD Void set_TamperedOnLoad(Boolean value) public=False static=True
+  METHOD Void EnsureLoaded() public=True static=True
+  METHOD Void Save() public=False static=True
+  METHOD String ComputeMac(String json) public=False static=True
+  METHOD String SafeDeviceId() public=False static=True
+  METHOD ModTrustRecord Get(String id) public=True static=True
+  METHOD ModTrustRecord Approve(LoadedMod mod, ModFingerprint fingerprint, IEnumerable`1 detected) public=True static=True
+  METHOD Void Refresh(ModTrustRecord record, ModFingerprint fingerprint, IEnumerable`1 detected) public=True static=True
+  METHOD Void StoreFolderHash(ModTrustRecord record, ModFingerprint fingerprint) public=True static=True
+  METHOD Void MarkStopped(String id, String hash, String reason) public=True static=True
+  METHOD Boolean IsStopped(String hash, StoppedEntry& entry) public=True static=True
+  METHOD IReadOnlyList`1 get_Stopped() public=True static=True
+  METHOD Boolean Revoke(String id) public=True static=True
+  METHOD Boolean SetDeveloperMode(String id, Boolean on) public=True static=True
+  METHOD ModTrustState CompareFiles(ModTrustRecord record, ModFingerprint fingerprint, ModSource source, UInt64 workshopId) public=True static=True
+  METHOD Boolean CapabilitiesWithin(ModTrustRecord record, IEnumerable`1 detected) public=True static=True
+  METHOD Void .cctor() public=False static=True
+  NESTED ModTrust/StoppedEntry
+  NESTED ModTrust/Store
+  NESTED ModTrust/<>c__DisplayClass16_0
+  NESTED ModTrust/<>c__DisplayClass17_0
+  NESTED ModTrust/<>c__DisplayClass20_0
+  NESTED ModTrust/<>c__DisplayClass21_0
+  NESTED ModTrust/<>c__DisplayClass24_0

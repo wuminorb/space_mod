@@ -1,0 +1,47 @@
+﻿=== ModTrustState ModTrust::CompareFiles(ModTrustRecord,ModFingerprint,ModSource,System.UInt64)  static=True
+  IL_0   ldarg.0      
+  IL_1   brtrue.s     IL_0005: ldarg.0
+  IL_3   ldc.i4.1     
+  IL_4   ret          
+  IL_5   ldarg.0      
+  IL_6   ldfld        ModTrustRecord::source
+  IL_11  ldarga.s     source
+  IL_13  constrained. ModSource
+  IL_19  callvirt     Object::ToString
+  IL_24  call         String::op_Inequality
+  IL_29  brfalse.s    IL_0021: ldarg.0
+  IL_31  ldc.i4.4     
+  IL_32  ret          
+  IL_33  ldarg.0      
+  IL_34  ldfld        ModTrustRecord::workshopId
+  IL_39  ldarga.s     workshopId
+  IL_41  call         CultureInfo::get_InvariantCulture
+  IL_46  call         UInt64::ToString
+  IL_51  call         String::op_Inequality
+  IL_56  brfalse.s    IL_003c: ldarg.0
+  IL_58  ldc.i4.4     
+  IL_59  ret          
+  IL_60  ldarg.0      
+  IL_61  ldfld        ModTrustRecord::combinedHash
+  IL_66  ldarg.1      
+  IL_67  ldfld        ModFingerprint::Combined
+  IL_72  call         String::op_Inequality
+  IL_77  brfalse.s    IL_0051: ldarg.0
+  IL_79  ldc.i4.3     
+  IL_80  ret          
+  IL_81  ldarg.0      
+  IL_82  ldfld        ModTrustRecord::folderHash
+  IL_87  brfalse.s    IL_0076: ldc.i4.2
+  IL_89  ldarg.1      
+  IL_90  ldfld        ModFingerprint::FolderHash
+  IL_95  brfalse.s    IL_0076: ldc.i4.2
+  IL_97  ldarg.0      
+  IL_98  ldfld        ModTrustRecord::folderHash
+  IL_103 ldarg.1      
+  IL_104 ldfld        ModFingerprint::FolderHash
+  IL_109 call         String::op_Inequality
+  IL_114 brfalse.s    IL_0076: ldc.i4.2
+  IL_116 ldc.i4.3     
+  IL_117 ret          
+  IL_118 ldc.i4.2     
+  IL_119 ret          

@@ -1,0 +1,132 @@
+﻿=== System.Boolean PowerHelper::CanDrawPowerSource(GameItem,System.Int32)  static=True
+  IL_0   ldarg.0      
+  IL_1   brtrue.s     IL_0005: ldarg.0
+  IL_3   ldc.i4.0     
+  IL_4   ret          
+  IL_5   ldarg.0      
+  IL_6   call         CurrentConverterHelper::IsCurrentConverter
+  IL_11  brfalse.s    IL_0015: ldarg.0
+  IL_13  ldarg.0      
+  IL_14  ldarg.1      
+  IL_15  call         CurrentConverterHelper::CanSupply
+  IL_20  ret          
+  IL_21  ldarg.0      
+  IL_22  call         HypertechBatteryHelper::IsHypertechBattery
+  IL_27  brfalse.s    IL_0025: ldarg.0
+  IL_29  ldarg.0      
+  IL_30  ldarg.1      
+  IL_31  call         HypertechBatteryHelper::CanSupply
+  IL_36  ret          
+  IL_37  ldarg.0      
+  IL_38  ldstr        'power_source_item'
+  IL_43  callvirt     GameItem::IsTag
+  IL_48  brfalse.s    IL_005c: ldc.i4.0
+  IL_50  ldarg.0      
+  IL_51  ldstr        'power_source_item_energy'
+  IL_56  callvirt     GameItem::GetTagReadonly
+  IL_61  callvirt     TagState::GetInt
+  IL_66  ldarg.0      
+  IL_67  ldstr        'power_source_item_max_energy'
+  IL_72  callvirt     GameItem::GetTagReadonly
+  IL_77  callvirt     TagState::GetInt
+  IL_82  pop          
+  IL_83  ldarg.1      
+  IL_84  sub          
+  IL_85  ldc.i4.0     
+  IL_86  blt.s        IL_005a: ldc.i4.0
+  IL_88  ldc.i4.1     
+  IL_89  ret          
+  IL_90  ldc.i4.0     
+  IL_91  ret          
+  IL_92  ldc.i4.0     
+  IL_93  ret          
+=== System.Boolean PowerHelper::DrawPowerSource(GameItem,System.Int32)  static=True
+  local <>c__DisplayClass47_0 V_0
+  IL_0   newobj       <>c__DisplayClass47_0::.ctor
+  IL_5   stloc.0      
+  IL_6   ldloc.0      
+  IL_7   ldarg.1      
+  IL_8   stfld        <>c__DisplayClass47_0::amount
+  IL_13  ldarg.0      
+  IL_14  call         CurrentConverterHelper::IsCurrentConverter
+  IL_19  brfalse.s    IL_0022: ldarg.0
+  IL_21  ldarg.0      
+  IL_22  ldloc.0      
+  IL_23  ldfld        <>c__DisplayClass47_0::amount
+  IL_28  call         CurrentConverterHelper::Supply
+  IL_33  ret          
+  IL_34  ldarg.0      
+  IL_35  call         HypertechBatteryHelper::IsHypertechBattery
+  IL_40  brfalse.s    IL_0037: ldarg.0
+  IL_42  ldarg.0      
+  IL_43  ldloc.0      
+  IL_44  ldfld        <>c__DisplayClass47_0::amount
+  IL_49  call         HypertechBatteryHelper::CanSupply
+  IL_54  ret          
+  IL_55  ldarg.0      
+  IL_56  ldstr        'power_source_item'
+  IL_61  callvirt     GameItem::IsTag
+  IL_66  brfalse.s    IL_009e: ldc.i4.0
+  IL_68  ldloc.0      
+  IL_69  ldarg.0      
+  IL_70  ldstr        'power_source_item_energy'
+  IL_75  callvirt     GameItem::GetTagReadonly
+  IL_80  callvirt     TagState::GetInt
+  IL_85  stfld        <>c__DisplayClass47_0::energy
+  IL_90  ldarg.0      
+  IL_91  ldstr        'power_source_item_max_energy'
+  IL_96  callvirt     GameItem::GetTagReadonly
+  IL_101 callvirt     TagState::GetInt
+  IL_106 pop          
+  IL_107 ldloc.0      
+  IL_108 ldfld        <>c__DisplayClass47_0::energy
+  IL_113 ldloc.0      
+  IL_114 ldfld        <>c__DisplayClass47_0::amount
+  IL_119 sub          
+  IL_120 ldc.i4.0     
+  IL_121 blt.s        IL_009c: ldc.i4.0
+  IL_123 ldarg.0      
+  IL_124 ldstr        'power_source_item_energy'
+  IL_129 ldloc.0      
+  IL_130 ldftn        <>c__DisplayClass47_0::<DrawPowerSource>b__0
+  IL_136 newobj       Action`1::.ctor
+  IL_141 ldc.i4.0     
+  IL_142 callvirt     GameItem::ModifyTag
+  IL_147 pop          
+  IL_148 ldarg.0      
+  IL_149 call         PowerHelper::UpdateEnergyCreditSprite
+  IL_154 ldc.i4.1     
+  IL_155 ret          
+  IL_156 ldc.i4.0     
+  IL_157 ret          
+  IL_158 ldc.i4.0     
+  IL_159 ret          
+=== System.Int32 PowerHelper::GetAvailableEnergyFromItem(GameItem,System.Boolean)  static=True
+  local Int32 V_0
+  local Int32 V_1
+  IL_0   ldarg.0      
+  IL_1   ldstr        'power_source_item'
+  IL_6   callvirt     GameItem::IsTag
+  IL_11  brfalse.s    IL_003b: ldc.i4.0
+  IL_13  ldarg.0      
+  IL_14  ldstr        'power_source_item_bandwidth'
+  IL_19  callvirt     GameItem::GetTagReadonly
+  IL_24  callvirt     TagState::GetInt
+  IL_29  stloc.0      
+  IL_30  ldarg.0      
+  IL_31  ldstr        'power_source_item_energy'
+  IL_36  callvirt     GameItem::GetTagReadonly
+  IL_41  callvirt     TagState::GetInt
+  IL_46  stloc.1      
+  IL_47  ldloc.0      
+  IL_48  ldloc.1      
+  IL_49  clt          
+  IL_51  ldarg.1      
+  IL_52  and          
+  IL_53  brfalse.s    IL_0039: ldloc.1
+  IL_55  ldloc.0      
+  IL_56  ret          
+  IL_57  ldloc.1      
+  IL_58  ret          
+  IL_59  ldc.i4.0     
+  IL_60  ret          

@@ -1,0 +1,193 @@
+﻿### TYPE GridShape  base=  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, ClassSemanticMask, Abstract
+  PROP System.Int32 minX
+  PROP System.Int32 minY
+  PROP System.Int32 globalWidth
+  PROP System.Int32 globalHeight
+  PROP System.Int32 maxX
+  PROP System.Int32 maxY
+  PROP System.Boolean flipped
+  PROP System.Int32 orientation
+  PROP System.Int32 width
+  PROP System.Int32 height
+  METHOD Int32 get_minX() public=True static=False
+  METHOD Int32 get_minY() public=True static=False
+  METHOD Int32 get_globalWidth() public=True static=False
+  METHOD Int32 get_globalHeight() public=True static=False
+  METHOD Int32 get_maxX() public=True static=False
+  METHOD Int32 get_maxY() public=True static=False
+  METHOD Boolean get_flipped() public=True static=False
+  METHOD Int32 get_orientation() public=True static=False
+  METHOD Int32 get_width() public=True static=False
+  METHOD Int32 get_height() public=True static=False
+  METHOD GridShape Clone() public=True static=False
+  METHOD Byte GetLocal(Int32 localX, Int32 localY) public=True static=False
+  METHOD Byte GetOutsideBounds() public=True static=False
+  METHOD Byte Get(Int32 globalX, Int32 globalY) public=True static=False
+  METHOD ValueTuple`2 ForwardTransform(Int32 localX, Int32 localY) public=True static=False
+  METHOD ValueTuple`2 InverseTransform(Int32 x, Int32 y) public=True static=False
+  METHOD Boolean IntersectsBounds(Int32 minX, Int32 minY, Int32 maxX, Int32 maxY) public=False static=False
+  METHOD Boolean IntersectsBounds(Int32 x, Int32 y) public=True static=False
+  METHOD Boolean IntersectsBounds(GridShape other) public=True static=False
+  METHOD ValueTuple`5 GetIntersection(GridShape other) public=True static=False
+  METHOD Boolean Intersects(Int32 x, Int32 y) public=True static=False
+  METHOD Boolean Intersects(Int32 x, Int32 y, Func`2 condition) public=True static=False
+  METHOD Boolean Intersects(GridShape other, Func`3 condition) public=True static=False
+  METHOD Boolean FullyIntersects(GridShape other, Func`3 condition) public=True static=False
+  METHOD Boolean FullyIntersectsRect(Int32 width, Int32 height, Func`3 condition) public=True static=False
+  METHOD Boolean IsTouchingTop() public=True static=False
+  METHOD Boolean IsTouchingLeft() public=True static=False
+  NESTED GridShape/<>c
+### TYPE DirectoryMaster  base=System.Object  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, BeforeFieldInit
+  FIELD System.Collections.Generic.Dictionary`2<System.Type,System.Collections.Generic.List`1<System.Object>> singletonInstance static=True const=False val=
+  PROP System.Collections.Generic.Dictionary`2<System.Type,System.Collections.Generic.List`1<System.Object>> directories
+  METHOD Dictionary`2 get_directories() public=False static=True
+  METHOD Boolean AddDirectory(Directory`1 directory) public=True static=True
+  METHOD Void Reset() public=True static=True
+  METHOD List`1 GetDictionaryClassNameList() public=True static=True
+  METHOD List`1 GetIdentifierList(String dictionaryClassName) public=True static=True
+  METHOD T Create(String identifier) public=True static=True
+  METHOD Boolean Has(String identifier) public=True static=True
+  METHOD Func`1 GetFactory(String identifier) public=True static=True
+  METHOD Boolean Remove(String identifier) public=True static=True
+  METHOD T Create(K identifier) public=True static=True
+  METHOD Boolean Has(K identifier) public=True static=True
+  METHOD Boolean Remove(K identifier) public=True static=True
+  METHOD GameCharacterItem CharacterItem(String identifier) public=True static=True
+  METHOD GameItem Item(String identifier, Boolean isOwned) public=True static=True
+  METHOD CombatAbility CombatAbility(String identifier) public=True static=True
+  METHOD CombatAbilityEffect CombatAbilityEffect(String identifier) public=True static=True
+  METHOD GameCharacterItem CharacterItem(K identifier) public=True static=True
+  METHOD GameItem Item(K identifier) public=True static=True
+  METHOD CombatAbility CombatAbility(K identifier) public=True static=True
+  METHOD CombatAbilityEffect CombatAbilityEffect(K identifier) public=True static=True
+  METHOD Void .ctor() public=True static=False
+### TYPE NOT FOUND: WaterDirectory
+### TYPE NOT FOUND: LiquidDirectory
+### TYPE ItemDirectory  base=Directory`1<GameItem>  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, Abstract, BeforeFieldInit
+  METHOD GameItem Empty() public=True static=False
+  METHOD GameItem CreateEmptyItem(String identifier) public=True static=True
+  METHOD GameItem CreateEmptyItem(K identifierValue) public=True static=True
+  METHOD Void .ctor() public=False static=False
+### TYPE MachineryLabel  base=System.Object  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, BeforeFieldInit
+  FIELD System.Int32 <widthPixels>k__BackingField static=False const=False val=
+  FIELD System.Int32 <heightPixels>k__BackingField static=False const=False val=
+  FIELD TreeNodeRender <handler>k__BackingField static=False const=False val=
+  FIELD TreeNodeRender plate static=False const=False val=
+  FIELD TreeNodeRender textNode static=False const=False val=
+  FIELD TreeNodeRender iconNode static=False const=False val=
+  FIELD System.String text static=False const=False val=
+  FIELD UnityEngine.Sprite icon static=False const=False val=
+  FIELD System.Int32 fixedWidth static=False const=False val=
+  PROP System.Boolean canResize
+  PROP System.Int32 widthPixels
+  PROP System.Int32 heightPixels
+  PROP TreeNodeRender handler
+  PROP UnityEngine.RectTransform rectTransform
+  PROP TreeNodeRender inner
+  METHOD Boolean get_canResize() public=True static=False
+  METHOD Int32 get_widthPixels() public=True static=False
+  METHOD Void set_widthPixels(Int32 value) public=False static=False
+  METHOD Int32 get_heightPixels() public=True static=False
+  METHOD Void set_heightPixels(Int32 value) public=False static=False
+  METHOD TreeNodeRender get_handler() public=True static=False
+  METHOD Void set_handler(TreeNodeRender value) public=False static=False
+  METHOD RectTransform get_rectTransform() public=True static=False
+  METHOD TreeNodeRender get_inner() public=True static=False
+  METHOD Void .ctor(String text) public=True static=False
+  METHOD MachineryLabel Icon(Sprite sprite) public=True static=True
+  METHOD MachineryLabel Power() public=True static=True
+  METHOD MachineryLabel Note() public=True static=True
+  METHOD String GetText() public=True static=False
+  METHOD MachineryLabel SetText(String text) public=True static=False
+  METHOD MachineryLabel SetIcon(Sprite sprite) public=True static=False
+  METHOD MachineryLabel SetIcon(String atlasPath, String spriteName) public=True static=False
+  METHOD MachineryLabel SetPlateColor(Color color) public=True static=False
+  METHOD MachineryLabel SetTextColor(Color color) public=True static=False
+  METHOD MachineryLabel SetWidth(Int32 width) public=True static=False
+  METHOD Void Validate() public=True static=False
+  METHOD Void ResizePixels(Int32 width, Int32 height) public=True static=False
+  METHOD Boolean Attach(PixelElement element) public=True static=False
+  METHOD Boolean Detach(PixelElement element) public=True static=False
+  METHOD Int32 WidthPixelsClamp(Int32 width) public=True static=False
+  METHOD Int32 HeightPixelsClamp(Int32 height) public=True static=False
+  METHOD Int32 XClamp(Int32 x) public=True static=False
+  METHOD Int32 YClamp(Int32 y) public=True static=False
+### TYPE SelectableElement  base=System.Object  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, Abstract, BeforeFieldInit
+  FIELD System.Int32 <widthPixels>k__BackingField static=False const=False val=
+  FIELD System.Int32 <heightPixels>k__BackingField static=False const=False val=
+  FIELD TreeNodeRender <handler>k__BackingField static=False const=False val=
+  FIELD SelectableElement/PreStatus <currentPreStatus>k__BackingField static=False const=False val=
+  FIELD System.Boolean <isSelected>k__BackingField static=False const=False val=
+  FIELD System.Boolean <requiresHold>k__BackingField static=False const=False val=
+  FIELD System.Single <holdDuration>k__BackingField static=False const=False val=
+  FIELD System.Boolean <isDisabled>k__BackingField static=False const=False val=
+  FIELD System.Boolean <isHidden>k__BackingField static=False const=False val=
+  PROP System.Boolean canResize
+  PROP System.Int32 widthPixels
+  PROP System.Int32 heightPixels
+  PROP TreeNodeRender handler
+  PROP UnityEngine.RectTransform rectTransform
+  PROP TreeNodeRender inner
+  PROP SelectableElement/PreStatus currentPreStatus
+  PROP System.Boolean isSelected
+  PROP System.Boolean requiresHold
+  PROP System.Single holdDuration
+  PROP System.Boolean isDisabled
+  PROP System.Boolean isHidden
+  METHOD Boolean get_canResize() public=True static=False
+  METHOD Int32 get_widthPixels() public=True static=False
+  METHOD Void set_widthPixels(Int32 value) public=False static=False
+  METHOD Int32 get_heightPixels() public=True static=False
+  METHOD Void set_heightPixels(Int32 value) public=False static=False
+  METHOD TreeNodeRender get_handler() public=True static=False
+  METHOD Void set_handler(TreeNodeRender value) public=False static=False
+  METHOD RectTransform get_rectTransform() public=True static=False
+  METHOD TreeNodeRender get_inner() public=True static=False
+  METHOD Void .ctor(String treeNodeName) public=True static=False
+  METHOD Void Validate() public=True static=False
+  METHOD Void ResizePixels(Int32 width, Int32 height) public=True static=False
+  METHOD Void OnDefocus() public=False static=False
+  METHOD Void OnHover() public=False static=False
+  METHOD Void OnPress() public=False static=False
+  METHOD Void OnSelect() public=False static=False
+  METHOD Void OnDeselect() public=False static=False
+  METHOD Void OnReset() public=False static=False
+  METHOD Void OnDisable() public=False static=False
+  METHOD Void OnEnable() public=False static=False
+  METHOD Void OnHide() public=False static=False
+  METHOD Void OnShow() public=False static=False
+  METHOD PreStatus get_currentPreStatus() public=False static=False
+  METHOD Void set_currentPreStatus(PreStatus value) public=False static=False
+  METHOD Boolean get_isSelected() public=True static=False
+  METHOD Void set_isSelected(Boolean value) public=False static=False
+  METHOD Boolean get_requiresHold() public=True static=False
+  METHOD Void set_requiresHold(Boolean value) public=False static=False
+  METHOD Single get_holdDuration() public=True static=False
+  METHOD Void set_holdDuration(Single value) public=False static=False
+  METHOD SelectableElement SetRequiresHold(Boolean value, Single duration) public=True static=False
+  METHOD Boolean Hover() public=True static=False
+  METHOD Boolean Press() public=True static=False
+  METHOD Boolean Defocus() public=True static=False
+  METHOD Boolean Select() public=True static=False
+  METHOD Boolean Deselect() public=True static=False
+  METHOD Void Reset() public=True static=False
+  METHOD Boolean get_isDisabled() public=True static=False
+  METHOD Void set_isDisabled(Boolean value) public=False static=False
+  METHOD Boolean get_isHidden() public=True static=False
+  METHOD Void set_isHidden(Boolean value) public=False static=False
+  METHOD Void SetDisabled(Boolean isDisabled) public=True static=False
+  METHOD Boolean Disable() public=True static=False
+  METHOD Boolean Enable() public=True static=False
+  METHOD Void SetHidden(Boolean isHidden) public=True static=False
+  METHOD Boolean Hide() public=True static=False
+  METHOD Boolean Show() public=True static=False
+  METHOD Boolean Attach(PixelElement element) public=True static=False
+  METHOD Boolean Detach(PixelElement element) public=True static=False
+  METHOD Int32 XClamp(Int32 x) public=True static=False
+  METHOD Int32 YClamp(Int32 y) public=True static=False
+  METHOD Int32 WidthPixelsClamp(Int32 width) public=True static=False
+  METHOD Int32 HeightPixelsClamp(Int32 height) public=True static=False
+  METHOD Boolean HasTooltip() public=True static=False
+  METHOD RichText GetTooltip() public=True static=False
+  METHOD RichText GetTooltipAdvanced() public=True static=False
+  NESTED SelectableElement/PreStatus

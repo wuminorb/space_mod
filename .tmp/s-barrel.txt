@@ -1,0 +1,27 @@
+﻿### STRINGS containing 'barrel'
+  'A 7" Lancewell revolver chambered in .45 AFP. This long barrel variant sport better ballistic performance.'
+      @ UnusedDirectory::CreateRevolverLong
+  'barrel'
+      @ GunModDirectory::InitDirectory
+  'barrel_item'
+      @ GunModDirectory::CreateBarrel
+  'barrel_view'
+      @ GunModDirectory::SetBarrelMod
+  'item_barrel_desc'
+      @ GunModDirectory::CreateBarrel
+  'item_barrel_name'
+      @ GunModDirectory::CreateBarrel
+  'item_match_barrel_desc'
+      @ GunModDirectory::CreateMatchBarrel
+  'item_match_barrel_name'
+      @ GunModDirectory::CreateMatchBarrel
+  'match_barrel'
+      @ GunModDirectory::InitDirectory
+      @ StoreClientListGun/<>c::<CreateMercGunSeller>b__29_0
+      @ StoreClientListGun/<>c::<CreateULGunSeller>b__30_0
+      @ StoreClientListSpec/<>c::<CreateRetiredGunsmith>b__2_0
+      @ DebugPanel::SpawnGunKit
+  'mech_gun_tag_barrel'
+      @ GunModHelper::CreateGunModWindow
+  'mech_gun_tag_underbarrel'
+      @ GunModHelper::CreateGunModWindow

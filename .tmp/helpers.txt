@@ -1,0 +1,194 @@
+﻿### TYPE PowerHelper  base=System.Object  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, BeforeFieldInit
+  FIELD System.String POWER_SOURCE_FURNITURE_TAG static=True const=True val=power_source_furniture
+  FIELD System.String POWER_SOURCE_ITEM_TAG static=True const=True val=power_source_item
+  FIELD System.String POWER_SOURCE_ITEM_BANDWIDTH static=True const=True val=power_source_item_bandwidth
+  FIELD System.String POWER_SOURCE_ITEM_ENERGY static=True const=True val=power_source_item_energy
+  FIELD System.String POWER_SOURCE_ITEM_MAX_ENERGY static=True const=True val=power_source_item_max_energy
+  FIELD System.String POWER_ANALYSER_TAG static=True const=True val=power_analyser
+  FIELD System.String POWER_UNIT static=True const=True val=kW
+  FIELD System.String ENERGY_UNIT static=True const=True val=kJ
+  FIELD System.Int32 BREEDER_RECHARGE_RATE static=True const=True val=4
+  FIELD System.String BREEDER_POWER_SOURCE_ITEM_TAG static=True const=True val=BREEDER_POWER_SOURCE_ITEM_TAG
+  FIELD System.String POWER_SOURCE_ITEM_RECHARGE static=True const=True val=power_source_item_recharge
+  FIELD System.String POWER_SOURCE_ITEM_DISPOSABLE_TAG static=True const=True val=POWER_SOURCE_ITEM_DISPOSABLE_TAG
+  FIELD System.String POWER_SOURCE_ITEM_VALUE_PERCENT_INT static=True const=True val=POWER_SOURCE_ITEM_VALUE_PERCENT_INT
+  METHOD Void SimulatePower(Boolean isFromShip) public=True static=True
+  METHOD Void HandlePower(Boolean isFromShip) public=True static=True
+  METHOD Int32 TryToPowerMachinery(GameItem machinery, Int32 availableEnergy) public=True static=True
+  METHOD Int32 TryToPowerMachinerySimulation(GameItem machinery, Int32 availableEnergy) public=True static=True
+  METHOD Void RemoveMaxEnergy(GameItem powerSourceItem) public=True static=True
+  METHOD Int32 TryRemoveEnergy(GameItem powerSourceItem, Int32 desiredEnergy, Boolean useBandwidth) public=True static=True
+  METHOD Int32 CheckAvailablePower(Boolean isFromShip) public=True static=True
+  METHOD Int32 CheckAvailablePower(GameItem gameItem) public=True static=True
+  METHOD Int32 CheckAvailablePowerStored(Boolean isFromShip) public=True static=True
+  METHOD Int32 CheckAvailableMaxPower(Boolean isFromShip) public=True static=True
+  METHOD Int32 CheckCurrentPowerUsage(Boolean isFromShip) public=True static=True
+  METHOD Void InitPowerSourceItem(GameItem item, Int32 energy, Int32 bandiwith) public=True static=True
+  METHOD Boolean MayBatterySwap(GameItem source, GameItem target) public=False static=True
+  METHOD Void SwapBatteries(GameItem source, GameItem target) public=False static=True
+  METHOD Boolean IsPowerSourceFull(GameItem gameItem) public=True static=True
+  METHOD Void SetPowerSourceAt(GameItem item, Int32 energy) public=True static=True
+  METHOD Void UpdateEnergyCreditSprite(GameItem item) public=True static=True
+  METHOD Void InitPowerSourceFourniture(GameItem item) public=True static=True
+  METHOD List`1 GetAllPowerSourceFourniture(Boolean isFromShip) public=True static=True
+  METHOD List`1 GetAllPowerSourceItem(List`1 powerStorage) public=True static=True
+  METHOD Void CreatePowerSourceFournitureTooltip(RichTextBuilder builder, GameItem item) public=True static=True
+  METHOD Void CreatePowerSourceItemTooltip(RichTextBuilder builder, GameItem item) public=True static=True
+  METHOD Void CreatePowerAnalyserTooltip(RichTextBuilder builder, GameItem item) public=True static=True
+  METHOD Boolean IsAvailableEnergyFromItem(GameItem powerSourceItem) public=True static=True
+  METHOD Int32 GetAvailableEnergyFromItem(GameItem powerSourceItem, Boolean useBandwidth) public=True static=True
+  METHOD Void ChargeBattery(GameItem gameItem) public=True static=True
+  METHOD Void ChargeBattery(GameItem gameItem, Int32 amount, Boolean ignoreBlackout) public=True static=True
+  METHOD Void InitRecharge(GameItem gameItem, Int32 rechargeRate) public=True static=True
+  METHOD Void ChargeAllRechargable(List`1 powerSources) public=True static=True
+  METHOD Int32 GetPowerSourceItemValue(GameItem gameItem) public=True static=True
+  METHOD Void SetPowerSourceValuePercent(GameItem gameItem, Int32 valuePercent) public=True static=True
+  METHOD Void InitDisposable(GameItem gameItem) public=True static=True
+  METHOD Boolean IsDisposablePowerSource(GameItem gameItem) public=True static=True
+  METHOD Void RandomizedEnergyCredit(GameItem gameItem) public=True static=True
+  METHOD Boolean DrawPowerSource(GameItem gameItem, Int32 amount) public=True static=True
+  METHOD Boolean CanDrawPowerSource(GameItem gameItem, Int32 amount) public=True static=True
+  METHOD Void .ctor() public=True static=False
+  NESTED PowerHelper/<>c
+  NESTED PowerHelper/<>c__DisplayClass17_0
+  NESTED PowerHelper/<>c__DisplayClass18_0
+  NESTED PowerHelper/<>c__DisplayClass24_0
+  NESTED PowerHelper/<>c__DisplayClass28_0
+  NESTED PowerHelper/<>c__DisplayClass38_0
+  NESTED PowerHelper/<>c__DisplayClass39_0
+  NESTED PowerHelper/<>c__DisplayClass40_0
+  NESTED PowerHelper/<>c__DisplayClass43_0
+  NESTED PowerHelper/<>c__DisplayClass46_0
+  NESTED PowerHelper/<>c__DisplayClass47_0
+### TYPE GraphUtils  base=System.Object  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, BeforeFieldInit
+  FIELD System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.String,System.String>,System.Int32> unplacedCounts static=True const=False val=
+  FIELD System.Boolean unplacedFlushScheduled static=True const=False val=
+  METHOD Void EmporiumTryAdd(GraphNodeStorage currentNode, GameItem item) public=True static=True
+  METHOD Boolean TryAddInto(GraphNodeStorage node, GameItem item) public=False static=True
+  METHOD Boolean DestroyIfUnplaced(GameItem item, String context) public=True static=True
+  METHOD Void ReportUnplaced(String identifier, Int32 count, String context) public=True static=True
+  METHOD Void FlushUnplaced() public=False static=True
+  METHOD Boolean TryAcceptAllOrDestroy(GraphNodeStorage currentNode, GameItem item, String context) public=True static=True
+  METHOD Void EmporiumTryAdd(GameItem item) public=True static=True
+  METHOD Boolean CanAccept(GraphNodeStorage currentNode, GameItem item) public=True static=True
+  METHOD Int32 TryAccept(GraphNodeStorage currentNode, GameItem item) public=True static=True
+  METHOD Int32 TryAcceptOnce(GraphNodeStorage currentNode, GameItem item, Int32 amount) public=True static=True
+  METHOD Int32 TryAcceptAll(GraphNodeStorage currentNode, GameItem item, Int32 amount) public=True static=True
+  METHOD Int32 TryAcceptAllMid(GameGridInventory currentNode, GameItem item, Int32 amount) public=True static=True
+  METHOD Int32 TryDestroyAll(List`1 items, Int32 amount) public=True static=True
+  METHOD Int32 CountAll(List`1 items) public=True static=True
+  METHOD Boolean FindParentEquals(GraphNodeStorage currentNode, GraphNodeStorage node) public=True static=True
+  METHOD Boolean FindChildEquals(GraphNodeStorage currentNode, GraphNodeStorage node) public=True static=True
+  METHOD Boolean FindParentEqualsIgnoreType(GraphNodeStorage currentNode, GraphNodeStorage node) public=True static=True
+  METHOD Boolean FindChildEqualsIgnoreType(GraphNodeStorage currentNode, GraphNodeStorage node) public=True static=True
+  METHOD T FindParentType(GraphNodeStorage currentNode, Func`2 filter, Func`2 passthrough) public=True static=True
+  METHOD T FindChildType(GraphNodeStorage currentNode, Func`2 filter, Func`2 passthrough) public=True static=True
+  METHOD List`1 FindChildrenType(GraphNodeStorage currentNode, Func`2 filter, Func`2 passthrough) public=True static=True
+  METHOD List`1 FindParentsType(GraphNodeStorage currentNode, Func`2 filter, Func`2 passthrough) public=True static=True
+  METHOD Boolean SwapItemsInPlace(GameItem source, GameItem target) public=True static=True
+  METHOD Boolean PlaceAtShape(GameItem item, GameInventory inventory, GridShape placedShape) public=False static=True
+  METHOD List`1 FindAllChildrenType(GraphNodeStorage currentNode, Func`2 filter, Func`2 passthrough) public=True static=True
+  METHOD Boolean CanInsertToActiveContainer(PixelWindow parentWindow, GameItem newItem, PixelWindow compareWindow) public=True static=True
+  METHOD Void InsertToActiveContainer(PixelWindow targetWindow, GameItem newItem) public=True static=True
+  METHOD Void .ctor() public=True static=False
+  METHOD Void .cctor() public=False static=True
+  NESTED GraphUtils/<>c
+  NESTED GraphUtils/<>c__20`1
+  NESTED GraphUtils/<>c__21`1
+  NESTED GraphUtils/<>c__22`1
+  NESTED GraphUtils/<>c__23`1
+  NESTED GraphUtils/<>c__26`1
+  NESTED GraphUtils/<>c__DisplayClass27_0
+### TYPE MachineryIntake  base=System.Object  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, BeforeFieldInit
+  FIELD System.Int32 <widthPixels>k__BackingField static=False const=False val=
+  FIELD System.Int32 <heightPixels>k__BackingField static=False const=False val=
+  FIELD TreeNodeRender <handler>k__BackingField static=False const=False val=
+  FIELD TreeNodeRender <inner>k__BackingField static=False const=False val=
+  FIELD MachineryStorageOwner <owner>k__BackingField static=False const=False val=
+  FIELD PixelElement <content>k__BackingField static=False const=False val=
+  FIELD System.Boolean vents static=False const=False val=
+  FIELD TreeNodeRender plate static=False const=False val=
+  FIELD TreeNodeRender ventHost static=False const=False val=
+  FIELD System.Collections.Generic.List`1<TreeNodeRender> ventBars static=False const=False val=
+  FIELD System.Int32 requestedWidth static=False const=False val=
+  FIELD System.Int32 requestedHeight static=False const=False val=
+  FIELD System.Boolean styleInventories static=False const=False val=
+  FIELD System.Boolean validateLock static=False const=False val=
+  PROP System.Boolean canResize
+  PROP System.Int32 widthPixels
+  PROP System.Int32 heightPixels
+  PROP TreeNodeRender handler
+  PROP UnityEngine.RectTransform rectTransform
+  PROP TreeNodeRender inner
+  PROP MachineryStorageOwner owner
+  PROP PixelElement content
+  METHOD Boolean get_canResize() public=True static=False
+  METHOD Int32 get_widthPixels() public=True static=False
+  METHOD Void set_widthPixels(Int32 value) public=False static=False
+  METHOD Int32 get_heightPixels() public=True static=False
+  METHOD Void set_heightPixels(Int32 value) public=False static=False
+  METHOD TreeNodeRender get_handler() public=True static=False
+  METHOD Void set_handler(TreeNodeRender value) public=False static=False
+  METHOD RectTransform get_rectTransform() public=True static=False
+  METHOD TreeNodeRender get_inner() public=True static=False
+  METHOD Void set_inner(TreeNodeRender value) public=False static=False
+  METHOD MachineryStorageOwner get_owner() public=True static=False
+  METHOD Void set_owner(MachineryStorageOwner value) public=True static=False
+  METHOD PixelElement get_content() public=True static=False
+  METHOD Void set_content(PixelElement value) public=False static=False
+  METHOD Void .ctor(PixelElement content, Boolean vents, Boolean styleInventories) public=True static=False
+  METHOD MachineryIntake SetContent(PixelElement element) public=True static=False
+  METHOD Boolean Attach(PixelElement element) public=True static=False
+  METHOD Boolean Detach(PixelElement element) public=True static=False
+  METHOD Void CollectStorage(List`1 list) public=True static=False
+  METHOD Void Validate() public=True static=False
+  METHOD Void LayoutVents(Int32 childX, Int32 childY, Int32 childW, Int32 childH) public=False static=False
+  METHOD Void PlaceVent(Int32 index, Int32 x, Int32 y, Int32 width) public=False static=False
+  METHOD Void ResizePixels(Int32 width, Int32 height) public=True static=False
+  METHOD Int32 WidthPixelsClamp(Int32 width) public=True static=False
+  METHOD Int32 HeightPixelsClamp(Int32 height) public=True static=False
+  METHOD Int32 XClamp(Int32 x) public=True static=False
+  METHOD Int32 YClamp(Int32 y) public=True static=False
+### TYPE LocHelper  base=System.Object  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, BeforeFieldInit
+  FIELD System.Text.RegularExpressions.Regex leadingBullet static=True const=False val=
+  FIELD System.Collections.Generic.HashSet`1<System.String> missingKeyLogged static=True const=False val=
+  FIELD System.Text.RegularExpressions.Regex missingTranslationRegex static=True const=False val=
+  FIELD System.String missingTranslationRegexSource static=True const=False val=
+  FIELD System.String LOCALE_SAVE_KEY static=True const=True val=locale
+  FIELD System.String[] AUTO_DETECT_LOCALES static=True const=False val=
+  METHOD String Get(String table, String key, Object[] arguments) public=False static=True
+  METHOD String GetLocalized(String table, String key) public=True static=True
+  METHOD String GetLocalizedNewGame(String key) public=True static=True
+  METHOD String GetLocalizedMainMenu(String key, Object[] arguments) public=True static=True
+  METHOD String GetLocalizedUI(String key, Object[] arguments) public=True static=True
+  METHOD Boolean HasLocalizedUI(String key) public=True static=True
+  METHOD Boolean HasLocalizedNetworkUpgrade(String key) public=True static=True
+  METHOD Boolean HasEntry(String table, String key) public=False static=True
+  METHOD String GetLocalizedOrDefault(String table, String key, String englishFallback, Object[] arguments) public=True static=True
+  METHOD String GetLocalizedUIOrDefault(String key, String englishFallback, Object[] arguments) public=True static=True
+  METHOD String GetLocalizedMechanicOrDefault(String key, String englishFallback, Object[] arguments) public=True static=True
+  METHOD String BulletLine(String text) public=True static=True
+  METHOD String BulletLines(String text) public=True static=True
+  METHOD String GetLocalizedInteractable(String key, Object[] arguments) public=True static=True
+  METHOD String GetLocalizedNetworkUpgrade(String key, Object[] arguments) public=True static=True
+  METHOD String GetLocalizedName(String key) public=True static=True
+  METHOD String GetLocalizedDialoguePhone(String key, Object[] arguments) public=True static=True
+  METHOD String GetLocalizedClientName(String key) public=True static=True
+  METHOD String GetLocalizedDialogue(String key, Object[] arguments) public=True static=True
+  METHOD String GetLocalizedItem(String key, Object[] arguments) public=True static=True
+  METHOD String GetLocalizedMechanic(String key, Object[] arguments) public=True static=True
+  METHOD String GetLocalizedPerkTable(String key, Object[] arguments) public=True static=True
+  METHOD String GetLocalizedRepPerkTable(String key, Object[] arguments) public=True static=True
+  METHOD Boolean TryParseMissingTranslation(String text, String& table, String& key) public=True static=True
+  METHOD String RelocalizeIfMissing(String text) public=True static=True
+  METHOD String GetCurrentLocaleCode() public=True static=True
+  METHOD String WrapInLocalizedQuotes(String text) public=True static=True
+  METHOD String ResolveStartupLocale() public=True static=True
+  METHOD String DetectPlayerLocale() public=False static=True
+  METHOD String SteamLanguageToLocale(String steamLanguage) public=False static=True
+  METHOD String SystemLanguageToLocale(SystemLanguage language) public=False static=True
+  METHOD IEnumerator SetLocale(String localeCode) public=True static=True
+  METHOD Void .ctor() public=True static=False
+  METHOD Void .cctor() public=False static=True
+  NESTED LocHelper/<>c__DisplayClass37_0
+  NESTED LocHelper/<SetLocale>d__37

@@ -1,0 +1,74 @@
+﻿### STRINGS containing 'battery'
+  ' kJ a night, summed over the tank, to the RAS battery and each adjacent battery or rechargeable machine; ignores station power, blackouts and commercial power; none while starving'
+      @ AquacultureHelper::CreateDevTooltip
+  'battery_dis100'
+      @ MiscItemDirectory::DisposableBattery
+  'battery_drag'
+      @ AudioHelper::InitBattery
+  'battery_drop'
+      @ AudioHelper::InitBattery
+  'battery_ext0'
+      @ PowerHelper::UpdateEnergyCreditSprite
+  'battery_ext10'
+      @ PowerHelper::UpdateEnergyCreditSprite
+  'battery_ext100'
+      @ MiscItemDirectory::EnergyCreditExtended
+      @ PowerHelper::UpdateEnergyCreditSprite
+  'battery_ext20'
+      @ PowerHelper::UpdateEnergyCreditSprite
+  'battery_ext40'
+      @ PowerHelper::UpdateEnergyCreditSprite
+  'battery_ext60'
+      @ PowerHelper::UpdateEnergyCreditSprite
+  'battery_ext80'
+      @ PowerHelper::UpdateEnergyCreditSprite
+  'battery_hub'
+      @ UnusedDirectory::CreateBatteryHub
+      @ ShipHelper::EquipCargoShip
+      @ ShipHelper::EquipMilitaryTransportShip
+      @ ShipHelper::EquipUtilityShip
+      @ ShipHelper::EquipRefugeeShip
+      @ DropDirectory::GetPowerBayDrop
+  'battery_hyp'
+      @ MiscItemDirectory::EnergyCreditHypertech
+  'battery_insert'
+      @ MachineHelper/<>c::<SetupBatterySlot>b__15_1
+      @ MachineRecharger/<>c::<Recharger>b__1_5
+  'battery_removed'
+      @ MachineHelper/<>c::<SetupBatterySlot>b__15_2
+      @ MachineRecharger/<>c::<Recharger>b__1_6
+  'battery0'
+      @ PowerHelper::UpdateEnergyCreditSprite
+  'battery10'
+      @ PowerHelper::UpdateEnergyCreditSprite
+  'battery100'
+      @ MiscItemDirectory::EnergyCredit
+      @ MachineHelper::SetupBatterySlot
+      @ PowerHelper::UpdateEnergyCreditSprite
+  'battery20'
+      @ PowerHelper::UpdateEnergyCreditSprite
+  'battery40'
+      @ PowerHelper::UpdateEnergyCreditSprite
+  'battery60'
+      @ PowerHelper::UpdateEnergyCreditSprite
+  'battery80'
+      @ PowerHelper::UpdateEnergyCreditSprite
+  'mech_hydroponic_label_battery'
+      @ PlantGeneticsText::LabelBattery
+  'mech_recharger_label_battery'
+      @ MachineRecharger::CreateMachineInventoryWindow
+  'sbattery0'
+      @ PowerHelper::UpdateEnergyCreditSprite
+  'sbattery10'
+      @ PowerHelper::UpdateEnergyCreditSprite
+  'sbattery100'
+      @ MiscItemDirectory::EnergyCreditBreeder
+      @ PowerHelper::UpdateEnergyCreditSprite
+  'sbattery20'
+      @ PowerHelper::UpdateEnergyCreditSprite
+  'sbattery40'
+      @ PowerHelper::UpdateEnergyCreditSprite
+  'sbattery60'
+      @ PowerHelper::UpdateEnergyCreditSprite
+  'sbattery80'
+      @ PowerHelper::UpdateEnergyCreditSprite

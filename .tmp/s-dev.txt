@@ -1,0 +1,9 @@
+﻿### STRINGS containing 'dev.txt'
+  '[DevTools] Developer tools disabled: no dev.txt next to the executable ('
+      @ DevTools::get_IsEnabled
+  '1dev.txt'
+      @ DevTools::get_IsFullEnabled
+      @ DevTools::.cctor
+  'dev.txt'
+      @ DevTools::get_IsEnabled
+      @ DevTools::.cctor

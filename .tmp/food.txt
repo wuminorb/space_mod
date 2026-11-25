@@ -1,0 +1,91 @@
+﻿### TYPE FoodItemDirectory  base=ItemDirectory  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, BeforeFieldInit
+  FIELD System.String XENO_MEAT_TAG static=True const=True val=XENO_MEAT_TAG
+  FIELD System.String RED_IMP_BEER_TAG static=True const=True val=RED_IMP_BEER_TAG
+  METHOD Void InitDirectory() public=False static=False
+  METHOD GameItem BeisIcecream() public=False static=False
+  METHOD GameItem ProcessedMilk() public=False static=False
+  METHOD GameItem ProcessedJuice() public=False static=False
+  METHOD GameItem ProcessedMeat() public=False static=False
+  METHOD GameItem BottleHotSauce() public=False static=False
+  METHOD GameItem BottledWaterPremium() public=False static=False
+  METHOD GameItem RedBeer() public=False static=False
+  METHOD GameItem EmptyBeerBottle() public=False static=False
+  METHOD GameItem BottledWater() public=False static=False
+  METHOD GameItem SmallBottledWater() public=False static=False
+  METHOD GameItem MiniBottle() public=False static=False
+  METHOD GameItem MedBottleRed() public=False static=False
+  METHOD GameItem MedBottleBlue() public=False static=False
+  METHOD GameItem MedBottleViolet() public=False static=False
+  METHOD GameItem MedBottleOrange() public=False static=False
+  METHOD GameItem MedBottleSmallPink() public=False static=False
+  METHOD GameItem Dropper1ml() public=False static=False
+  METHOD GameItem Dropper5ml() public=False static=False
+  METHOD GameItem Cylinder25ml() public=False static=False
+  METHOD GameItem Cylinder50ml() public=False static=False
+  METHOD GameItem Cylinder100ml() public=False static=False
+  METHOD GameItem LargeBottledWater() public=False static=False
+  METHOD GameItem WaterJug() public=False static=False
+  METHOD GameItem SodaRed() public=False static=False
+  METHOD GameItem EnergyDrink() public=False static=False
+  METHOD GameItem Nudka() public=False static=False
+  METHOD GameItem GalaxyBlend() public=False static=False
+  METHOD GameItem CatBar() public=False static=False
+  METHOD GameItem LiEatSnackbar() public=False static=False
+  METHOD GameItem ProcessedCheese() public=False static=False
+  METHOD GameItem RawMeat() public=False static=False
+  METHOD GameItem SmallRawMeat() public=False static=False
+  METHOD GameItem Morsel() public=False static=False
+  METHOD GameItem SmallMorsel() public=False static=False
+  METHOD GameItem FatMeat() public=False static=False
+  METHOD GameItem MeatScrap() public=False static=False
+  METHOD GameItem CupNoodle() public=False static=False
+  METHOD GameItem WaterRation() public=False static=False
+  METHOD GameItem WaterRationSmall() public=False static=False
+  METHOD Boolean CanPourRation(GameItem container, Int32 volumeMl) public=False static=True
+  METHOD Boolean MayRationTarget(GameItem container, Int32 volumeMl) public=False static=True
+  METHOD Void SetupWaterRationPour(GameItem item, Int32 volumeMl) public=False static=True
+  METHOD GameItem TransformEdible(GameItem item, Int32 thirst) public=True static=True
+  METHOD Void .ctor() public=True static=False
+  METHOD GameItem <InitDirectory>b__2_0() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_1() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_2() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_3() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_4() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_5() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_6() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_7() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_8() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_9() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_11() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_12() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_13() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_14() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_15() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_16() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_17() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_18() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_19() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_20() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_21() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_22() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_23() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_24() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_25() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_26() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_27() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_28() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_29() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_30() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_31() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_32() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_33() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_34() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_35() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_36() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_37() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_38() public=False static=False
+  METHOD GameItem <InitDirectory>b__2_39() public=False static=False
+  NESTED FoodItemDirectory/<>c
+  NESTED FoodItemDirectory/<>c__DisplayClass9_0
+  NESTED FoodItemDirectory/<>c__DisplayClass44_0
+  NESTED FoodItemDirectory/<>c__DisplayClass45_0

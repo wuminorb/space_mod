@@ -1,0 +1,16 @@
+﻿### STRINGS containing 'water_jug'
+  'item_water_jug_name'
+      @ FoodItemDirectory::WaterJug
+  'water_jug'
+      @ FoodItemDirectory::InitDirectory
+      @ FoodItemDirectory::WaterJug
+      @ UnusedDirectory::WaterRecyclerSystem
+      @ SpriteHelper::UpdateWaterContainerSprite
+      @ WaterHelper::SpawnWaterTestingKit
+      @ WaterHelper::.cctor
+      @ MachineMoistureFarm::Fill
+      @ NetworkUpgradeList/<>c::<.cctor>b__136_34
+      @ NewGameData::HandleInitialItem
+      @ StoreClientList/<>c::<CreateWaterSeller>b__63_0
+      @ StoreClientListTier/<>c::<CreateWaterStockPiler>b__14_0
+      @ DebugPanel/<>c::<AddProceduralDebugFunction>b__115_20

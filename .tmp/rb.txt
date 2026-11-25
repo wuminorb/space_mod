@@ -1,0 +1,31 @@
+﻿### TYPE RichTextBuilder  base=System.Object  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, BeforeFieldInit
+  FIELD System.Collections.Generic.List`1<RichTextBuilder/TextSlice> slices static=False const=False val=
+  FIELD System.String nextBegin static=False const=False val=
+  FIELD System.Int32 maxCharWidth static=False const=False val=
+  FIELD System.Char[] defaultStyle static=False const=False val=
+  FIELD System.Char[] defaultStyleVertical static=False const=False val=
+  FIELD System.Char[] defaultStyleOldSchool static=False const=False val=
+  METHOD Void .ctor(Int32 maxCharWidth) public=True static=False
+  METHOD Boolean IsEmpty() public=True static=False
+  METHOD String GetFillString(String text, Char replace) public=True static=True
+  METHOD RichTextBuilder Add(RichTextBuilder builder) public=True static=False
+  METHOD RichTextBuilder AddProgressBarOld(Single ratio, Int32 length, ColorPalette color, ColorPalette backgroundColor, Char[] style, String end, Boolean addFullLength, Boolean bold) public=True static=False
+  METHOD RichTextBuilder AddProgressTest(Single ratio, Int32 length, ColorPalette color, ColorPalette backgroundColor, Char[] style, String end, Boolean addFullLength, Boolean bold) public=True static=False
+  METHOD RichTextBuilder AddProgressBar(Single ratio, Int32 length, ColorPalette color, ColorPalette backgroundColor, Char[] style, String end, Boolean addFullLength, Boolean bold) public=True static=False
+  METHOD RichTextBuilder MarkLastSliceNoBreak() public=False static=False
+  METHOD RichTextBuilder AddLine(String text, Boolean ignoreEmpty, ColorPalette color, Boolean bold, Boolean italic, Boolean underline, Boolean strikethrough, ColorPalette backgroundColor, ColorPalette underlineColor, ColorPalette strikethroughColor) public=True static=False
+  METHOD RichTextBuilder NextLine() public=True static=False
+  METHOD RichTextBuilder AddEmptyLine(Int32 heightPixels) public=True static=False
+  METHOD RichTextBuilder Add(String text, ColorPalette color, String end, Boolean bold, Boolean italic, Boolean underline, Boolean strikethrough, ColorPalette backgroundColor, ColorPalette underlineColor, ColorPalette strikethroughColor) public=True static=False
+  METHOD RichTextBuilder AddIcon(Sprite icon, String end) public=True static=False
+  METHOD RichTextBuilder Clear() public=True static=False
+  METHOD RichTextBuilder AddRichTable(RichTableBuilder table) public=True static=False
+  METHOD ValueTuple`2 FindBestSlice(List`1 slices, Int32 beginIndex, Int32 endIndex, Int32 maxLength, Int32 currentLength) public=False static=True
+  METHOD ValueTuple`2 FindCharBreak(List`1 slices, Int32 beginIndex, Int32 endIndex, Int32 maxLength) public=False static=True
+  METHOD ValueTuple`2 FindFirstSlice(List`1 slices, Int32 beginIndex) public=False static=True
+  METHOD RichText Build(Int32 truncateLength) public=True static=False
+  METHOD String Color(String text, ColorPalette color) public=True static=True
+  METHOD String Style(String text, Boolean bold, Boolean italic) public=True static=True
+  NESTED RichTextBuilder/TextSlice
+  NESTED RichTextBuilder/<>c__DisplayClass6_0
+  NESTED RichTextBuilder/<>c

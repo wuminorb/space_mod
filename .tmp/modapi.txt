@@ -1,0 +1,469 @@
+﻿### TYPE ModHelper  base=System.Object  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, BeforeFieldInit
+  FIELD System.String MOD_ID_TAG static=True const=True val=MOD_ID_TAG
+  FIELD System.String MOD_NAME_TAG static=True const=True val=MOD_NAME_TAG
+  FIELD System.Collections.Generic.HashSet`1<System.String> warnedLocalizationKeys static=True const=False val=
+  FIELD System.String DEBUG_CATEGORY_STORE static=True const=True val=Store
+  FIELD System.String DEBUG_CATEGORY_COMMAND static=True const=True val=Command
+  FIELD System.String DEBUG_CATEGORY_SPAWN static=True const=True val=Spawn
+  FIELD System.String DEBUG_CATEGORY_SPECIAL static=True const=True val=Special
+  FIELD System.String DEBUG_CATEGORY_MODDING static=True const=True val=Modding
+  FIELD System.String DEBUG_CATEGORY_MARKETING static=True const=True val=Marketing
+  FIELD System.String OPTION_SECTION_GAMEPLAY static=True const=True val=gameplay
+  FIELD System.String OPTION_SECTION_AUDIO static=True const=True val=audio
+  FIELD System.String OPTION_SECTION_DISPLAY static=True const=True val=display
+  FIELD System.String OPTION_SECTION_DIALOGUE static=True const=True val=dialogue
+  FIELD System.String OPTION_SECTION_KEYBIND static=True const=True val=keybind
+  FIELD System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.List`1<UnityEngine.Coroutine>> modCoroutines static=True const=False val=
+  FIELD System.Collections.Generic.Dictionary`2<System.String,System.Threading.CancellationTokenSource> modCancellation static=True const=False val=
+  FIELD System.Collections.Concurrent.ConcurrentQueue`1<System.ValueTuple`2<System.String,System.Action>> mainThreadQueue static=True const=False val=
+  FIELD System.Collections.Generic.Dictionary`2<System.String,System.Object> exposedServices static=True const=False val=
+  FIELD System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.List`1<System.ValueTuple`2<System.String,System.Action`2<System.String,System.Object>>>> messageHandlers static=True const=False val=
+  FIELD System.Collections.Generic.HashSet`1<System.String> lookupRefusals static=True const=False val=
+  METHOD Void AddCredit(Int32 amount, Boolean playSound) public=True static=True
+  METHOD GameItem SpawnItem(String id) public=True static=True
+  METHOD GameItem SetItemOwnerShip(GameItem item, Boolean isOwn) public=True static=True
+  METHOD Void MoveItemToFrontCounter(GameItem item) public=True static=True
+  METHOD Void MoveItemToBackCounter(GameItem item) public=True static=True
+  METHOD Void MoveItemToInventory(GameItem item) public=True static=True
+  METHOD Void MoveItemToTrash(GameItem item) public=True static=True
+  METHOD Void MoveItemToDisplayCase(GameItem item) public=True static=True
+  METHOD Void MoveItemToAfterhours(GameItem item) public=True static=True
+  METHOD Locale GetCurrentLocale() public=True static=True
+  METHOD String GetLocalized(String modId, String key, Object[] args) public=True static=True
+  METHOD String GetSoundIdentifier(String modId, String soundKey) public=True static=True
+  METHOD Boolean PlaySound(String modId, String soundKey) public=True static=True
+  METHOD Boolean PlaySound2(String modId, String soundKey) public=True static=True
+  METHOD Boolean PlaySound3(String modId, String soundKey) public=True static=True
+  METHOD Void SetSource(GameItem item, String modId, String modName) public=True static=True
+  METHOD Void SetClientSource(StoreClient client, String modId) public=True static=True
+  METHOD Void AddDebugFunction(String modId, String category, String name, Action action, Boolean tall) public=True static=True
+  METHOD Int32 RemoveDebugFunctions(String modId) public=True static=True
+  METHOD ModConfig GetConfig(String modId) public=True static=True
+  METHOD String GameOptionId(String modId, String optionId) public=True static=True
+  METHOD String GameOptionSectionId(String modId, String sectionId) public=False static=True
+  METHOD Void AddGameOptionSection(String modId, String sectionId, Func`1 label) public=True static=True
+  METHOD Void AddGameOptionToggle(String modId, String sectionId, String optionId, Func`1 label, Func`1 get, Action`1 set, Func`1 tooltip) public=True static=True
+  METHOD Void AddGameOptionSlider(String modId, String sectionId, String optionId, Func`1 label, Func`1 get, Action`1 set, Single min, Single max, Boolean wholeNumbers, Func`1 tooltip, Func`2 valueText) public=True static=True
+  METHOD Void AddGameOptionSlider(String modId, String sectionId, String optionId, Func`1 label, Func`1 get, Action`1 set, Single min, Single max, Boolean wholeNumbers, Func`1 tooltip) public=True static=True
+  METHOD Void AddGameOptionDropdown(String modId, String sectionId, String optionId, Func`1 label, Func`1 options, Func`1 get, Action`1 set, Func`1 tooltip) public=True static=True
+  METHOD Void AddGameOptionKeyBind(String modId, String sectionId, String optionId, Func`1 label, Func`1 get, Action`1 set, Func`1 tooltip) public=True static=True
+  METHOD Boolean RemoveGameOption(String modId, String optionId) public=True static=True
+  METHOD Int32 RemoveGameOptions(String modId) public=True static=True
+  METHOD Void RegisterLootTable(String modId, String tableId, ValueTuple`2[] entries) public=True static=True
+  METHOD Void AddNetworkUpgrade(String modId, String id, Int32 cost, String subtitle, Func`1 title, Func`1 description, Action onUnlock, String tab, String iconKey, String[] prerequisites, Int32 cooldownDays, Func`1 subtitleLabel, Func`1 alreadyBought, Boolean recommended) public=True static=True
+  METHOD Void SetNetworkTabLabel(String tab, Func`1 label) public=True static=True
+  METHOD Int32 RemoveNetworkUpgrades(String modId) public=True static=True
+  METHOD Boolean IsNetworkUpgradeUnlocked(String id) public=True static=True
+  METHOD NetworkUpgrade GetNetworkUpgrade(String id) public=True static=True
+  METHOD Void OpenWildNetwork() public=True static=True
+  METHOD Void CloseWildNetwork() public=True static=True
+  METHOD Void AddStartingScenario(String modId, String id, Func`1 title, Func`1 description, Func`1[] startWith, Action onStart, String iconKey, Func`1 tag, TagTone tagTone, Boolean skipIntro, Boolean comingSoon) public=True static=True
+  METHOD Int32 RemoveStartingScenarios(String modId) public=True static=True
+  METHOD String GetStartingScenarioId() public=True static=True
+  METHOD Boolean IsStartingScenario(String id) public=True static=True
+  METHOD Void OpenNewGameSpecialization() public=True static=True
+  METHOD Void CloseNewGameSpecialization() public=True static=True
+  METHOD Void AddStartingPerk(String modId, String id, Int32 cost, StartingPerkType type, Func`1 name, Func`1 description, String iconKey, String[] incompatiblePerks, Int32 extraPerkSlots, Boolean mindEditable) public=True static=True
+  METHOD Int32 RemoveStartingPerks(String modId) public=True static=True
+  METHOD Boolean IsStartingPerkActive(String id) public=True static=True
+  METHOD List`1 GetStartingPerkIds() public=True static=True
+  METHOD Void OpenNewGamePerks() public=True static=True
+  METHOD Void CloseNewGamePerks() public=True static=True
+  METHOD Void AddDifficulty(String modId, String id, Int32 order, Func`1 title, Func`1 subtitle, Action`1 configure, String basedOn, Func`1[] notes, String iconKey) public=True static=True
+  METHOD Void ModifyDifficulty(String id, Action`1 modify) public=True static=True
+  METHOD Int32 RemoveDifficulties(String modId) public=True static=True
+  METHOD String GetDifficultyId() public=True static=True
+  METHOD DifficultyRules GetDifficultyRules() public=True static=True
+  METHOD Boolean IsDifficultyAtLeast(String id) public=True static=True
+  METHOD Void AddAppraisalItem(String modId, String id, String itemId, Int32 unlockRank, Func`1 createRandom, Func`2 getCorrectValue, Func`2 isType, String guideItemId, Func`1 displayName) public=True static=True
+  METHOD Int32 RemoveAppraisalItems(String modId) public=True static=True
+  METHOD Int32 GetAppraiserRank() public=True static=True
+  METHOD DelegateAfterhourLocation AddAfterhourLocation(String modId, String id, Func`1 title, Action onArrive, Action onLeave, Action`1 buildPanel, String imageKey, String backgroundKey, String ambienceId, Func`1 isDiscovered, Func`1 isAvailable) public=True static=True
+  METHOD Void AddAfterhourLocation(AfterhourLocation location) public=True static=True
+  METHOD PaperUI OpenPaper(String modId, String bookId) public=True static=True
+  METHOD PaperUI OpenPaper(String fullId) public=True static=True
+  METHOD Void ClosePaper(String modId, String bookId) public=True static=True
+  METHOD Boolean IsPaperOpen(String modId, String bookId) public=True static=True
+  METHOD PaperUI GetOpenPaper(String modId, String bookId) public=True static=True
+  METHOD Void OnPaperOpened(String modId, String bookId, Action`1 callback) public=True static=True
+  METHOD Void RegisterPaperBook(String modId, PaperBookData data) public=True static=True
+  METHOD PaperBookData ParsePaperBook(String json) public=True static=True
+  METHOD Int32 RemovePaperBooks(String modId) public=True static=True
+  METHOD List`1 GetPaperBookIds(String modId) public=True static=True
+  METHOD PaperUI CreatePaper(String modId, String bookId, String background, Single width, Single height) public=True static=True
+  METHOD GameItem SpawnPaperItem(String modId, String bookId) public=True static=True
+  METHOD Int32 RemoveAfterhourLocations(String modId) public=True static=True
+  METHOD AfterhourLocation GetAfterhourLocation(String id) public=True static=True
+  METHOD String GetCurrentAfterhourLocationId() public=True static=True
+  METHOD Boolean IsOutsideStore() public=True static=True
+  METHOD Void ReturnFromAfterhour(Boolean askAboutGroundItems) public=True static=True
+  METHOD Boolean RegisterAfterhourAmbience(String modId, String id, String soundKey) public=True static=True
+  METHOD Boolean RegisterAfterhourAmbience(String id, AudioClip clip) public=True static=True
+  METHOD Int32 GetAfterhourVisits(String locationId) public=True static=True
+  METHOD Int32 GetAfterhourCounter(String locationId, String key, Int32 fallback) public=True static=True
+  METHOD Void SetAfterhourCounter(String locationId, String key, Int32 value) public=True static=True
+  METHOD AfterhourEventDefinition AddAfterhourEvent(String modId, String id, String locationId, Func`1 title, Int32 durationDays, Func`1 description, IEnumerable`1 effects, Single dailyChancePercent, Nullable`1 tone, Func`1 canStart, Action onStart, Action onEnd, IEnumerable`1 weekdays, Boolean closesLocation) public=True static=True
+  METHOD AfterhourEffect AfterhourEffect(Func`1 text, String modifierKey, Single modifierValue, AfterhourEffectPolarity polarity) public=True static=True
+  METHOD Int32 RemoveAfterhourEvents(String modId) public=True static=True
+  METHOD Boolean StartAfterhourEvent(String eventId, Int32 durationDays) public=True static=True
+  METHOD Boolean EndAfterhourEvent(String eventId) public=True static=True
+  METHOD Void EndAllAfterhourEvents(String locationId) public=True static=True
+  METHOD Boolean IsAfterhourEventActive(String eventId) public=True static=True
+  METHOD List`1 GetActiveAfterhourEventIds(String locationId) public=True static=True
+  METHOD Single GetAfterhourModifier(String locationId, String key) public=True static=True
+  METHOD Void AddLootEntry(String modId, String tableId, String itemId, Single weight) public=True static=True
+  METHOD Void RemoveLootEntry(String modId, String tableId, String itemId) public=True static=True
+  METHOD Void SetLootWeight(String modId, String tableId, String itemId, Single weight) public=True static=True
+  METHOD Void ClearLootTable(String modId, String tableId) public=True static=True
+  METHOD Void RegisterLootGroup(String modId, String groupId, ValueTuple`2[] entries) public=True static=True
+  METHOD Void AddLootGroupEntry(String modId, String groupId, String tableId, Single weight) public=True static=True
+  METHOD Void RemoveLootGroupEntry(String modId, String groupId, String tableId) public=True static=True
+  METHOD Void SetLootGroupWeight(String modId, String groupId, String tableId, Single weight) public=True static=True
+  METHOD Void ClearLootGroup(String modId, String groupId) public=True static=True
+  METHOD List`1 GetLootEntries(String tableId) public=True static=True
+  METHOD List`1 GetLootGroupEntries(String groupId) public=True static=True
+  METHOD String RollLootTable(String tableId) public=True static=True
+  METHOD String RollLootGroup(String groupId) public=True static=True
+  METHOD GameItem SpawnFromLootTable(String tableId) public=True static=True
+  METHOD GameItem SpawnFromLootGroup(String groupId) public=True static=True
+  METHOD Boolean RequestSteamAuthTicket(String serverIdentity, Action`1 onTicket) public=True static=True
+  METHOD Void CancelSteamAuthTicket() public=True static=True
+  METHOD String ModDataKey(String modId, String key) public=False static=True
+  METHOD Dictionary`2 ModDataStore(Boolean warn) public=False static=True
+  METHOD Void SetModData(String modId, String key, String value) public=True static=True
+  METHOD String GetModData(String modId, String key, String fallback) public=True static=True
+  METHOD Boolean HasModData(String modId, String key) public=True static=True
+  METHOD Boolean RemoveModData(String modId, String key) public=True static=True
+  METHOD List`1 GetModDataKeys(String modId) public=True static=True
+  METHOD Int32 ClearModData(String modId) public=True static=True
+  METHOD Void SetModDataInt(String modId, String key, Int32 value) public=True static=True
+  METHOD Int32 GetModDataInt(String modId, String key, Int32 fallback) public=True static=True
+  METHOD Void SetModDataFloat(String modId, String key, Single value) public=True static=True
+  METHOD Single GetModDataFloat(String modId, String key, Single fallback) public=True static=True
+  METHOD Void SetModDataBool(String modId, String key, Boolean value) public=True static=True
+  METHOD Boolean GetModDataBool(String modId, String key, Boolean fallback) public=True static=True
+  METHOD Coroutine StartCoroutine(String modId, IEnumerator routine) public=True static=True
+  METHOD Void StopCoroutine(String modId, Coroutine coroutine) public=True static=True
+  METHOD Void StopAllCoroutines(String modId) public=True static=True
+  METHOD Coroutine Delay(String modId, Single seconds, Action action) public=True static=True
+  METHOD Boolean RunInBackground(String modId, Action`1 work, Action onFinished) public=True static=True
+  METHOD Void RunOnMainThread(String modId, Action action) public=True static=True
+  METHOD Void DrainMainThread() public=False static=True
+  METHOD Void StopBackgroundWork(String modId) public=False static=True
+  METHOD Coroutine StartCoroutineInternal(String modId, IEnumerator routine) public=False static=True
+  METHOD Void StopModCoroutines(String modId) public=False static=True
+  METHOD Void Untrack(String modId, Coroutine coroutine) public=False static=True
+  METHOD CancellationToken CancellationFor(String modId) public=False static=True
+  METHOD IEnumerator Guarded(String modId, IEnumerator routine, Action onEnd) public=False static=True
+  METHOD IEnumerator DelayRoutine(Single seconds, Action action) public=False static=True
+  METHOD Void Expose(String modId, String key, Object service) public=True static=True
+  METHOD T Lookup(String modId, String key) public=True static=True
+  METHOD Boolean IsModRunning(String modId) public=True static=True
+  METHOD Void OnMessage(String listenerModId, String channel, Action`2 handler) public=True static=True
+  METHOD Void OffMessage(String listenerModId, String channel, Action`2 handler) public=True static=True
+  METHOD Int32 SendMessage(String senderModId, String channel, Object payload) public=True static=True
+  METHOD Void ForgetModServices(String modId) public=False static=True
+  METHOD Void RequireCaller(String modId, String action) public=False static=True
+  METHOD String GetModFolder(String modId) public=True static=True
+  METHOD String GetModDataFolder(String modId) public=True static=True
+  METHOD Boolean ModFileExists(String modId, String relativePath) public=True static=True
+  METHOD Byte[] ReadModFileBytes(String modId, String relativePath) public=True static=True
+  METHOD String ReadModFileText(String modId, String relativePath) public=True static=True
+  METHOD AssetBundle LoadModAssetBundle(String modId, String relativePath) public=True static=True
+  METHOD Boolean ModDataFileExists(String modId, String relativePath) public=True static=True
+  METHOD Byte[] ReadModDataFileBytes(String modId, String relativePath) public=True static=True
+  METHOD String ReadModDataFileText(String modId, String relativePath) public=True static=True
+  METHOD Void WriteModDataFileBytes(String modId, String relativePath, Byte[] bytes) public=True static=True
+  METHOD Void WriteModDataFileText(String modId, String relativePath, String text) public=True static=True
+  METHOD Boolean DeleteModDataFile(String modId, String relativePath) public=True static=True
+  METHOD List`1 ListModDataFiles(String modId) public=True static=True
+  METHOD String SafeFolderName(String modId) public=False static=True
+  METHOD Void RequireOwnDataFolder(String modId) public=False static=True
+  METHOD Boolean OwnsDataFolder(String modId) public=False static=True
+  METHOD String RequireInside(String root, String relativePath, String modId) public=False static=True
+  METHOD String ResolveInside(String root, String relativePath) public=False static=True
+  METHOD Void .ctor() public=True static=False
+  METHOD Void .cctor() public=False static=True
+  NESTED ModHelper/<>c__DisplayClass13_0
+  NESTED ModHelper/<>c__DisplayClass18_0
+  NESTED ModHelper/<>c__DisplayClass92_0
+  NESTED ModHelper/<>c__DisplayClass129_0
+  NESTED ModHelper/<>c__DisplayClass130_0
+  NESTED ModHelper/<>c__DisplayClass144_0
+  NESTED ModHelper/<>c__DisplayClass148_0
+  NESTED ModHelper/<Guarded>d__152
+  NESTED ModHelper/<DelayRoutine>d__153
+  NESTED ModHelper/<>c__DisplayClass157_0`1
+  NESTED ModHelper/<>c__DisplayClass157_1`1
+  NESTED ModHelper/<>c__DisplayClass159_0
+  NESTED ModHelper/<>c__DisplayClass161_0
+  NESTED ModHelper/<>c__DisplayClass163_0
+  NESTED ModHelper/<>c__DisplayClass164_0
+  NESTED ModHelper/<>c__DisplayClass165_0
+  NESTED ModHelper/<>c__DisplayClass177_0
+  NESTED ModHelper/<>c
+  NESTED ModHelper/<>c__DisplayClass179_0
+  NESTED ModHelper/<>c__DisplayClass180_0
+### TYPE ModHook  base=UnityEngine.MonoBehaviour  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, BeforeFieldInit
+  FIELD ModHook <Instance>k__BackingField static=True const=False val=
+  FIELD System.Action`1<ModItemDirectory> OnModItemDirectoryInit static=True const=False val=
+  FIELD System.Action`1<StoreClientManager> OnGenerateCustomerVeryEarly static=True const=False val=
+  FIELD System.Action`1<StoreClientManager> OnGenerateCustomerEarly static=True const=False val=
+  FIELD System.Action`1<StoreClientManager> OnGenerateCustomerNormal static=True const=False val=
+  FIELD System.Action`1<StoreClientManager> OnGenerateCustomerLate static=True const=False val=
+  FIELD System.Action`1<StoreClientManager> OnGenerateCustomerVeryLate static=True const=False val=
+  FIELD System.Action OnGameLoadedInit static=True const=False val=
+  FIELD System.Action OnGameLoadedEarly static=True const=False val=
+  FIELD System.Action OnGameLoadedNormal static=True const=False val=
+  FIELD System.Action OnGameLoadedLate static=True const=False val=
+  FIELD System.Action OnShutterOpenedEarly static=True const=False val=
+  FIELD System.Action OnShutterOpenedLate static=True const=False val=
+  FIELD System.Action OnShutterClosedEarly static=True const=False val=
+  FIELD System.Action OnShutterClosedLate static=True const=False val=
+  FIELD System.Action OnGoingSleepEarly static=True const=False val=
+  FIELD System.Action OnGoingSleepLate static=True const=False val=
+  FIELD System.Action OnWakingUpEarly static=True const=False val=
+  FIELD System.Action OnWakingUpLate static=True const=False val=
+  FIELD System.Action OnLeavingStoreEarly static=True const=False val=
+  FIELD System.Action OnLeavingStoreLate static=True const=False val=
+  FIELD System.Action OnReturningStoreEarly static=True const=False val=
+  FIELD System.Action OnReturningStoreLate static=True const=False val=
+  FIELD System.Action OnHandlingNightlyServicesEarly static=True const=False val=
+  FIELD System.Action OnHandlingNightlyServicesLate static=True const=False val=
+  FIELD System.Action`1<System.Collections.Generic.List`1<GameItem>> OnPlaceInventorInventoryItemEarly static=True const=False val=
+  FIELD System.Action`1<System.Collections.Generic.List`1<GameItem>> OnPlaceInventorInventoryItemLate static=True const=False val=
+  FIELD System.Action`2<RichTextBuilder,GameItem> OnCreateTooltipEarly static=True const=False val=
+  FIELD System.Action`2<RichTextBuilder,GameItem> OnCreateTooltipLate static=True const=False val=
+  FIELD System.Action`2<RichTextBuilder,GameItem> OnCreateDevTooltipEarly static=True const=False val=
+  FIELD System.Action`2<RichTextBuilder,GameItem> OnCreateDevTooltipLate static=True const=False val=
+  FIELD System.Action`1<LoadedMod> OnModAssetsLoaded static=True const=False val=
+  FIELD System.Action`1<System.String> OnModConfigApplied static=True const=False val=
+  FIELD System.Action OnLootTablesLoaded static=True const=False val=
+  FIELD System.Action`1<LootRollContext> OnLootRolled static=True const=False val=
+  FIELD System.Action`2<System.String,PaperUI> OnPaperOpened static=True const=False val=
+  FIELD System.Action`1<System.String> OnNetworkUpgradeUnlocked static=True const=False val=
+  FIELD System.Action`1<System.String> OnNewGameStarted static=True const=False val=
+  FIELD System.Action`1<System.String> OnDifficultyApplied static=True const=False val=
+  FIELD System.Action`1<System.String> OnAfterhourArriveEarly static=True const=False val=
+  FIELD System.Action`1<System.String> OnAfterhourArriveLate static=True const=False val=
+  FIELD System.Action`1<System.String> OnAfterhourLeaveEarly static=True const=False val=
+  FIELD System.Action`1<System.String> OnAfterhourLeaveLate static=True const=False val=
+  FIELD System.Action`2<System.String,System.String> OnAfterhourEventStarted static=True const=False val=
+  FIELD System.Action`2<System.String,System.String> OnAfterhourEventEnded static=True const=False val=
+  PROP ModHook Instance
+  METHOD ModHook get_Instance() public=True static=True
+  METHOD Void set_Instance(ModHook value) public=False static=True
+  METHOD Void add_OnModItemDirectoryInit(Action`1 value) public=True static=True
+  METHOD Void remove_OnModItemDirectoryInit(Action`1 value) public=True static=True
+  METHOD Void add_OnGenerateCustomerVeryEarly(Action`1 value) public=True static=True
+  METHOD Void remove_OnGenerateCustomerVeryEarly(Action`1 value) public=True static=True
+  METHOD Void add_OnGenerateCustomerEarly(Action`1 value) public=True static=True
+  METHOD Void remove_OnGenerateCustomerEarly(Action`1 value) public=True static=True
+  METHOD Void add_OnGenerateCustomerNormal(Action`1 value) public=True static=True
+  METHOD Void remove_OnGenerateCustomerNormal(Action`1 value) public=True static=True
+  METHOD Void add_OnGenerateCustomerLate(Action`1 value) public=True static=True
+  METHOD Void remove_OnGenerateCustomerLate(Action`1 value) public=True static=True
+  METHOD Void add_OnGenerateCustomerVeryLate(Action`1 value) public=True static=True
+  METHOD Void remove_OnGenerateCustomerVeryLate(Action`1 value) public=True static=True
+  METHOD Void add_OnGameLoadedInit(Action value) public=True static=True
+  METHOD Void remove_OnGameLoadedInit(Action value) public=True static=True
+  METHOD Void add_OnGameLoadedEarly(Action value) public=True static=True
+  METHOD Void remove_OnGameLoadedEarly(Action value) public=True static=True
+  METHOD Void add_OnGameLoadedNormal(Action value) public=True static=True
+  METHOD Void remove_OnGameLoadedNormal(Action value) public=True static=True
+  METHOD Void add_OnGameLoadedLate(Action value) public=True static=True
+  METHOD Void remove_OnGameLoadedLate(Action value) public=True static=True
+  METHOD Void add_OnShutterOpenedEarly(Action value) public=True static=True
+  METHOD Void remove_OnShutterOpenedEarly(Action value) public=True static=True
+  METHOD Void add_OnShutterOpenedLate(Action value) public=True static=True
+  METHOD Void remove_OnShutterOpenedLate(Action value) public=True static=True
+  METHOD Void add_OnShutterClosedEarly(Action value) public=True static=True
+  METHOD Void remove_OnShutterClosedEarly(Action value) public=True static=True
+  METHOD Void add_OnShutterClosedLate(Action value) public=True static=True
+  METHOD Void remove_OnShutterClosedLate(Action value) public=True static=True
+  METHOD Void add_OnGoingSleepEarly(Action value) public=True static=True
+  METHOD Void remove_OnGoingSleepEarly(Action value) public=True static=True
+  METHOD Void add_OnGoingSleepLate(Action value) public=True static=True
+  METHOD Void remove_OnGoingSleepLate(Action value) public=True static=True
+  METHOD Void add_OnWakingUpEarly(Action value) public=True static=True
+  METHOD Void remove_OnWakingUpEarly(Action value) public=True static=True
+  METHOD Void add_OnWakingUpLate(Action value) public=True static=True
+  METHOD Void remove_OnWakingUpLate(Action value) public=True static=True
+  METHOD Void add_OnLeavingStoreEarly(Action value) public=True static=True
+  METHOD Void remove_OnLeavingStoreEarly(Action value) public=True static=True
+  METHOD Void add_OnLeavingStoreLate(Action value) public=True static=True
+  METHOD Void remove_OnLeavingStoreLate(Action value) public=True static=True
+  METHOD Void add_OnReturningStoreEarly(Action value) public=True static=True
+  METHOD Void remove_OnReturningStoreEarly(Action value) public=True static=True
+  METHOD Void add_OnReturningStoreLate(Action value) public=True static=True
+  METHOD Void remove_OnReturningStoreLate(Action value) public=True static=True
+  METHOD Void add_OnHandlingNightlyServicesEarly(Action value) public=True static=True
+  METHOD Void remove_OnHandlingNightlyServicesEarly(Action value) public=True static=True
+  METHOD Void add_OnHandlingNightlyServicesLate(Action value) public=True static=True
+  METHOD Void remove_OnHandlingNightlyServicesLate(Action value) public=True static=True
+  METHOD Void add_OnPlaceInventorInventoryItemEarly(Action`1 value) public=True static=True
+  METHOD Void remove_OnPlaceInventorInventoryItemEarly(Action`1 value) public=True static=True
+  METHOD Void add_OnPlaceInventorInventoryItemLate(Action`1 value) public=True static=True
+  METHOD Void remove_OnPlaceInventorInventoryItemLate(Action`1 value) public=True static=True
+  METHOD Void add_OnCreateTooltipEarly(Action`2 value) public=True static=True
+  METHOD Void remove_OnCreateTooltipEarly(Action`2 value) public=True static=True
+  METHOD Void add_OnCreateTooltipLate(Action`2 value) public=True static=True
+  METHOD Void remove_OnCreateTooltipLate(Action`2 value) public=True static=True
+  METHOD Void add_OnCreateDevTooltipEarly(Action`2 value) public=True static=True
+  METHOD Void remove_OnCreateDevTooltipEarly(Action`2 value) public=True static=True
+  METHOD Void add_OnCreateDevTooltipLate(Action`2 value) public=True static=True
+  METHOD Void remove_OnCreateDevTooltipLate(Action`2 value) public=True static=True
+  METHOD Void add_OnModAssetsLoaded(Action`1 value) public=True static=True
+  METHOD Void remove_OnModAssetsLoaded(Action`1 value) public=True static=True
+  METHOD Void add_OnModConfigApplied(Action`1 value) public=True static=True
+  METHOD Void remove_OnModConfigApplied(Action`1 value) public=True static=True
+  METHOD Void add_OnLootTablesLoaded(Action value) public=True static=True
+  METHOD Void remove_OnLootTablesLoaded(Action value) public=True static=True
+  METHOD Void add_OnLootRolled(Action`1 value) public=True static=True
+  METHOD Void remove_OnLootRolled(Action`1 value) public=True static=True
+  METHOD Void add_OnPaperOpened(Action`2 value) public=True static=True
+  METHOD Void remove_OnPaperOpened(Action`2 value) public=True static=True
+  METHOD Void add_OnNetworkUpgradeUnlocked(Action`1 value) public=True static=True
+  METHOD Void remove_OnNetworkUpgradeUnlocked(Action`1 value) public=True static=True
+  METHOD Void add_OnNewGameStarted(Action`1 value) public=True static=True
+  METHOD Void remove_OnNewGameStarted(Action`1 value) public=True static=True
+  METHOD Void add_OnDifficultyApplied(Action`1 value) public=True static=True
+  METHOD Void remove_OnDifficultyApplied(Action`1 value) public=True static=True
+  METHOD Void add_OnAfterhourArriveEarly(Action`1 value) public=True static=True
+  METHOD Void remove_OnAfterhourArriveEarly(Action`1 value) public=True static=True
+  METHOD Void add_OnAfterhourArriveLate(Action`1 value) public=True static=True
+  METHOD Void remove_OnAfterhourArriveLate(Action`1 value) public=True static=True
+  METHOD Void add_OnAfterhourLeaveEarly(Action`1 value) public=True static=True
+  METHOD Void remove_OnAfterhourLeaveEarly(Action`1 value) public=True static=True
+  METHOD Void add_OnAfterhourLeaveLate(Action`1 value) public=True static=True
+  METHOD Void remove_OnAfterhourLeaveLate(Action`1 value) public=True static=True
+  METHOD Void add_OnAfterhourEventStarted(Action`2 value) public=True static=True
+  METHOD Void remove_OnAfterhourEventStarted(Action`2 value) public=True static=True
+  METHOD Void add_OnAfterhourEventEnded(Action`2 value) public=True static=True
+  METHOD Void remove_OnAfterhourEventEnded(Action`2 value) public=True static=True
+  METHOD Void Awake() public=False static=False
+  METHOD Int32 RemoveHandlersOf(ICollection`1 assemblies) public=False static=True
+  METHOD Void SafeInvoke(String hookName, Action handlers) public=False static=True
+  METHOD Void SafeInvoke(String hookName, Action`1 handlers, T arg) public=False static=True
+  METHOD Void SafeInvoke(String hookName, Action`2 handlers, T1 arg1, T2 arg2) public=False static=True
+  METHOD Void SafeInvokeGenerateCustomer(String hookName, Action`1 handlers, StoreClientManager manager) public=False static=True
+  METHOD Void LogHandlerError(String hookName, Delegate handler, Exception e) public=False static=True
+  METHOD Void FireOnModItemDirectoryInit(ModItemDirectory directory) public=False static=True
+  METHOD Void FireOnGenerateCustomerVeryEarly(StoreClientManager manager) public=False static=True
+  METHOD Void FireOnGenerateCustomerEarly(StoreClientManager manager) public=False static=True
+  METHOD Void FireOnGenerateCustomerNormal(StoreClientManager manager) public=False static=True
+  METHOD Void FireOnGenerateCustomerLate(StoreClientManager manager) public=False static=True
+  METHOD Void FireOnGenerateCustomerVeryLate(StoreClientManager manager) public=False static=True
+  METHOD Void FireOnGameLoadedInit() public=False static=True
+  METHOD Void FireOnGameLoadedEarly() public=False static=True
+  METHOD Void FireOnGameLoadedNormal() public=False static=True
+  METHOD Void FireOnGameLoadedLate() public=False static=True
+  METHOD Void FireOnShutterOpenedEarly() public=False static=True
+  METHOD Void FireOnShutterOpenedLate() public=False static=True
+  METHOD Void FireOnShutterClosedEarly() public=False static=True
+  METHOD Void FireOnShutterClosedLate() public=False static=True
+  METHOD Void FireOnGoingSleepEarly() public=False static=True
+  METHOD Void FireOnGoingSleepLate() public=False static=True
+  METHOD Void FireOnWakingUpEarly() public=False static=True
+  METHOD Void FireOnWakingUpLate() public=False static=True
+  METHOD Void FireOnLeavingStoreEarly() public=False static=True
+  METHOD Void FireOnLeavingStoreLate() public=False static=True
+  METHOD Void FireOnReturningStoreEarly() public=False static=True
+  METHOD Void FireOnReturningStoreLate() public=False static=True
+  METHOD Void FireOnHandlingNightlyServicesEarly() public=False static=True
+  METHOD Void FireOnHandlingNightlyServicesLate() public=False static=True
+  METHOD Void FireOnPlaceInventorInventoryItemEarly(List`1 items) public=False static=True
+  METHOD Void FireOnPlaceInventorInventoryItemLate(List`1 items) public=False static=True
+  METHOD Void FireOnCreateTooltipEarly(RichTextBuilder builder, GameItem item) public=False static=True
+  METHOD Void FireOnCreateTooltipLate(RichTextBuilder builder, GameItem item) public=False static=True
+  METHOD Void FireOnCreateDevTooltipEarly(RichTextBuilder builder, GameItem item) public=False static=True
+  METHOD Void FireOnCreateDevTooltipLate(RichTextBuilder builder, GameItem item) public=False static=True
+  METHOD Void FireOnModAssetsLoaded(LoadedMod mod) public=False static=True
+  METHOD Void FireOnModConfigApplied(String modId) public=False static=True
+  METHOD Void FireOnLootTablesLoaded() public=False static=True
+  METHOD Void FireOnLootRolled(LootRollContext context) public=False static=True
+  METHOD Void FireOnPaperOpened(String bookId, PaperUI ui) public=False static=True
+  METHOD Void FireOnNetworkUpgradeUnlocked(String upgradeId) public=False static=True
+  METHOD Void FireOnNewGameStarted(String scenarioId) public=False static=True
+  METHOD Void FireOnDifficultyApplied(String difficultyId) public=False static=True
+  METHOD Void FireOnAfterhourArriveEarly(String locationId) public=False static=True
+  METHOD Void FireOnAfterhourArriveLate(String locationId) public=False static=True
+  METHOD Void FireOnAfterhourLeaveEarly(String locationId) public=False static=True
+  METHOD Void FireOnAfterhourLeaveLate(String locationId) public=False static=True
+  METHOD Void FireOnAfterhourEventStarted(String locationId, String eventId) public=False static=True
+  METHOD Void FireOnAfterhourEventEnded(String locationId, String eventId) public=False static=True
+  METHOD Void .ctor() public=True static=False
+### TYPE ModReflect  base=System.Object  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, Abstract, Sealed, BeforeFieldInit
+  FIELD System.Reflection.BindingFlags Declared static=True const=True val=62
+  FIELD System.Collections.Generic.Dictionary`2<System.Type,System.Collections.Generic.Dictionary`2<System.String,System.Reflection.MemberInfo>> valueMembers static=True const=False val=
+  FIELD System.Collections.Generic.Dictionary`2<System.Type,System.Collections.Generic.Dictionary`2<System.String,System.Reflection.MethodInfo>> methodsBySignature static=True const=False val=
+  FIELD System.Collections.Generic.HashSet`1<System.String> logged static=True const=False val=
+  METHOD Type FindType(String fullName) public=True static=True
+  METHOD IEnumerable`1 Types(String modId) public=True static=True
+  METHOD Boolean Has(Object target, String member) public=True static=True
+  METHOD Object Get(Object target, String member) public=True static=True
+  METHOD T Get(Object target, String member) public=True static=True
+  METHOD Object GetStatic(Type type, String member) public=True static=True
+  METHOD T GetStatic(Type type, String member) public=True static=True
+  METHOD T GetStatic(String typeName, String member) public=True static=True
+  METHOD Void Set(Object target, String member, Object value) public=True static=True
+  METHOD Void SetStatic(Type type, String member, Object value) public=True static=True
+  METHOD Void SetStatic(String typeName, String member, Object value) public=True static=True
+  METHOD Object Call(Object target, String method, Object[] args) public=True static=True
+  METHOD Object Call(Object target, String method, Type[] signature, Object[] args) public=True static=True
+  METHOD Object CallStatic(Type type, String method, Object[] args) public=True static=True
+  METHOD Object CallStatic(Type type, String method, Type[] signature, Object[] args) public=True static=True
+  METHOD Object CallStatic(String typeName, String method, Object[] args) public=True static=True
+  METHOD Object New(Type type, Object[] args) public=True static=True
+  METHOD Object New(String typeName, Object[] args) public=True static=True
+  METHOD TDelegate Method(Object target, String method) public=True static=True
+  METHOD TDelegate StaticMethod(Type type, String method) public=True static=True
+  METHOD TDelegate StaticMethod(String typeName, String method) public=True static=True
+  METHOD MethodBase Target(Type type, String method, Type[] signature) public=True static=True
+  METHOD MethodBase Target(String typeName, String method, Type[] signature) public=True static=True
+  METHOD Object ReadMember(Type type, Object instance, String member) public=False static=True
+  METHOD Void WriteMember(Type type, Object instance, String member, Object value) public=False static=True
+  METHOD MemberInfo FindValueMember(Type type, String member) public=False static=True
+  METHOD Object Invoke(Type type, Object instance, String method, Type[] signature, Object[] args) public=False static=True
+  METHOD MethodInfo FindBySignature(Type type, String method, Type[] signature, Boolean isStatic, String caller) public=False static=True
+  METHOD IEnumerable`1 MethodsNamed(Type type, String method) public=False static=True
+  METHOD MethodBase ChooseOverload(MethodBase[] candidates, Object[] args, String what) public=False static=True
+  METHOD Boolean ArgumentsMatch(ParameterInfo[] parameters, Object[] args, Boolean exact) public=False static=True
+  METHOD Boolean ParametersMatch(ParameterInfo[] parameters, Type[] signature) public=False static=True
+  METHOD Type[] DelegateParameters() public=False static=True
+  METHOD Type RequireType(String typeName) public=False static=True
+  METHOD T Convert(Object value, String member) public=False static=True
+  METHOD ModReflectAccessException Missing(Type type, String member) public=False static=True
+  METHOD Object Unwrap(Func`1 invoke) public=False static=True
+  METHOD Void Require(Type declaring, String caller, String what) public=False static=True
+  METHOD Boolean InScope(Type type, String caller, String& why) public=False static=True
+  METHOD Boolean IsGameAssembly(Assembly assembly) public=False static=True
+  METHOD Boolean IsAllowedEngineType(Type type) public=False static=True
+  METHOD Boolean IsRunningPrerequisite(String caller, String modId) public=False static=True
+  METHOD IEnumerable`1 GameAssemblies() public=False static=True
+  METHOD IEnumerable`1 ScopeAssemblies(String caller) public=False static=True
+  METHOD List`1 ModAssemblies(LoadedMod mod) public=False static=True
+  METHOD IEnumerable`1 LoadableTypes(Assembly assembly) public=False static=True
+  METHOD String Describe() public=True static=True
+  METHOD Void .cctor() public=False static=True
+  NESTED ModReflect/<>c__DisplayClass5_0
+  NESTED ModReflect/<>c__DisplayClass20_0
+  NESTED ModReflect/<>c__DisplayClass25_0
+  NESTED ModReflect/<>c
+  NESTED ModReflect/<>c__DisplayClass27_0
+  NESTED ModReflect/<>c__DisplayClass28_0
+  NESTED ModReflect/<>c__DisplayClass29_0
+  NESTED ModReflect/<>c__DisplayClass30_0
+  NESTED ModReflect/<>c__DisplayClass31_0
+  NESTED ModReflect/<MethodsNamed>d__32
+  NESTED ModReflect/<>c__DisplayClass33_0
+  NESTED ModReflect/<>c__36`1
+  NESTED ModReflect/<>c__DisplayClass42_0
+  NESTED ModReflect/<>c__DisplayClass44_0
+  NESTED ModReflect/<>c__DisplayClass45_0
+  NESTED ModReflect/<>c__DisplayClass47_0
+  NESTED ModReflect/<>c__DisplayClass47_1
+  NESTED ModReflect/<ScopeAssemblies>d__47
+### TYPE ModItemDirectory  base=ItemDirectory  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, BeforeFieldInit
+  METHOD Void InitDirectory() public=False static=False
+  METHOD Void .ctor() public=True static=False

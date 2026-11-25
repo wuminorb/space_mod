@@ -1,0 +1,46 @@
+﻿=== GameGridInventory GameGridInventory::SetShape(System.Int32,System.Int32)  static=False
+  IL_0   ldarg.0      
+  IL_1   ldarg.1      
+  IL_2   ldarg.2      
+  IL_3   newobj       GridShapeBuilder::.ctor
+  IL_8   ldc.i4.0     
+  IL_9   call         GridShapeBuilder::SetDataFill
+  IL_14  ldc.i4.1     
+  IL_15  callvirt     GridShapeBuilder::SetDataOutside
+  IL_20  callvirt     GridShapeBuilder::Build
+  IL_25  call         GameGridInventory::set_inventoryShape
+  IL_30  ldarg.0      
+  IL_31  callvirt     GameInventory::Validate
+  IL_36  ldarg.0      
+  IL_37  ret          
+=== GameGridInventory GameGridInventory::SetShape(System.String,System.Int32)  static=False
+  IL_0   ldarg.0      
+  IL_1   newobj       GridShapeBuilder::.ctor
+  IL_6   ldarg.1      
+  IL_7   ldarg.2      
+  IL_8   call         GridShapeBuilder::SetData
+  IL_13  ldc.i4.1     
+  IL_14  callvirt     GridShapeBuilder::SetDataOutside
+  IL_19  callvirt     GridShapeBuilder::Build
+  IL_24  call         GameGridInventory::set_inventoryShape
+  IL_29  ldarg.0      
+  IL_30  ldc.i4.1     
+  IL_31  stfld        GameGridInventory::renderDynamicBackground
+  IL_36  ldarg.0      
+  IL_37  call         GameGridInventory::ForceRecomputeDynamicBackground
+  IL_42  ldarg.0      
+  IL_43  callvirt     GameInventory::Validate
+  IL_48  ldarg.0      
+  IL_49  ret          
+=== System.Void GameGridInventory::ResizePixels(System.Int32,System.Int32)  static=False
+  IL_0   ret          
+=== System.Int32 PixelWindow::WidthPixelsClamp(System.Int32)  static=False
+  IL_0   newobj       NotImplementedException::.ctor
+  IL_5   throw        
+=== System.Int32 PixelWindow::HeightPixelsClamp(System.Int32)  static=False
+  IL_0   newobj       NotImplementedException::.ctor
+  IL_5   throw        
+=== System.Int32 GameGridInventory::WidthPixelsClamp(System.Int32)  static=False
+  IL_0   ldarg.0      
+  IL_1   call         GameGridInventory::get_widthPixels
+  IL_6   ret          

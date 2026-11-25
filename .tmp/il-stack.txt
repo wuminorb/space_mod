@@ -1,0 +1,1284 @@
+﻿=== PixelElement MachineHelper::WrapInIntake(PixelElement,System.Boolean)  static=True
+  IL_0   ldarg.0      
+  IL_1   isinst       GameInventory
+  IL_6   brtrue.s     IL_0010: ldarg.0
+  IL_8   ldarg.0      
+  IL_9   isinst       GridPixelElement
+  IL_14  brfalse.s    IL_0019: ldarg.0
+  IL_16  ldarg.0      
+  IL_17  ldc.i4.1     
+  IL_18  ldarg.1      
+  IL_19  newobj       MachineryIntake::.ctor
+  IL_24  ret          
+  IL_25  ldarg.0      
+  IL_26  ret          
+=== MachineryStack MachineryStack::Add(PixelElement)  static=False
+  IL_0   ldarg.0      
+  IL_1   ldarg.1      
+  IL_2   call         MachineryStack::Attach
+  IL_7   pop          
+  IL_8   ldarg.0      
+  IL_9   ret          
+=== MachineryStack MachineryStack::Vertical(PixelElement[])  static=True
+  local MachineryStack V_0
+  local PixelElement[] V_1
+  local Int32 V_2
+  local PixelElement V_3
+  IL_0   ldc.i4.1     
+  IL_1   ldc.i4.4     
+  IL_2   newobj       MachineryStack::.ctor
+  IL_7   stloc.0      
+  IL_8   ldarg.0      
+  IL_9   stloc.1      
+  IL_10  ldc.i4.0     
+  IL_11  stloc.2      
+  IL_12  br.s         IL_001e: ldloc.2
+  IL_14  ldloc.1      
+  IL_15  ldloc.2      
+  IL_16  ldelem.ref   
+  IL_17  stloc.3      
+  IL_18  ldloc.0      
+  IL_19  ldloc.3      
+  IL_20  callvirt     MachineryStack::Add
+  IL_25  pop          
+  IL_26  ldloc.2      
+  IL_27  ldc.i4.1     
+  IL_28  add          
+  IL_29  stloc.2      
+  IL_30  ldloc.2      
+  IL_31  ldloc.1      
+  IL_32  ldlen        
+  IL_33  conv.i4      
+  IL_34  blt.s        IL_000e: ldloc.1
+  IL_36  ldloc.0      
+  IL_37  ret          
+=== System.Void MachineryStack::Validate()  static=False
+  local List`1 V_0
+  local Int32 V_1
+  local Int32 V_2
+  local Int32 V_3
+  local Int32 V_4
+  local Int32 V_5
+  local Int32 V_6
+  local PixelElement V_7
+  local Int32 V_8
+  local Int32 V_9
+  local Enumerator V_10
+  local PixelElement V_11
+  local PixelElement V_12
+  local MachineryWidget V_13
+  local Int32 V_14
+  local Int32 V_15
+  local PixelElement V_16
+  local Int32 V_17
+  local Int32 V_18
+  local Int32 V_19
+  IL_0   ldarg.0      
+  IL_1   ldfld        MachineryStack::validateLock
+  IL_6   brfalse.s    IL_0009: ldarg.0
+  IL_8   ret          
+  IL_9   ldarg.0      
+  IL_10  ldc.i4.1     
+  IL_11  stfld        MachineryStack::validateLock
+  IL_16  ldarg.0      
+  IL_17  ldfld        MachineryStack::children
+  IL_22  ldsfld       <>c::<>9__47_0
+  IL_27  dup          
+  IL_28  brtrue.s     IL_0035: callvirt System.Collections.Generic.List`1<!0> System.Collections.Generic.List`1<PixelElement>::FindAll(System.Predicate`1<!0>)
+  IL_30  pop          
+  IL_31  ldsfld       <>c::<>9
+  IL_36  ldftn        <>c::<Validate>b__47_0
+  IL_42  newobj       Predicate`1::.ctor
+  IL_47  dup          
+  IL_48  stsfld       <>c::<>9__47_0
+  IL_53  callvirt     List`1::FindAll
+  IL_58  stloc.0      
+  IL_59  ldloc.0      
+  IL_60  callvirt     List`1::GetEnumerator
+  IL_65  stloc.s      V_10
+  IL_67  br.s         IL_0051: ldloca.s V_10
+  IL_69  ldloca.s     V_10
+  IL_71  call         Enumerator::get_Current
+  IL_76  call         MachineryContainerUtils::Refresh
+  IL_81  ldloca.s     V_10
+  IL_83  call         Enumerator::MoveNext
+  IL_88  brtrue.s     IL_0045: ldloca.s V_10
+  IL_90  leave.s      IL_006a: ldc.i4.0
+  IL_92  ldloca.s     V_10
+  IL_94  constrained. System.Collections.Generic.List`1/Enumerator<PixelElement>
+  IL_100 callvirt     IDisposable::Dispose
+  IL_105 endfinally   
+  IL_106 ldc.i4.0     
+  IL_107 stloc.1      
+  IL_108 ldc.i4.0     
+  IL_109 stloc.2      
+  IL_110 ldloc.0      
+  IL_111 callvirt     List`1::GetEnumerator
+  IL_116 stloc.s      V_10
+  IL_118 br.s         IL_00bb: ldloca.s V_10
+  IL_120 ldloca.s     V_10
+  IL_122 call         Enumerator::get_Current
+  IL_127 stloc.s      V_11
+  IL_129 ldloc.1      
+  IL_130 ldarg.0      
+  IL_131 ldfld        MachineryStack::vertical
+  IL_136 brtrue.s     IL_0093: ldloc.s V_11
+  IL_138 ldloc.s      V_11
+  IL_140 callvirt     PixelElement::get_widthPixels
+  IL_145 br.s         IL_009a: add
+  IL_147 ldloc.s      V_11
+  IL_149 callvirt     PixelElement::get_heightPixels
+  IL_154 add          
+  IL_155 stloc.1      
+  IL_156 ldloc.2      
+  IL_157 ldarg.0      
+  IL_158 ldfld        MachineryStack::vertical
+  IL_163 brtrue.s     IL_00ae: ldloc.s V_11
+  IL_165 ldloc.s      V_11
+  IL_167 callvirt     PixelElement::get_heightPixels
+  IL_172 br.s         IL_00b5: call System.Int32 UnityEngine.Mathf::Max(System.Int32,System.Int32)
+  IL_174 ldloc.s      V_11
+  IL_176 callvirt     PixelElement::get_widthPixels
+  IL_181 call         Mathf::Max
+  IL_186 stloc.2      
+  IL_187 ldloca.s     V_10
+  IL_189 call         Enumerator::MoveNext
+  IL_194 brtrue.s     IL_0078: ldloca.s V_10
+  IL_196 leave.s      IL_00d4: ldloc.0
+  IL_198 ldloca.s     V_10
+  IL_200 constrained. System.Collections.Generic.List`1/Enumerator<PixelElement>
+  IL_206 callvirt     IDisposable::Dispose
+  IL_211 endfinally   
+  IL_212 ldloc.0      
+  IL_213 callvirt     List`1::get_Count
+  IL_218 ldc.i4.1     
+  IL_219 ble.s        IL_00ef: ldarg.0
+  IL_221 ldloc.1      
+  IL_222 ldarg.0      
+  IL_223 ldfld        MachineryStack::gap
+  IL_228 ldloc.0      
+  IL_229 callvirt     List`1::get_Count
+  IL_234 ldc.i4.1     
+  IL_235 sub          
+  IL_236 mul          
+  IL_237 add          
+  IL_238 stloc.1      
+  IL_239 ldarg.0      
+  IL_240 ldfld        MachineryStack::vertical
+  IL_245 brtrue.s     IL_00ff: ldarg.0
+  IL_247 ldarg.0      
+  IL_248 ldfld        MachineryStack::requestedWidth
+  IL_253 br.s         IL_0105: stloc.3
+  IL_255 ldarg.0      
+  IL_256 ldfld        MachineryStack::requestedHeight
+  IL_261 stloc.3      
+  IL_262 ldarg.0      
+  IL_263 ldfld        MachineryStack::vertical
+  IL_268 brtrue.s     IL_0116: ldarg.0
+  IL_270 ldarg.0      
+  IL_271 ldfld        MachineryStack::requestedHeight
+  IL_276 br.s         IL_011c: stloc.s V_4
+  IL_278 ldarg.0      
+  IL_279 ldfld        MachineryStack::requestedWidth
+  IL_284 stloc.s      V_4
+  IL_286 ldloc.1      
+  IL_287 ldloc.3      
+  IL_288 call         Mathf::Max
+  IL_293 stloc.s      V_5
+  IL_295 ldloc.2      
+  IL_296 ldloc.s      V_4
+  IL_298 call         Mathf::Max
+  IL_303 stloc.s      V_6
+  IL_305 ldarg.0      
+  IL_306 call         MachineryStack::StretchTarget
+  IL_311 stloc.s      V_7
+  IL_313 ldloc.s      V_5
+  IL_315 ldloc.1      
+  IL_316 sub          
+  IL_317 stloc.s      V_8
+  IL_319 ldloc.0      
+  IL_320 callvirt     List`1::GetEnumerator
+  IL_325 stloc.s      V_10
+  IL_327 br           IL_01ef: ldloca.s V_10
+  IL_332 ldloca.s     V_10
+  IL_334 call         Enumerator::get_Current
+  IL_339 stloc.s      V_12
+  IL_341 ldloc.s      V_12
+  IL_343 isinst       MachineryContainer
+  IL_348 brtrue.s     IL_017f: ldc.i4.1
+  IL_350 ldloc.s      V_12
+  IL_352 isinst       MachineryWidget
+  IL_357 stloc.s      V_13
+  IL_359 ldloc.s      V_13
+  IL_361 brfalse.s    IL_017c: ldc.i4.0
+  IL_363 ldloc.s      V_13
+  IL_365 callvirt     MachineryWidget::get_fillWidth
+  IL_370 brfalse.s    IL_017c: ldc.i4.0
+  IL_372 ldarg.0      
+  IL_373 ldfld        MachineryStack::vertical
+  IL_378 br.s         IL_0180: ldarg.0
+  IL_380 ldc.i4.0     
+  IL_381 br.s         IL_0180: ldarg.0
+  IL_383 ldc.i4.1     
+  IL_384 ldarg.0      
+  IL_385 ldfld        MachineryStack::vertical
+  IL_390 brtrue.s     IL_0191: ldloc.s V_12
+  IL_392 ldloc.s      V_12
+  IL_394 callvirt     PixelElement::get_widthPixels
+  IL_399 br.s         IL_0198: ldloc.s V_12
+  IL_401 ldloc.s      V_12
+  IL_403 callvirt     PixelElement::get_heightPixels
+  IL_408 ldloc.s      V_12
+  IL_410 ldloc.s      V_7
+  IL_412 beq.s        IL_01a1: ldloc.s V_8
+  IL_414 ldc.i4.0     
+  IL_415 br.s         IL_01a3: add
+  IL_417 ldloc.s      V_8
+  IL_419 add          
+  IL_420 stloc.s      V_14
+  IL_422 dup          
+  IL_423 brtrue.s     IL_01c3: ldloc.s V_6
+  IL_425 ldarg.0      
+  IL_426 ldfld        MachineryStack::vertical
+  IL_431 brtrue.s     IL_01ba: ldloc.s V_12
+  IL_433 ldloc.s      V_12
+  IL_435 callvirt     PixelElement::get_heightPixels
+  IL_440 br.s         IL_01c5: stloc.s V_15
+  IL_442 ldloc.s      V_12
+  IL_444 callvirt     PixelElement::get_widthPixels
+  IL_449 br.s         IL_01c5: stloc.s V_15
+  IL_451 ldloc.s      V_6
+  IL_453 stloc.s      V_15
+  IL_455 brtrue.s     IL_01cf: ldarg.0
+  IL_457 ldloc.s      V_12
+  IL_459 ldloc.s      V_7
+  IL_461 bne.un.s     IL_01ef: ldloca.s V_10
+  IL_463 ldarg.0      
+  IL_464 ldfld        MachineryStack::vertical
+  IL_469 brfalse.s    IL_01e4: ldloc.s V_12
+  IL_471 ldloc.s      V_12
+  IL_473 ldloc.s      V_15
+  IL_475 ldloc.s      V_14
+  IL_477 call         MachineryContainerUtils::TryResize
+  IL_482 br.s         IL_01ef: ldloca.s V_10
+  IL_484 ldloc.s      V_12
+  IL_486 ldloc.s      V_14
+  IL_488 ldloc.s      V_15
+  IL_490 call         MachineryContainerUtils::TryResize
+  IL_495 ldloca.s     V_10
+  IL_497 call         Enumerator::MoveNext
+  IL_502 brtrue       IL_014c: ldloca.s V_10
+  IL_507 leave.s      IL_020b: ldc.i4.0
+  IL_509 ldloca.s     V_10
+  IL_511 constrained. System.Collections.Generic.List`1/Enumerator<PixelElement>
+  IL_517 callvirt     IDisposable::Dispose
+  IL_522 endfinally   
+  IL_523 ldc.i4.0     
+  IL_524 stloc.s      V_9
+  IL_526 ldloc.s      V_7
+  IL_528 brtrue.s     IL_0236: ldloc.0
+  IL_530 ldloc.s      V_8
+  IL_532 ldc.i4.0     
+  IL_533 ble.s        IL_0236: ldloc.0
+  IL_535 ldarg.0      
+  IL_536 ldfld        MachineryStack::mainAlign
+  IL_541 ldc.i4.1     
+  IL_542 beq.s        IL_0230: ldloc.s V_8
+  IL_544 ldarg.0      
+  IL_545 ldfld        MachineryStack::mainAlign
+  IL_550 ldc.i4.2     
+  IL_551 beq.s        IL_022c: ldloc.s V_8
+  IL_553 ldc.i4.0     
+  IL_554 br.s         IL_0234: stloc.s V_9
+  IL_556 ldloc.s      V_8
+  IL_558 br.s         IL_0234: stloc.s V_9
+  IL_560 ldloc.s      V_8
+  IL_562 ldc.i4.2     
+  IL_563 div          
+  IL_564 stloc.s      V_9
+  IL_566 ldloc.0      
+  IL_567 callvirt     List`1::GetEnumerator
+  IL_572 stloc.s      V_10
+  IL_574 br           IL_02e5: ldloca.s V_10
+  IL_579 ldloca.s     V_10
+  IL_581 call         Enumerator::get_Current
+  IL_586 stloc.s      V_16
+  IL_588 ldarg.0      
+  IL_589 ldfld        MachineryStack::vertical
+  IL_594 brtrue.s     IL_025d: ldloc.s V_16
+  IL_596 ldloc.s      V_16
+  IL_598 callvirt     PixelElement::get_widthPixels
+  IL_603 br.s         IL_0264: stloc.s V_17
+  IL_605 ldloc.s      V_16
+  IL_607 callvirt     PixelElement::get_heightPixels
+  IL_612 stloc.s      V_17
+  IL_614 ldarg.0      
+  IL_615 ldfld        MachineryStack::vertical
+  IL_620 brtrue.s     IL_0277: ldloc.s V_16
+  IL_622 ldloc.s      V_16
+  IL_624 callvirt     PixelElement::get_heightPixels
+  IL_629 br.s         IL_027e: stloc.s V_18
+  IL_631 ldloc.s      V_16
+  IL_633 callvirt     PixelElement::get_widthPixels
+  IL_638 stloc.s      V_18
+  IL_640 ldarg.0      
+  IL_641 ldfld        MachineryStack::align
+  IL_646 brfalse.s    IL_02a1: ldc.i4.0
+  IL_648 ldarg.0      
+  IL_649 ldfld        MachineryStack::align
+  IL_654 ldc.i4.2     
+  IL_655 beq.s        IL_029a: ldloc.s V_6
+  IL_657 ldloc.s      V_6
+  IL_659 ldloc.s      V_18
+  IL_661 sub          
+  IL_662 ldc.i4.2     
+  IL_663 div          
+  IL_664 br.s         IL_02a2: stloc.s V_19
+  IL_666 ldloc.s      V_6
+  IL_668 ldloc.s      V_18
+  IL_670 sub          
+  IL_671 br.s         IL_02a2: stloc.s V_19
+  IL_673 ldc.i4.0     
+  IL_674 stloc.s      V_19
+  IL_676 ldloc.s      V_16
+  IL_678 callvirt     PixelElement::get_handler
+  IL_683 callvirt     TreeNodeRender::get_rectTransform
+  IL_688 ldarg.0      
+  IL_689 ldfld        MachineryStack::vertical
+  IL_694 brtrue.s     IL_02c6: ldloc.s V_19
+  IL_696 ldloc.s      V_9
+  IL_698 conv.r4      
+  IL_699 ldloc.s      V_19
+  IL_701 neg          
+  IL_702 conv.r4      
+  IL_703 newobj       Vector2::.ctor
+  IL_708 br.s         IL_02d2: callvirt System.Void UnityEngine.RectTransform::set_anchoredPosition(UnityEngine.Vector2)
+  IL_710 ldloc.s      V_19
+  IL_712 conv.r4      
+  IL_713 ldloc.s      V_9
+  IL_715 neg          
+  IL_716 conv.r4      
+  IL_717 newobj       Vector2::.ctor
+  IL_722 callvirt     RectTransform::set_anchoredPosition
+  IL_727 ldloc.s      V_9
+  IL_729 ldloc.s      V_17
+  IL_731 ldarg.0      
+  IL_732 ldfld        MachineryStack::gap
+  IL_737 add          
+  IL_738 add          
+  IL_739 stloc.s      V_9
+  IL_741 ldloca.s     V_10
+  IL_743 call         Enumerator::MoveNext
+  IL_748 brtrue       IL_0243: ldloca.s V_10
+  IL_753 leave.s      IL_0301: ldarg.0
+  IL_755 ldloca.s     V_10
+  IL_757 constrained. System.Collections.Generic.List`1/Enumerator<PixelElement>
+  IL_763 callvirt     IDisposable::Dispose
+  IL_768 endfinally   
+  IL_769 ldarg.0      
+  IL_770 ldarg.0      
+  IL_771 ldfld        MachineryStack::vertical
+  IL_776 brtrue.s     IL_030e: ldloc.s V_6
+  IL_778 ldloc.s      V_5
+  IL_780 br.s         IL_0310: call System.Void MachineryStack::set_widthPixels(System.Int32)
+  IL_782 ldloc.s      V_6
+  IL_784 call         MachineryStack::set_widthPixels
+  IL_789 ldarg.0      
+  IL_790 ldarg.0      
+  IL_791 ldfld        MachineryStack::vertical
+  IL_796 brtrue.s     IL_0322: ldloc.s V_5
+  IL_798 ldloc.s      V_6
+  IL_800 br.s         IL_0324: call System.Void MachineryStack::set_heightPixels(System.Int32)
+  IL_802 ldloc.s      V_5
+  IL_804 call         MachineryStack::set_heightPixels
+  IL_809 ldarg.0      
+  IL_810 call         MachineryStack::get_inner
+  IL_815 ldc.i4.0     
+  IL_816 ldc.i4.0     
+  IL_817 ldarg.0      
+  IL_818 call         MachineryStack::get_widthPixels
+  IL_823 ldarg.0      
+  IL_824 call         MachineryStack::get_heightPixels
+  IL_829 call         MachineryStyle::Place
+  IL_834 ldarg.0      
+  IL_835 ldc.i4.0     
+  IL_836 stfld        MachineryStack::validateLock
+  IL_841 ret          
+=== System.Void MachineryPanel::.ctor(System.String,PixelElement,System.String)  static=False
+  IL_0   ldarg.0      
+  IL_1   call         Object::.ctor
+  IL_6   ldarg.0      
+  IL_7   ldarg.3      
+  IL_8   stfld        MachineryPanel::role
+  IL_13  ldarg.0      
+  IL_14  ldarg.0      
+  IL_15  ldstr        'MachineryPanel'
+  IL_20  ldarg.3      
+  IL_21  brtrue.s     IL_001e: ldstr " ("
+  IL_23  ldstr        ''
+  IL_28  br.s         IL_002e: call System.String System.String::Concat(System.String,System.String)
+  IL_30  ldstr        ' ('
+  IL_35  ldarg.3      
+  IL_36  ldstr        ')'
+  IL_41  call         String::Concat
+  IL_46  call         String::Concat
+  IL_51  call         TreeNodeRender::Instantiate
+  IL_56  call         MachineryPanel::set_handler
+  IL_61  ldarg.0      
+  IL_62  call         TreeNodeRender::Instantiate
+  IL_67  ldarg.0      
+  IL_68  call         MachineryPanel::get_handler
+  IL_73  callvirt     TreeNodeRender::SetParent
+  IL_78  stfld        MachineryPanel::plate
+  IL_83  ldarg.0      
+  IL_84  call         TreeNodeRender::Instantiate
+  IL_89  ldarg.0      
+  IL_90  call         MachineryPanel::get_handler
+  IL_95  callvirt     TreeNodeRender::SetParent
+  IL_100 stfld        MachineryPanel::labelHost
+  IL_105 ldarg.0      
+  IL_106 call         TreeNodeRender::Instantiate
+  IL_111 ldarg.0      
+  IL_112 call         MachineryPanel::get_handler
+  IL_117 callvirt     TreeNodeRender::SetParent
+  IL_122 call         MachineryPanel::set_inner
+  IL_127 ldarg.0      
+  IL_128 ldfld        MachineryPanel::plate
+  IL_133 call         MachineryStyle::get_BevelFrame
+  IL_138 call         MachineryStyle::SetSliced
+  IL_143 ldarg.0      
+  IL_144 ldfld        MachineryPanel::plate
+  IL_149 callvirt     TreeNodeRender::get_image
+  IL_154 ldc.i4.0     
+  IL_155 callvirt     Graphic::set_raycastTarget
+  IL_160 ldarg.0      
+  IL_161 ldfld        MachineryPanel::labelHost
+  IL_166 callvirt     TreeNodeRender::get_image
+  IL_171 ldc.i4.0     
+  IL_172 callvirt     Behaviour::set_enabled
+  IL_177 ldarg.0      
+  IL_178 call         MachineryPanel::get_inner
+  IL_183 callvirt     TreeNodeRender::get_image
+  IL_188 ldc.i4.0     
+  IL_189 callvirt     Behaviour::set_enabled
+  IL_194 ldarg.1      
+  IL_195 brfalse.s    IL_00cd: ldarg.2
+  IL_197 ldarg.0      
+  IL_198 ldarg.1      
+  IL_199 call         MachineryPanel::SetLabel
+  IL_204 pop          
+  IL_205 ldarg.2      
+  IL_206 brfalse.s    IL_00d8: ldarg.0
+  IL_208 ldarg.0      
+  IL_209 ldarg.2      
+  IL_210 call         MachineryPanel::SetContent
+  IL_215 pop          
+  IL_216 ldarg.0      
+  IL_217 call         MachineryPanel::Validate
+  IL_222 ret          
+=== System.Void MachineryPanel::.ctor(UnityEngine.Sprite,PixelElement,System.String)  static=False
+  IL_0   ldarg.0      
+  IL_1   ldnull       
+  IL_2   ldarg.2      
+  IL_3   ldarg.3      
+  IL_4   call         MachineryPanel::.ctor
+  IL_9   ldarg.0      
+  IL_10  ldarg.1      
+  IL_11  call         MachineryLabel::Icon
+  IL_16  call         MachineryPanel::SetLabel
+  IL_21  pop          
+  IL_22  ret          
+=== System.Boolean PixelWindow::Attach(PixelElement)  static=False
+  local GraphNodeStorage V_0
+  local MachineryContainer V_1
+  local Int32 V_2
+  local Int32 V_3
+  local Int32 V_4
+  local Nullable`1 V_5
+  local Nullable`1 V_6
+  IL_0   ldarg.1      
+  IL_1   brtrue.s     IL_000a: ldarg.0
+  IL_3   ldarg.0      
+  IL_4   call         PixelWindow::Detach
+  IL_9   ret          
+  IL_10  ldarg.0      
+  IL_11  call         PixelWindow::get_childElement
+  IL_16  brfalse.s    IL_001f: ldarg.0
+  IL_18  ldarg.0      
+  IL_19  ldarg.0      
+  IL_20  call         PixelWindow::get_childElement
+  IL_25  call         PixelWindow::Detach
+  IL_30  pop          
+  IL_31  ldarg.0      
+  IL_32  ldarg.1      
+  IL_33  call         PixelWindow::set_childElement
+  IL_38  ldarg.1      
+  IL_39  isinst       GraphNodeStorage
+  IL_44  stloc.0      
+  IL_45  ldloc.0      
+  IL_46  brfalse.s    IL_0038: ldarg.1
+  IL_48  ldloc.0      
+  IL_49  ldarg.0      
+  IL_50  callvirt     GraphNodeStorage::AddParent
+  IL_55  pop          
+  IL_56  ldarg.1      
+  IL_57  isinst       MachineryContainer
+  IL_62  stloc.1      
+  IL_63  ldloc.1      
+  IL_64  brfalse.s    IL_004f: ldarg.1
+  IL_66  ldloc.1      
+  IL_67  ldarg.0      
+  IL_68  callvirt     MachineryContainer::set_owner
+  IL_73  ldarg.0      
+  IL_74  call         PixelWindow::RelinkStorage
+  IL_79  ldarg.1      
+  IL_80  ldarg.0      
+  IL_81  callvirt     PixelElement::SetRenderingParent
+  IL_86  pop          
+  IL_87  ldarg.1      
+  IL_88  callvirt     PixelElement::get_handler
+  IL_93  callvirt     TreeNodeRender::get_rectTransform
+  IL_98  call         Vector2::get_zero
+  IL_103 callvirt     RectTransform::set_anchoredPosition
+  IL_108 ldc.i4.2     
+  IL_109 ldarg.0      
+  IL_110 call         PixelWindow::LeftPadding
+  IL_115 mul          
+  IL_116 stloc.2      
+  IL_117 ldarg.0      
+  IL_118 call         PixelWindow::TopPadding
+  IL_123 ldarg.0      
+  IL_124 call         PixelWindow::BottomPadding
+  IL_129 add          
+  IL_130 stloc.3      
+  IL_131 ldarg.0      
+  IL_132 ldloc.2      
+  IL_133 stloc.s      V_4
+  IL_135 ldarg.0      
+  IL_136 call         PixelWindow::get_childElement
+  IL_141 dup          
+  IL_142 brtrue.s     IL_009d: callvirt System.Int32 PixelElement::get_widthPixels()
+  IL_144 pop          
+  IL_145 ldloca.s     V_6
+  IL_147 initobj      System.Nullable`1<System.Int32>
+  IL_153 ldloc.s      V_6
+  IL_155 br.s         IL_00a7: stloc.s V_5
+  IL_157 callvirt     PixelElement::get_widthPixels
+  IL_162 newobj       Nullable`1::.ctor
+  IL_167 stloc.s      V_5
+  IL_169 ldloca.s     V_5
+  IL_171 call         Nullable`1::get_HasValue
+  IL_176 brtrue.s     IL_00be: ldloc.s V_4
+  IL_178 ldloca.s     V_6
+  IL_180 initobj      System.Nullable`1<System.Int32>
+  IL_186 ldloc.s      V_6
+  IL_188 br.s         IL_00cd: stloc.s V_6
+  IL_190 ldloc.s      V_4
+  IL_192 ldloca.s     V_5
+  IL_194 call         Nullable`1::GetValueOrDefault
+  IL_199 add          
+  IL_200 newobj       Nullable`1::.ctor
+  IL_205 stloc.s      V_6
+  IL_207 ldloca.s     V_6
+  IL_209 call         Nullable`1::GetValueOrDefault
+  IL_214 call         PixelWindow::set_widthPixels
+  IL_219 ldarg.0      
+  IL_220 ldloc.3      
+  IL_221 stloc.s      V_4
+  IL_223 ldarg.0      
+  IL_224 call         PixelWindow::get_childElement
+  IL_229 dup          
+  IL_230 brtrue.s     IL_00f5: callvirt System.Int32 PixelElement::get_heightPixels()
+  IL_232 pop          
+  IL_233 ldloca.s     V_6
+  IL_235 initobj      System.Nullable`1<System.Int32>
+  IL_241 ldloc.s      V_6
+  IL_243 br.s         IL_00ff: stloc.s V_5
+  IL_245 callvirt     PixelElement::get_heightPixels
+  IL_250 newobj       Nullable`1::.ctor
+  IL_255 stloc.s      V_5
+  IL_257 ldloca.s     V_5
+  IL_259 call         Nullable`1::get_HasValue
+  IL_264 brtrue.s     IL_0116: ldloc.s V_4
+  IL_266 ldloca.s     V_6
+  IL_268 initobj      System.Nullable`1<System.Int32>
+  IL_274 ldloc.s      V_6
+  IL_276 br.s         IL_0125: stloc.s V_6
+  IL_278 ldloc.s      V_4
+  IL_280 ldloca.s     V_5
+  IL_282 call         Nullable`1::GetValueOrDefault
+  IL_287 add          
+  IL_288 newobj       Nullable`1::.ctor
+  IL_293 stloc.s      V_6
+  IL_295 ldloca.s     V_6
+  IL_297 call         Nullable`1::GetValueOrDefault
+  IL_302 call         PixelWindow::set_heightPixels
+  IL_307 ldarg.0      
+  IL_308 call         PixelWindow::Validate
+  IL_313 ldc.i4.1     
+  IL_314 ret          
+=== System.Void PixelWindow::Validate()  static=False
+  local Int32 V_0
+  local Int32 V_1
+  local Int32 V_2
+  local Boolean V_3
+  local Int32 V_4
+  local Nullable`1 V_5
+  local Nullable`1 V_6
+  local Single V_7
+  IL_0   ldarg.0      
+  IL_1   ldfld        PixelWindow::style
+  IL_6   ldc.i4.1     
+  IL_7   bne.un.s     IL_0010: ldarg.0
+  IL_9   ldarg.0      
+  IL_10  call         PixelWindow::MachineryValidate
+  IL_15  ret          
+  IL_16  ldarg.0      
+  IL_17  call         PixelWindow::get_xPadding
+  IL_22  ldarg.0      
+  IL_23  call         PixelWindow::get_yPadding
+  IL_28  ldarg.0      
+  IL_29  ldfld        PixelWindow::canMove
+  IL_34  brtrue.s     IL_002f: ldarg.0
+  IL_36  ldarg.0      
+  IL_37  call         PixelWindow::get_hasTitle
+  IL_42  brtrue.s     IL_002f: ldarg.0
+  IL_44  ldc.i4.0     
+  IL_45  br.s         IL_003c: add
+  IL_47  ldarg.0      
+  IL_48  call         PixelWindow::get_titleHeight
+  IL_53  ldarg.0      
+  IL_54  call         PixelWindow::get_yPadding
+  IL_59  add          
+  IL_60  add          
+  IL_61  stloc.0      
+  IL_62  ldarg.0      
+  IL_63  call         PixelWindow::get_xPadding
+  IL_68  add          
+  IL_69  stloc.1      
+  IL_70  ldloc.0      
+  IL_71  ldarg.0      
+  IL_72  call         PixelWindow::get_yPadding
+  IL_77  add          
+  IL_78  stloc.2      
+  IL_79  ldarg.0      
+  IL_80  call         PixelWindow::get_childElement
+  IL_85  dup          
+  IL_86  brtrue.s     IL_005b: ldarg.0
+  IL_88  pop          
+  IL_89  br.s         IL_0070: ldarg.0
+  IL_91  ldarg.0      
+  IL_92  call         PixelWindow::get_widthPixels
+  IL_97  ldloc.1      
+  IL_98  sub          
+  IL_99  ldarg.0      
+  IL_100 call         PixelWindow::get_heightPixels
+  IL_105 ldloc.2      
+  IL_106 sub          
+  IL_107 callvirt     PixelElement::ResizePixels
+  IL_112 ldarg.0      
+  IL_113 call         PixelWindow::get_childElement
+  IL_118 dup          
+  IL_119 brtrue.s     IL_007c: callvirt System.Void PixelElement::Validate()
+  IL_121 pop          
+  IL_122 br.s         IL_0081: ldarg.0
+  IL_124 callvirt     PixelElement::Validate
+  IL_129 ldarg.0      
+  IL_130 ldloc.1      
+  IL_131 stloc.s      V_4
+  IL_133 ldarg.0      
+  IL_134 call         PixelWindow::get_childElement
+  IL_139 dup          
+  IL_140 brtrue.s     IL_009b: callvirt System.Int32 PixelElement::get_widthPixels()
+  IL_142 pop          
+  IL_143 ldloca.s     V_6
+  IL_145 initobj      System.Nullable`1<System.Int32>
+  IL_151 ldloc.s      V_6
+  IL_153 br.s         IL_00a5: stloc.s V_5
+  IL_155 callvirt     PixelElement::get_widthPixels
+  IL_160 newobj       Nullable`1::.ctor
+  IL_165 stloc.s      V_5
+  IL_167 ldloca.s     V_5
+  IL_169 call         Nullable`1::get_HasValue
+  IL_174 brtrue.s     IL_00bc: ldloc.s V_4
+  IL_176 ldloca.s     V_6
+  IL_178 initobj      System.Nullable`1<System.Int32>
+  IL_184 ldloc.s      V_6
+  IL_186 br.s         IL_00cb: stloc.s V_6
+  IL_188 ldloc.s      V_4
+  IL_190 ldloca.s     V_5
+  IL_192 call         Nullable`1::GetValueOrDefault
+  IL_197 add          
+  IL_198 newobj       Nullable`1::.ctor
+  IL_203 stloc.s      V_6
+  IL_205 ldloca.s     V_6
+  IL_207 call         Nullable`1::GetValueOrDefault
+  IL_212 call         PixelWindow::set_widthPixels
+  IL_217 ldarg.0      
+  IL_218 ldloc.2      
+  IL_219 stloc.s      V_4
+  IL_221 ldarg.0      
+  IL_222 call         PixelWindow::get_childElement
+  IL_227 dup          
+  IL_228 brtrue.s     IL_00f3: callvirt System.Int32 PixelElement::get_heightPixels()
+  IL_230 pop          
+  IL_231 ldloca.s     V_6
+  IL_233 initobj      System.Nullable`1<System.Int32>
+  IL_239 ldloc.s      V_6
+  IL_241 br.s         IL_00fd: stloc.s V_5
+  IL_243 callvirt     PixelElement::get_heightPixels
+  IL_248 newobj       Nullable`1::.ctor
+  IL_253 stloc.s      V_5
+  IL_255 ldloca.s     V_5
+  IL_257 call         Nullable`1::get_HasValue
+  IL_262 brtrue.s     IL_0114: ldloc.s V_4
+  IL_264 ldloca.s     V_6
+  IL_266 initobj      System.Nullable`1<System.Int32>
+  IL_272 ldloc.s      V_6
+  IL_274 br.s         IL_0123: stloc.s V_6
+  IL_276 ldloc.s      V_4
+  IL_278 ldloca.s     V_5
+  IL_280 call         Nullable`1::GetValueOrDefault
+  IL_285 add          
+  IL_286 newobj       Nullable`1::.ctor
+  IL_291 stloc.s      V_6
+  IL_293 ldloca.s     V_6
+  IL_295 call         Nullable`1::GetValueOrDefault
+  IL_300 call         PixelWindow::set_heightPixels
+  IL_305 ldarg.0      
+  IL_306 call         PixelWindow::get_closeCallback
+  IL_311 ldnull       
+  IL_312 ceq          
+  IL_314 ldc.i4.0     
+  IL_315 ceq          
+  IL_317 stloc.3      
+  IL_318 ldarg.0      
+  IL_319 ldfld        PixelWindow::topCloseButton
+  IL_324 callvirt     TreeNodeRender::get_image
+  IL_329 ldarg.0      
+  IL_330 ldfld        PixelWindow::canMove
+  IL_335 ldloc.3      
+  IL_336 or           
+  IL_337 callvirt     Behaviour::set_enabled
+  IL_342 ldarg.0      
+  IL_343 ldfld        PixelWindow::background
+  IL_348 callvirt     TreeNodeRender::get_image
+  IL_353 ldarg.0      
+  IL_354 ldfld        PixelWindow::canMove
+  IL_359 brtrue.s     IL_0171: ldc.i4.1
+  IL_361 ldarg.0      
+  IL_362 ldfld        PixelWindow::forceRaycast
+  IL_367 br.s         IL_0172: callvirt System.Void UnityEngine.UI.Graphic::set_raycastTarget(System.Boolean)
+  IL_369 ldc.i4.1     
+  IL_370 callvirt     Graphic::set_raycastTarget
+  IL_375 ldarg.0      
+  IL_376 ldfld        PixelWindow::topDragBorder
+  IL_381 callvirt     TreeNodeRender::get_image
+  IL_386 ldarg.0      
+  IL_387 ldfld        PixelWindow::canMove
+  IL_392 brtrue.s     IL_0192: ldc.i4.1
+  IL_394 ldarg.0      
+  IL_395 call         PixelWindow::get_hasTitle
+  IL_400 br.s         IL_0193: ldloc.3
+  IL_402 ldc.i4.1     
+  IL_403 ldloc.3      
+  IL_404 or           
+  IL_405 callvirt     Behaviour::set_enabled
+  IL_410 ldarg.0      
+  IL_411 ldfld        PixelWindow::bottomResizeButton
+  IL_416 callvirt     TreeNodeRender::get_image
+  IL_421 ldarg.0      
+  IL_422 call         PixelWindow::get_canResize
+  IL_427 callvirt     Behaviour::set_enabled
+  IL_432 ldarg.0      
+  IL_433 call         PixelWindow::get_transparency
+  IL_438 ldc.r4       1
+  IL_443 bne.un.s     IL_01f5: ldarg.0
+  IL_445 ldarg.0      
+  IL_446 ldfld        PixelWindow::outsideBorder
+  IL_451 callvirt     TreeNodeRender::get_image
+  IL_456 ldc.i4.0     
+  IL_457 callvirt     Behaviour::set_enabled
+  IL_462 ldarg.0      
+  IL_463 ldfld        PixelWindow::background
+  IL_468 callvirt     TreeNodeRender::get_image
+  IL_473 ldc.i4.0     
+  IL_474 callvirt     Behaviour::set_enabled
+  IL_479 ldarg.0      
+  IL_480 ldfld        PixelWindow::topDragBorder
+  IL_485 callvirt     TreeNodeRender::get_image
+  IL_490 ldc.i4.0     
+  IL_491 callvirt     Behaviour::set_enabled
+  IL_496 br           IL_02a7: ldarg.0
+  IL_501 ldarg.0      
+  IL_502 ldfld        PixelWindow::outsideBorder
+  IL_507 callvirt     TreeNodeRender::get_image
+  IL_512 ldc.i4.1     
+  IL_513 callvirt     Behaviour::set_enabled
+  IL_518 ldarg.0      
+  IL_519 ldfld        PixelWindow::background
+  IL_524 callvirt     TreeNodeRender::get_image
+  IL_529 ldc.i4.1     
+  IL_530 callvirt     Behaviour::set_enabled
+  IL_535 ldarg.0      
+  IL_536 ldfld        PixelWindow::outsideBorder
+  IL_541 callvirt     TreeNodeRender::get_image
+  IL_546 ldc.r4       1
+  IL_551 ldc.r4       1
+  IL_556 ldc.r4       1
+  IL_561 ldc.r4       1
+  IL_566 ldarg.0      
+  IL_567 call         PixelWindow::get_transparency
+  IL_572 sub          
+  IL_573 newobj       Color::.ctor
+  IL_578 callvirt     Graphic::set_color
+  IL_583 ldarg.0      
+  IL_584 ldfld        PixelWindow::background
+  IL_589 callvirt     TreeNodeRender::get_image
+  IL_594 ldc.r4       1
+  IL_599 ldc.r4       1
+  IL_604 ldc.r4       1
+  IL_609 ldc.r4       1
+  IL_614 ldarg.0      
+  IL_615 call         PixelWindow::get_transparency
+  IL_620 sub          
+  IL_621 newobj       Color::.ctor
+  IL_626 callvirt     Graphic::set_color
+  IL_631 ldarg.0      
+  IL_632 ldfld        PixelWindow::topDragBorder
+  IL_637 callvirt     TreeNodeRender::get_image
+  IL_642 ldc.r4       1
+  IL_647 ldc.r4       1
+  IL_652 ldc.r4       1
+  IL_657 ldc.r4       1
+  IL_662 ldarg.0      
+  IL_663 call         PixelWindow::get_transparency
+  IL_668 sub          
+  IL_669 newobj       Color::.ctor
+  IL_674 callvirt     Graphic::set_color
+  IL_679 ldarg.0      
+  IL_680 ldfld        PixelWindow::topTitleBackground
+  IL_685 callvirt     TreeNodeRender::get_image
+  IL_690 ldarg.0      
+  IL_691 call         PixelWindow::get_hasTitle
+  IL_696 callvirt     Behaviour::set_enabled
+  IL_701 ldarg.0      
+  IL_702 ldfld        PixelWindow::titleText
+  IL_707 callvirt     TreeNodeRender::get_text
+  IL_712 ldarg.0      
+  IL_713 call         PixelWindow::get_hasTitle
+  IL_718 callvirt     Behaviour::set_enabled
+  IL_723 ldarg.0      
+  IL_724 ldfld        PixelWindow::topDragBorder
+  IL_729 callvirt     TreeNodeRender::get_image
+  IL_734 callvirt     Behaviour::get_enabled
+  IL_739 brfalse      IL_048c: ldarg.0
+  IL_744 ldarg.0      
+  IL_745 ldfld        PixelWindow::outsideBorder
+  IL_750 callvirt     TreeNodeRender::get_rectTransform
+  IL_755 ldarg.0      
+  IL_756 call         PixelWindow::get_widthPixels
+  IL_761 conv.r4      
+  IL_762 ldarg.0      
+  IL_763 call         PixelWindow::get_heightPixels
+  IL_768 ldc.i4.2     
+  IL_769 sub          
+  IL_770 conv.r4      
+  IL_771 newobj       Vector2::.ctor
+  IL_776 callvirt     RectTransform::set_sizeDelta
+  IL_781 ldarg.0      
+  IL_782 ldfld        PixelWindow::outsideBorder
+  IL_787 callvirt     TreeNodeRender::get_rectTransform
+  IL_792 ldc.r4       0
+  IL_797 ldc.r4       -2
+  IL_802 newobj       Vector2::.ctor
+  IL_807 callvirt     RectTransform::set_anchoredPosition
+  IL_812 ldarg.0      
+  IL_813 ldfld        PixelWindow::background
+  IL_818 callvirt     TreeNodeRender::get_rectTransform
+  IL_823 ldarg.0      
+  IL_824 call         PixelWindow::get_widthPixels
+  IL_829 conv.r4      
+  IL_830 ldarg.0      
+  IL_831 call         PixelWindow::get_heightPixels
+  IL_836 ldc.i4.2     
+  IL_837 sub          
+  IL_838 conv.r4      
+  IL_839 newobj       Vector2::.ctor
+  IL_844 callvirt     RectTransform::set_sizeDelta
+  IL_849 ldarg.0      
+  IL_850 ldfld        PixelWindow::background
+  IL_855 callvirt     TreeNodeRender::get_rectTransform
+  IL_860 ldc.r4       0
+  IL_865 ldc.r4       -2
+  IL_870 newobj       Vector2::.ctor
+  IL_875 callvirt     RectTransform::set_anchoredPosition
+  IL_880 ldarg.0      
+  IL_881 ldfld        PixelWindow::background
+  IL_886 callvirt     TreeNodeRender::get_image
+  IL_891 ldc.r4       0
+  IL_896 ldc.r4       0
+  IL_901 ldc.r4       0
+  IL_906 ldc.r4       -2
+  IL_911 newobj       Vector4::.ctor
+  IL_916 callvirt     Graphic::set_raycastPadding
+  IL_921 ldarg.0      
+  IL_922 ldfld        PixelWindow::titleText
+  IL_927 callvirt     TreeNodeRender::get_text
+  IL_932 ldarg.0      
+  IL_933 call         PixelWindow::get_titleString
+  IL_938 callvirt     TMP_Text::set_text
+  IL_943 ldsfld       RenderHandler::current
+  IL_948 ldfld        RenderHandler::windowUICanvas
+  IL_953 callvirt     Canvas::get_scaleFactor
+  IL_958 ldc.r4       1
+  IL_963 bne.un.s     IL_03d8: ldarg.0
+  IL_965 ldarg.0      
+  IL_966 ldfld        PixelWindow::titleText
+  IL_971 callvirt     TreeNodeRender::get_text
+  IL_976 ldc.i4.0     
+  IL_977 callvirt     TMP_Text::set_fontStyle
+  IL_982 br.s         IL_03e9: ldarg.0
+  IL_984 ldarg.0      
+  IL_985 ldfld        PixelWindow::titleText
+  IL_990 callvirt     TreeNodeRender::get_text
+  IL_995 ldc.i4.1     
+  IL_996 callvirt     TMP_Text::set_fontStyle
+  IL_1001 ldarg.0      
+  IL_1002 ldfld        PixelWindow::titleText
+  IL_1007 callvirt     TreeNodeRender::get_text
+  IL_1012 ldc.i4       512
+  IL_1017 callvirt     TMP_Text::set_verticalAlignment
+  IL_1022 ldarg.0      
+  IL_1023 ldfld        PixelWindow::titleText
+  IL_1028 callvirt     TreeNodeRender::get_text
+  IL_1033 ldc.i4.0     
+  IL_1034 callvirt     TMP_Text::set_enableWordWrapping
+  IL_1039 ldarg.0      
+  IL_1040 ldfld        PixelWindow::titleText
+  IL_1045 callvirt     TreeNodeRender::get_text
+  IL_1050 callvirt     TMP_Text::get_rectTransform
+  IL_1055 call         LayoutUtility::GetPreferredWidth
+  IL_1060 stloc.s      V_7
+  IL_1062 ldloc.s      V_7
+  IL_1064 ldc.r4       1
+  IL_1069 bgt.un.s     IL_0446: ldarg.0
+  IL_1071 ldarg.0      
+  IL_1072 ldfld        PixelWindow::titleText
+  IL_1077 callvirt     TreeNodeRender::get_rectTransform
+  IL_1082 callvirt     RectTransform::get_sizeDelta
+  IL_1087 ldfld        Vector2::x
+  IL_1092 stloc.s      V_7
+  IL_1094 ldarg.0      
+  IL_1095 ldfld        PixelWindow::titleText
+  IL_1100 callvirt     TreeNodeRender::get_rectTransform
+  IL_1105 ldloc.s      V_7
+  IL_1107 ldc.r4       20
+  IL_1112 newobj       Vector2::.ctor
+  IL_1117 callvirt     RectTransform::set_sizeDelta
+  IL_1122 ldarg.0      
+  IL_1123 ldfld        PixelWindow::titleText
+  IL_1128 callvirt     TreeNodeRender::get_rectTransform
+  IL_1133 ldarg.0      
+  IL_1134 call         PixelWindow::get_xPadding
+  IL_1139 ldc.i4.2     
+  IL_1140 add          
+  IL_1141 ldc.i4.2     
+  IL_1142 add          
+  IL_1143 conv.r4      
+  IL_1144 ldc.r4       0
+  IL_1149 newobj       Vector2::.ctor
+  IL_1154 callvirt     RectTransform::set_anchoredPosition
+  IL_1159 br           IL_0539: ldarg.0
+  IL_1164 ldarg.0      
+  IL_1165 ldfld        PixelWindow::outsideBorder
+  IL_1170 callvirt     TreeNodeRender::get_rectTransform
+  IL_1175 ldarg.0      
+  IL_1176 call         PixelWindow::get_widthPixels
+  IL_1181 conv.r4      
+  IL_1182 ldarg.0      
+  IL_1183 call         PixelWindow::get_heightPixels
+  IL_1188 conv.r4      
+  IL_1189 newobj       Vector2::.ctor
+  IL_1194 callvirt     RectTransform::set_sizeDelta
+  IL_1199 ldarg.0      
+  IL_1200 ldfld        PixelWindow::outsideBorder
+  IL_1205 callvirt     TreeNodeRender::get_rectTransform
+  IL_1210 ldc.r4       0
+  IL_1215 ldc.r4       0
+  IL_1220 newobj       Vector2::.ctor
+  IL_1225 callvirt     RectTransform::set_anchoredPosition
+  IL_1230 ldarg.0      
+  IL_1231 ldfld        PixelWindow::background
+  IL_1236 callvirt     TreeNodeRender::get_rectTransform
+  IL_1241 ldarg.0      
+  IL_1242 call         PixelWindow::get_widthPixels
+  IL_1247 conv.r4      
+  IL_1248 ldarg.0      
+  IL_1249 call         PixelWindow::get_heightPixels
+  IL_1254 conv.r4      
+  IL_1255 newobj       Vector2::.ctor
+  IL_1260 callvirt     RectTransform::set_sizeDelta
+  IL_1265 ldarg.0      
+  IL_1266 ldfld        PixelWindow::background
+  IL_1271 callvirt     TreeNodeRender::get_rectTransform
+  IL_1276 ldc.r4       0
+  IL_1281 ldc.r4       0
+  IL_1286 newobj       Vector2::.ctor
+  IL_1291 callvirt     RectTransform::set_anchoredPosition
+  IL_1296 ldarg.0      
+  IL_1297 ldfld        PixelWindow::background
+  IL_1302 callvirt     TreeNodeRender::get_image
+  IL_1307 ldc.r4       0
+  IL_1312 ldc.r4       0
+  IL_1317 ldc.r4       0
+  IL_1322 ldc.r4       0
+  IL_1327 newobj       Vector4::.ctor
+  IL_1332 callvirt     Graphic::set_raycastPadding
+  IL_1337 ldarg.0      
+  IL_1338 ldfld        PixelWindow::topDragBorder
+  IL_1343 callvirt     TreeNodeRender::get_rectTransform
+  IL_1348 ldarg.0      
+  IL_1349 call         PixelWindow::get_widthPixels
+  IL_1354 conv.r4      
+  IL_1355 ldarg.0      
+  IL_1356 ldfld        PixelWindow::topDragBorder
+  IL_1361 callvirt     TreeNodeRender::get_rectTransform
+  IL_1366 callvirt     RectTransform::get_sizeDelta
+  IL_1371 ldfld        Vector2::y
+  IL_1376 newobj       Vector2::.ctor
+  IL_1381 callvirt     RectTransform::set_sizeDelta
+  IL_1386 ldarg.0      
+  IL_1387 ldfld        PixelWindow::topCloseButton
+  IL_1392 callvirt     TreeNodeRender::get_rectTransform
+  IL_1397 ldarg.0      
+  IL_1398 call         PixelWindow::get_widthPixels
+  IL_1403 conv.r4      
+  IL_1404 ldarg.0      
+  IL_1405 ldfld        PixelWindow::topCloseButton
+  IL_1410 callvirt     TreeNodeRender::get_rectTransform
+  IL_1415 callvirt     RectTransform::get_sizeDelta
+  IL_1420 ldfld        Vector2::x
+  IL_1425 sub          
+  IL_1426 ldarg.0      
+  IL_1427 call         PixelWindow::get_xPadding
+  IL_1432 conv.r4      
+  IL_1433 sub          
+  IL_1434 ldarg.0      
+  IL_1435 call         PixelWindow::get_yPadding
+  IL_1440 neg          
+  IL_1441 conv.r4      
+  IL_1442 newobj       Vector2::.ctor
+  IL_1447 callvirt     RectTransform::set_anchoredPosition
+  IL_1452 ldarg.0      
+  IL_1453 ldfld        PixelWindow::topTitleBackground
+  IL_1458 callvirt     TreeNodeRender::get_rectTransform
+  IL_1463 ldarg.0      
+  IL_1464 call         PixelWindow::get_xPadding
+  IL_1469 ldc.i4.1     
+  IL_1470 sub          
+  IL_1471 conv.r4      
+  IL_1472 ldarg.0      
+  IL_1473 call         PixelWindow::get_yPadding
+  IL_1478 neg          
+  IL_1479 ldc.i4.1     
+  IL_1480 add          
+  IL_1481 conv.r4      
+  IL_1482 newobj       Vector2::.ctor
+  IL_1487 callvirt     RectTransform::set_anchoredPosition
+  IL_1492 ldarg.0      
+  IL_1493 ldfld        PixelWindow::topTitleBackground
+  IL_1498 callvirt     TreeNodeRender::get_rectTransform
+  IL_1503 ldarg.0      
+  IL_1504 ldfld        PixelWindow::titleText
+  IL_1509 callvirt     TreeNodeRender::get_rectTransform
+  IL_1514 callvirt     RectTransform::get_sizeDelta
+  IL_1519 ldfld        Vector2::x
+  IL_1524 ldc.r4       7
+  IL_1529 add          
+  IL_1530 ldc.r4       4
+  IL_1535 add          
+  IL_1536 ldarg.0      
+  IL_1537 call         PixelWindow::get_titleHeight
+  IL_1542 ldc.i4.2     
+  IL_1543 add          
+  IL_1544 conv.r4      
+  IL_1545 newobj       Vector2::.ctor
+  IL_1550 callvirt     RectTransform::set_sizeDelta
+  IL_1555 ldarg.0      
+  IL_1556 ldfld        PixelWindow::bottomResizeButton
+  IL_1561 callvirt     TreeNodeRender::get_rectTransform
+  IL_1566 ldarg.0      
+  IL_1567 call         PixelWindow::get_widthPixels
+  IL_1572 conv.r4      
+  IL_1573 ldarg.0      
+  IL_1574 ldfld        PixelWindow::bottomResizeButton
+  IL_1579 callvirt     TreeNodeRender::get_rectTransform
+  IL_1584 callvirt     RectTransform::get_sizeDelta
+  IL_1589 ldfld        Vector2::x
+  IL_1594 sub          
+  IL_1595 ldarg.0      
+  IL_1596 call         PixelWindow::get_heightPixels
+  IL_1601 neg          
+  IL_1602 conv.r4      
+  IL_1603 ldarg.0      
+  IL_1604 ldfld        PixelWindow::bottomResizeButton
+  IL_1609 callvirt     TreeNodeRender::get_rectTransform
+  IL_1614 callvirt     RectTransform::get_sizeDelta
+  IL_1619 ldfld        Vector2::y
+  IL_1624 add          
+  IL_1625 newobj       Vector2::.ctor
+  IL_1630 callvirt     RectTransform::set_anchoredPosition
+  IL_1635 ldarg.0      
+  IL_1636 call         PixelWindow::get_inner
+  IL_1641 callvirt     TreeNodeRender::get_rectTransform
+  IL_1646 ldarg.0      
+  IL_1647 call         PixelWindow::get_xPadding
+  IL_1652 conv.r4      
+  IL_1653 ldloc.0      
+  IL_1654 neg          
+  IL_1655 conv.r4      
+  IL_1656 newobj       Vector2::.ctor
+  IL_1661 callvirt     RectTransform::set_anchoredPosition
+  IL_1666 ldarg.0      
+  IL_1667 ldfld        PixelWindow::hideBorder
+  IL_1672 brfalse.s    IL_06ac: ret
+  IL_1674 ldarg.0      
+  IL_1675 ldfld        PixelWindow::outsideBorder
+  IL_1680 callvirt     TreeNodeRender::get_image
+  IL_1685 ldc.i4.0     
+  IL_1686 callvirt     Behaviour::set_enabled
+  IL_1691 ldarg.0      
+  IL_1692 ldfld        PixelWindow::background
+  IL_1697 callvirt     TreeNodeRender::get_image
+  IL_1702 ldc.i4.0     
+  IL_1703 callvirt     Behaviour::set_enabled
+  IL_1708 ret          
+=== System.Void MachineryButton::.ctor(System.String,System.Action,System.Int32,System.Int32)  static=False
+  IL_0   ldarg.0      
+  IL_1   ldc.i4.m1    
+  IL_2   stfld        MachineryButton::forceWidth
+  IL_7   ldarg.0      
+  IL_8   ldc.i4.m1    
+  IL_9   stfld        MachineryButton::forceHeight
+  IL_14  ldarg.0      
+  IL_15  ldstr        'interface_click'
+  IL_20  stfld        MachineryButton::onClickAudio
+  IL_25  ldarg.0      
+  IL_26  ldstr        'MachineryButton'
+  IL_31  call         SelectableElement::.ctor
+  IL_36  ldarg.0      
+  IL_37  ldarg.1      
+  IL_38  call         MachineryButton::set_text
+  IL_43  ldarg.0      
+  IL_44  ldarg.2      
+  IL_45  stfld        MachineryButton::callback
+  IL_50  ldarg.0      
+  IL_51  ldarg.3      
+  IL_52  stfld        MachineryButton::forceWidth
+  IL_57  ldarg.0      
+  IL_58  ldarg.s      height
+  IL_60  stfld        MachineryButton::forceHeight
+  IL_65  ldarg.0      
+  IL_66  ldarg.1      
+  IL_67  ldnull       
+  IL_68  cgt.un       
+  IL_70  call         MachineryButton::set_fillWidth
+  IL_75  ldarg.0      
+  IL_76  call         TreeNodeRender::Instantiate
+  IL_81  ldarg.0      
+  IL_82  call         SelectableElement::get_handler
+  IL_87  callvirt     TreeNodeRender::SetParent
+  IL_92  stfld        MachineryButton::plate
+  IL_97  ldarg.0      
+  IL_98  call         TreeNodeRender::Instantiate
+  IL_103 ldarg.0      
+  IL_104 call         SelectableElement::get_handler
+  IL_109 callvirt     TreeNodeRender::SetParent
+  IL_114 stfld        MachineryButton::iconNode
+  IL_119 ldarg.0      
+  IL_120 call         TreeNodeRender::InstantiateText
+  IL_125 ldarg.0      
+  IL_126 call         SelectableElement::get_handler
+  IL_131 callvirt     TreeNodeRender::SetParent
+  IL_136 stfld        MachineryButton::textNode
+  IL_141 ldarg.0      
+  IL_142 ldfld        MachineryButton::plate
+  IL_147 callvirt     TreeNodeRender::InitEventHandler
+  IL_152 pop          
+  IL_153 ldarg.0      
+  IL_154 ldfld        MachineryButton::plate
+  IL_159 ldstr        'Node (MachineryButton)'
+  IL_164 callvirt     Object::set_name
+  IL_169 ldarg.0      
+  IL_170 ldfld        MachineryButton::plate
+  IL_175 call         MachineryStyle::get_ButtonNormal
+  IL_180 call         MachineryStyle::SetSliced
+  IL_185 ldarg.0      
+  IL_186 ldfld        MachineryButton::iconNode
+  IL_191 callvirt     TreeNodeRender::get_image
+  IL_196 ldc.i4.0     
+  IL_197 callvirt     Behaviour::set_enabled
+  IL_202 ldarg.0      
+  IL_203 ldfld        MachineryButton::iconNode
+  IL_208 callvirt     TreeNodeRender::get_image
+  IL_213 ldc.i4.0     
+  IL_214 callvirt     Graphic::set_raycastTarget
+  IL_219 ldarg.0      
+  IL_220 ldfld        MachineryButton::textNode
+  IL_225 ldc.i4.7     
+  IL_226 ldsfld       MachineryStyle::BUTTON_TEXT
+  IL_231 ldc.i4.2     
+  IL_232 ldc.i4.0     
+  IL_233 call         MachineryStyle::InitText
+  IL_238 ldarg.0      
+  IL_239 ldfld        MachineryButton::textNode
+  IL_244 callvirt     TreeNodeRender::get_text
+  IL_249 ldarg.1      
+  IL_250 dup          
+  IL_251 brtrue.s     IL_0103: callvirt System.Void TMPro.TMP_Text::set_text(System.String)
+  IL_253 pop          
+  IL_254 ldstr        ''
+  IL_259 callvirt     TMP_Text::set_text
+  IL_264 ldarg.0      
+  IL_265 ldfld        MachineryButton::textNode
+  IL_270 callvirt     TreeNodeRender::get_text
+  IL_275 ldarg.0      
+  IL_276 call         MachineryButton::get_hasText
+  IL_281 callvirt     Behaviour::set_enabled
+  IL_286 ldarg.0      
+  IL_287 callvirt     SelectableElement::Validate
+  IL_292 ret          
+=== System.Void MachineryButton::.ctor(UnityEngine.Sprite,System.Action,System.Int32)  static=False
+  IL_0   ldarg.0      
+  IL_1   ldnull       
+  IL_2   ldarg.2      
+  IL_3   ldarg.3      
+  IL_4   ldarg.3      
+  IL_5   call         MachineryButton::.ctor
+  IL_10  ldarg.0      
+  IL_11  ldarg.1      
+  IL_12  call         MachineryButton::SetIcon
+  IL_17  pop          
+  IL_18  ldarg.0      
+  IL_19  ldc.i4.0     
+  IL_20  call         MachineryButton::set_fillWidth
+  IL_25  ret          
+=== System.Void MachineryButton::.ctor(UnityEngine.Sprite,UnityEngine.Sprite,UnityEngine.Sprite,UnityEngine.Sprite,System.Action)  static=False
+  IL_0   ldarg.0      
+  IL_1   ldnull       
+  IL_2   ldarg.s      callback
+  IL_4   ldc.i4.m1    
+  IL_5   ldc.i4.m1    
+  IL_6   call         MachineryButton::.ctor
+  IL_11  ldarg.0      
+  IL_12  ldc.i4.0     
+  IL_13  call         MachineryButton::set_fillWidth
+  IL_18  ldarg.0      
+  IL_19  ldarg.1      
+  IL_20  ldarg.2      
+  IL_21  ldarg.3      
+  IL_22  ldarg.s      disabled
+  IL_24  call         MachineryButton::SetFaceSprites
+  IL_29  pop          
+  IL_30  ret          

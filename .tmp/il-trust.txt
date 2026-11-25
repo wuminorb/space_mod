@@ -1,0 +1,590 @@
+﻿=== ModLoader/TrustGate ModLoader::EvaluateTrust(System.String,ModManifest,ModSource,System.UInt64,System.Collections.Generic.List`1<System.String>)  static=True
+  local TrustGate V_0
+  local String V_1
+  local String V_2
+  local String V_3
+  local StoppedEntry V_4
+  local ModTrustState V_5
+  local Boolean V_6
+  local List`1 V_7
+  local List`1 V_8
+  local Int32 V_9
+  local List`1 V_10
+  IL_0   newobj       TrustGate::.ctor
+  IL_5   stloc.0      
+  IL_6   ldarg.1      
+  IL_7   ldfld        ModManifest::ID
+  IL_12  stloc.1      
+  IL_13  ldarg.1      
+  IL_14  call         ModLoader::GetModLabel
+  IL_19  stloc.2      
+  IL_20  ldloc.0      
+  IL_21  ldarg.0      
+  IL_22  ldarg.1      
+  IL_23  ldarg.2      
+  IL_24  ldc.i4.0     
+  IL_25  ceq          
+  IL_27  call         ModFingerprint::Compute
+  IL_32  stfld        TrustGate::Fingerprint
+  IL_37  ldloc.0      
+  IL_38  ldloc.1      
+  IL_39  ldarg.1      
+  IL_40  ldfld        ModManifest::Author
+  IL_45  ldloc.0      
+  IL_46  ldfld        TrustGate::Fingerprint
+  IL_51  ldarg.3      
+  IL_52  ldarg.3      
+  IL_53  call         ModLoader::WorkshopOwner
+  IL_58  ldloca.s     V_3
+  IL_60  call         ModTrustList::Check
+  IL_65  stfld        TrustGate::Verdict
+  IL_70  ldloc.0      
+  IL_71  ldfld        TrustGate::Verdict
+  IL_76  ldc.i4.2     
+  IL_77  bne.un.s     IL_006c: ldloc.0
+  IL_79  ldloc.0      
+  IL_80  ldc.i4.6     
+  IL_81  stfld        TrustGate::State
+  IL_86  ldloc.0      
+  IL_87  ldloc.3      
+  IL_88  stfld        TrustGate::Note
+  IL_93  ldloc.1      
+  IL_94  call         ModTrust::Revoke
+  IL_99  pop          
+  IL_100 ldloc.1      
+  IL_101 call         ModLoader::DisableSilently
+  IL_106 ldloc.0      
+  IL_107 ret          
+  IL_108 ldloc.0      
+  IL_109 ldfld        TrustGate::Fingerprint
+  IL_114 ldfld        ModFingerprint::Combined
+  IL_119 ldloca.s     V_4
+  IL_121 call         ModTrust::IsStopped
+  IL_126 brfalse.s    IL_00a3: ldloc.0
+  IL_128 ldloc.0      
+  IL_129 ldc.i4.8     
+  IL_130 stfld        TrustGate::State
+  IL_135 ldloc.0      
+  IL_136 ldloc.s      V_4
+  IL_138 ldfld        StoppedEntry::reason
+  IL_143 stfld        TrustGate::Note
+  IL_148 ldloc.1      
+  IL_149 call         ModTrust::Revoke
+  IL_154 pop          
+  IL_155 ldloc.1      
+  IL_156 call         ModLoader::DisableSilently
+  IL_161 ldloc.0      
+  IL_162 ret          
+  IL_163 ldloc.0      
+  IL_164 ldfld        TrustGate::Verdict
+  IL_169 call         ModTrustList::IsPaused
+  IL_174 brfalse.s    IL_00c4: ldsfld System.Boolean ModTrustList::WORKSHOP_VERIFIED_ONLY_CAPABILITIES
+  IL_176 ldloc.0      
+  IL_177 ldc.i4.7     
+  IL_178 stfld        TrustGate::State
+  IL_183 ldloc.0      
+  IL_184 call         ModTrustList::get_KillSwitchMessage
+  IL_189 stfld        TrustGate::Note
+  IL_194 ldloc.0      
+  IL_195 ret          
+  IL_196 ldsfld       ModTrustList::WORKSHOP_VERIFIED_ONLY_CAPABILITIES
+  IL_201 brfalse      IL_0156: ldloc.0
+  IL_206 ldarg.2      
+  IL_207 ldarg.1      
+  IL_208 ldfld        ModManifest::Capabilities
+  IL_213 ldloc.0      
+  IL_214 ldfld        TrustGate::Verdict
+  IL_219 call         ModTrustList::NeedsVerificationFor
+  IL_224 callvirt     List`1::get_Count
+  IL_229 ldc.i4.0     
+  IL_230 ble.s        IL_0156: ldloc.0
+  IL_232 ldloc.0      
+  IL_233 ldc.i4.4     
+  IL_234 stfld        TrustGate::State
+  IL_239 ldloc.0      
+  IL_240 ldstr        'ui_mods_note_needs_verification'
+  IL_245 ldstr        'it uses files or the internet and is not yet verified by the developers'
+  IL_250 call         Array::Empty
+  IL_255 call         LocHelper::GetLocalizedUIOrDefault
+  IL_260 stfld        TrustGate::Note
+  IL_265 ldc.i4.5     
+  IL_266 newarr       System.String
+  IL_271 dup          
+  IL_272 ldc.i4.0     
+  IL_273 ldstr        '['
+  IL_278 stelem.ref   
+  IL_279 dup          
+  IL_280 ldc.i4.1     
+  IL_281 ldloc.2      
+  IL_282 stelem.ref   
+  IL_283 dup          
+  IL_284 ldc.i4.2     
+  IL_285 ldstr        '] Not loaded: Workshop mod with '
+  IL_290 stelem.ref   
+  IL_291 dup          
+  IL_292 ldc.i4.3     
+  IL_293 ldstr        ', '
+  IL_298 ldarg.2      
+  IL_299 ldarg.1      
+  IL_300 ldfld        ModManifest::Capabilities
+  IL_305 ldloc.0      
+  IL_306 ldfld        TrustGate::Verdict
+  IL_311 call         ModTrustList::NeedsVerificationFor
+  IL_316 call         String::Join
+  IL_321 stelem.ref   
+  IL_322 dup          
+  IL_323 ldc.i4.4     
+  IL_324 ldstr        ' and not verified'
+  IL_329 stelem.ref   
+  IL_330 call         String::Concat
+  IL_335 call         Debug::Log
+  IL_340 ldloc.0      
+  IL_341 ret          
+  IL_342 ldloc.0      
+  IL_343 ldloc.1      
+  IL_344 call         ModTrust::Get
+  IL_349 stfld        TrustGate::Record
+  IL_354 ldloc.0      
+  IL_355 ldfld        TrustGate::Record
+  IL_360 ldloc.0      
+  IL_361 ldfld        TrustGate::Fingerprint
+  IL_366 ldarg.2      
+  IL_367 ldarg.3      
+  IL_368 call         ModTrust::CompareFiles
+  IL_373 stloc.s      V_5
+  IL_375 ldloc.s      V_5
+  IL_377 ldc.i4.1     
+  IL_378 bne.un.s     IL_0185: ldloc.s V_5
+  IL_380 ldloc.0      
+  IL_381 ldc.i4.1     
+  IL_382 stfld        TrustGate::State
+  IL_387 ldloc.0      
+  IL_388 ret          
+  IL_389 ldloc.s      V_5
+  IL_391 ldc.i4.4     
+  IL_392 bne.un       IL_022c: ldarg.s unlisted
+  IL_397 ldloc.0      
+  IL_398 ldc.i4.4     
+  IL_399 stfld        TrustGate::State
+  IL_404 ldloc.0      
+  IL_405 ldloc.0      
+  IL_406 ldfld        TrustGate::Record
+  IL_411 ldfld        ModTrustRecord::source
+  IL_416 ldarga.s     source
+  IL_418 constrained. ModSource
+  IL_424 callvirt     Object::ToString
+  IL_429 call         String::op_Inequality
+  IL_434 brtrue.s     IL_01ca: ldstr "ui_mods_note_source_changed"
+  IL_436 ldstr        'ui_mods_note_workshop_item'
+  IL_441 ldstr        'it is a different Workshop item'
+  IL_446 call         Array::Empty
+  IL_451 call         LocHelper::GetLocalizedUIOrDefault
+  IL_456 br.s         IL_01de: stfld System.String ModLoader/TrustGate::Note
+  IL_458 ldstr        'ui_mods_note_source_changed'
+  IL_463 ldstr        'it now comes from a different place than the approved copy'
+  IL_468 call         Array::Empty
+  IL_473 call         LocHelper::GetLocalizedUIOrDefault
+  IL_478 stfld        TrustGate::Note
+  IL_483 ldstr        '[{0}] Changed: record source {1}/{2}, now {3}/{4}'
+  IL_488 ldc.i4.5     
+  IL_489 newarr       System.Object
+  IL_494 dup          
+  IL_495 ldc.i4.0     
+  IL_496 ldloc.2      
+  IL_497 stelem.ref   
+  IL_498 dup          
+  IL_499 ldc.i4.1     
+  IL_500 ldloc.0      
+  IL_501 ldfld        TrustGate::Record
+  IL_506 ldfld        ModTrustRecord::source
+  IL_511 stelem.ref   
+  IL_512 dup          
+  IL_513 ldc.i4.2     
+  IL_514 ldloc.0      
+  IL_515 ldfld        TrustGate::Record
+  IL_520 ldfld        ModTrustRecord::workshopId
+  IL_525 stelem.ref   
+  IL_526 dup          
+  IL_527 ldc.i4.3     
+  IL_528 ldarg.2      
+  IL_529 box          ModSource
+  IL_534 stelem.ref   
+  IL_535 dup          
+  IL_536 ldc.i4.4     
+  IL_537 ldarg.3      
+  IL_538 box          System.UInt64
+  IL_543 stelem.ref   
+  IL_544 call         String::Format
+  IL_549 call         Debug::Log
+  IL_554 ldloc.0      
+  IL_555 ret          
+  IL_556 ldarg.s      unlisted
+  IL_558 callvirt     List`1::get_Count
+  IL_563 ldc.i4.0     
+  IL_564 ble.s        IL_0269: ldloc.s V_5
+  IL_566 ldloc.0      
+  IL_567 ldc.i4.4     
+  IL_568 stfld        TrustGate::State
+  IL_573 ldloc.0      
+  IL_574 ldstr        'ui_mods_note_unlisted'
+  IL_579 ldstr        'its folder contains DLLs the manifest does not list: {0}'
+  IL_584 ldc.i4.1     
+  IL_585 newarr       System.Object
+  IL_590 dup          
+  IL_591 ldc.i4.0     
+  IL_592 ldstr        ', '
+  IL_597 ldarg.s      unlisted
+  IL_599 call         String::Join
+  IL_604 stelem.ref   
+  IL_605 call         LocHelper::GetLocalizedUIOrDefault
+  IL_610 stfld        TrustGate::Note
+  IL_615 ldloc.0      
+  IL_616 ret          
+  IL_617 ldloc.s      V_5
+  IL_619 ldc.i4.2     
+  IL_620 bne.un.s     IL_0281: ldc.i4.0
+  IL_622 ldloc.0      
+  IL_623 ldfld        TrustGate::Record
+  IL_628 ldfld        ModTrustRecord::scannerVersion
+  IL_633 ldc.i4.4     
+  IL_634 ceq          
+  IL_636 ldc.i4.0     
+  IL_637 ceq          
+  IL_639 br.s         IL_0282: stloc.s V_6
+  IL_641 ldc.i4.0     
+  IL_642 stloc.s      V_6
+  IL_644 ldloc.s      V_5
+  IL_646 ldc.i4.2     
+  IL_647 bne.un.s     IL_02ae: ldloc.0
+  IL_649 ldloc.s      V_6
+  IL_651 brtrue.s     IL_02ae: ldloc.0
+  IL_653 ldloc.0      
+  IL_654 ldc.i4.2     
+  IL_655 stfld        TrustGate::State
+  IL_660 ldloc.0      
+  IL_661 ldc.i4.1     
+  IL_662 stfld        TrustGate::Load
+  IL_667 ldloc.0      
+  IL_668 ldfld        TrustGate::Record
+  IL_673 ldloc.0      
+  IL_674 ldfld        TrustGate::Fingerprint
+  IL_679 call         ModTrust::StoreFolderHash
+  IL_684 ldloc.0      
+  IL_685 ret          
+  IL_686 ldloc.0      
+  IL_687 ldarg.0      
+  IL_688 ldarg.1      
+  IL_689 call         ModLoader::ListedAssemblyPaths
+  IL_694 ldarg.1      
+  IL_695 call         ModLoader::ListedAssemblyNames
+  IL_700 ldarg.0      
+  IL_701 ldarg.2      
+  IL_702 ldc.i4.0     
+  IL_703 ceq          
+  IL_705 call         ModScanner::Scan
+  IL_710 stfld        TrustGate::Scan
+  IL_715 ldloc.0      
+  IL_716 ldfld        TrustGate::Record
+  IL_721 ldfld        ModTrustRecord::developerMode
+  IL_726 brfalse      IL_0374: ldloc.0
+  IL_731 ldarg.2      
+  IL_732 brtrue       IL_0374: ldloc.0
+  IL_737 ldloc.0      
+  IL_738 ldc.i4.5     
+  IL_739 stfld        TrustGate::State
+  IL_744 ldloc.0      
+  IL_745 ldc.i4.1     
+  IL_746 stfld        TrustGate::Load
+  IL_751 ldloc.0      
+  IL_752 ldfld        TrustGate::Record
+  IL_757 ldloc.0      
+  IL_758 ldfld        TrustGate::Fingerprint
+  IL_763 ldloc.0      
+  IL_764 ldfld        TrustGate::Scan
+  IL_769 callvirt     ModScanResult::get_Refused
+  IL_774 brtrue.s     IL_0315: ldnull
+  IL_776 ldloc.0      
+  IL_777 ldfld        TrustGate::Scan
+  IL_782 ldfld        ModScanResult::Capabilities
+  IL_787 br.s         IL_0316: call System.Void ModTrust::Refresh(ModTrustRecord,ModFingerprint,System.Collections.Generic.IEnumerable`1<System.String>)
+  IL_789 ldnull       
+  IL_790 call         ModTrust::Refresh
+  IL_795 ldloc.0      
+  IL_796 ldfld        TrustGate::Scan
+  IL_801 callvirt     ModScanResult::get_Refused
+  IL_806 brfalse.s    IL_0372: ldloc.0
+  IL_808 ldc.i4.5     
+  IL_809 newarr       System.String
+  IL_814 dup          
+  IL_815 ldc.i4.0     
+  IL_816 ldstr        '['
+  IL_821 stelem.ref   
+  IL_822 dup          
+  IL_823 ldc.i4.1     
+  IL_824 ldloc.2      
+  IL_825 stelem.ref   
+  IL_826 dup          
+  IL_827 ldc.i4.2     
+  IL_828 ldstr        '] Developer mode: loaded although the scan refused it ('
+  IL_833 stelem.ref   
+  IL_834 dup          
+  IL_835 ldc.i4.3     
+  IL_836 ldloc.0      
+  IL_837 ldfld        TrustGate::Scan
+  IL_842 ldfld        ModScanResult::Error
+  IL_847 dup          
+  IL_848 brtrue.s     IL_035f: stelem.ref
+  IL_850 pop          
+  IL_851 ldloc.0      
+  IL_852 ldfld        TrustGate::Scan
+  IL_857 ldc.i4.4     
+  IL_858 callvirt     ModScanResult::FormatFindings
+  IL_863 stelem.ref   
+  IL_864 dup          
+  IL_865 ldc.i4.4     
+  IL_866 ldstr        ')'
+  IL_871 stelem.ref   
+  IL_872 call         String::Concat
+  IL_877 call         Debug::LogWarning
+  IL_882 ldloc.0      
+  IL_883 ret          
+  IL_884 ldloc.0      
+  IL_885 ldfld        TrustGate::Scan
+  IL_890 callvirt     ModScanResult::get_Refused
+  IL_895 brfalse      IL_043a: ldloc.0
+  IL_900 ldloc.0      
+  IL_901 ldc.i4.4     
+  IL_902 stfld        TrustGate::State
+  IL_907 ldloc.0      
+  IL_908 ldloc.s      V_6
+  IL_910 brtrue.s     IL_03a6: ldstr "ui_mods_note_rescan_refused"
+  IL_912 ldstr        'ui_mods_note_scan_failed'
+  IL_917 ldstr        'the new version was refused by the mod scanner'
+  IL_922 call         Array::Empty
+  IL_927 call         LocHelper::GetLocalizedUIOrDefault
+  IL_932 br.s         IL_03ba: stfld System.String ModLoader/TrustGate::Note
+  IL_934 ldstr        'ui_mods_note_rescan_refused'
+  IL_939 ldstr        'the game's updated mod scanner refuses it'
+  IL_944 call         Array::Empty
+  IL_949 call         LocHelper::GetLocalizedUIOrDefault
+  IL_954 stfld        TrustGate::Note
+  IL_959 ldc.i4.7     
+  IL_960 newarr       System.String
+  IL_965 dup          
+  IL_966 ldc.i4.0     
+  IL_967 ldstr        '['
+  IL_972 stelem.ref   
+  IL_973 dup          
+  IL_974 ldc.i4.1     
+  IL_975 ldloc.2      
+  IL_976 stelem.ref   
+  IL_977 dup          
+  IL_978 ldc.i4.2     
+  IL_979 ldstr        '] Changed: scan refused'
+  IL_984 stelem.ref   
+  IL_985 dup          
+  IL_986 ldc.i4.3     
+  IL_987 ldloc.s      V_6
+  IL_989 brtrue.s     IL_03e6: ldstr " (rescan under scanner "
+  IL_991 ldstr        ''
+  IL_996 br.s         IL_03ff: stelem.ref
+  IL_998 ldstr        ' (rescan under scanner '
+  IL_1003 ldc.i4.4     
+  IL_1004 stloc.s      V_9
+  IL_1006 ldloca.s     V_9
+  IL_1008 call         Int32::ToString
+  IL_1013 ldstr        ')'
+  IL_1018 call         String::Concat
+  IL_1023 stelem.ref   
+  IL_1024 dup          
+  IL_1025 ldc.i4.4     
+  IL_1026 ldstr        ' ('
+  IL_1031 stelem.ref   
+  IL_1032 dup          
+  IL_1033 ldc.i4.5     
+  IL_1034 ldloc.0      
+  IL_1035 ldfld        TrustGate::Scan
+  IL_1040 ldfld        ModScanResult::Error
+  IL_1045 dup          
+  IL_1046 brtrue.s     IL_0425: stelem.ref
+  IL_1048 pop          
+  IL_1049 ldloc.0      
+  IL_1050 ldfld        TrustGate::Scan
+  IL_1055 ldc.i4.6     
+  IL_1056 callvirt     ModScanResult::FormatFindings
+  IL_1061 stelem.ref   
+  IL_1062 dup          
+  IL_1063 ldc.i4.6     
+  IL_1064 ldstr        ')'
+  IL_1069 stelem.ref   
+  IL_1070 call         String::Concat
+  IL_1075 call         Debug::LogWarning
+  IL_1080 ldloc.0      
+  IL_1081 ret          
+  IL_1082 ldloc.0      
+  IL_1083 ldfld        TrustGate::Scan
+  IL_1088 ldfld        ModScanResult::Capabilities
+  IL_1093 call         Enumerable::ToList
+  IL_1098 stloc.s      V_7
+  IL_1100 ldloc.s      V_7
+  IL_1102 ldarg.1      
+  IL_1103 ldfld        ModManifest::Capabilities
+  IL_1108 call         ModCapability::Undeclared
+  IL_1113 stloc.s      V_8
+  IL_1115 ldloc.s      V_8
+  IL_1117 callvirt     List`1::get_Count
+  IL_1122 ldc.i4.0     
+  IL_1123 ble          IL_0532: ldloc.0
+  IL_1128 ldloc.0      
+  IL_1129 ldc.i4.4     
+  IL_1130 stfld        TrustGate::State
+  IL_1135 ldloc.0      
+  IL_1136 ldloc.s      V_6
+  IL_1138 brtrue.s     IL_04ab: ldstr "ui_mods_note_rescan_undeclared"
+  IL_1140 ldstr        'ui_mods_note_undeclared'
+  IL_1145 ldstr        'the new version uses capabilities it does not declare: {0}'
+  IL_1150 ldc.i4.1     
+  IL_1151 newarr       System.Object
+  IL_1156 dup          
+  IL_1157 ldc.i4.0     
+  IL_1158 ldstr        ', '
+  IL_1163 ldloc.s      V_8
+  IL_1165 ldnull       
+  IL_1166 ldftn        ModCapability::DisplayName
+  IL_1172 newobj       Func`2::.ctor
+  IL_1177 call         Enumerable::Select
+  IL_1182 call         String::Join
+  IL_1187 stelem.ref   
+  IL_1188 call         LocHelper::GetLocalizedUIOrDefault
+  IL_1193 br.s         IL_04e0: stfld System.String ModLoader/TrustGate::Note
+  IL_1195 ldstr        'ui_mods_note_rescan_undeclared'
+  IL_1200 ldstr        'the game's updated mod scanner found capabilities it does not declare: {0}'
+  IL_1205 ldc.i4.1     
+  IL_1206 newarr       System.Object
+  IL_1211 dup          
+  IL_1212 ldc.i4.0     
+  IL_1213 ldstr        ', '
+  IL_1218 ldloc.s      V_8
+  IL_1220 ldnull       
+  IL_1221 ldftn        ModCapability::DisplayName
+  IL_1227 newobj       Func`2::.ctor
+  IL_1232 call         Enumerable::Select
+  IL_1237 call         String::Join
+  IL_1242 stelem.ref   
+  IL_1243 call         LocHelper::GetLocalizedUIOrDefault
+  IL_1248 stfld        TrustGate::Note
+  IL_1253 ldc.i4.6     
+  IL_1254 newarr       System.String
+  IL_1259 dup          
+  IL_1260 ldc.i4.0     
+  IL_1261 ldstr        '['
+  IL_1266 stelem.ref   
+  IL_1267 dup          
+  IL_1268 ldc.i4.1     
+  IL_1269 ldloc.2      
+  IL_1270 stelem.ref   
+  IL_1271 dup          
+  IL_1272 ldc.i4.2     
+  IL_1273 ldstr        '] Changed: undeclared '
+  IL_1278 stelem.ref   
+  IL_1279 dup          
+  IL_1280 ldc.i4.3     
+  IL_1281 ldstr        ', '
+  IL_1286 ldloc.s      V_8
+  IL_1288 call         String::Join
+  IL_1293 stelem.ref   
+  IL_1294 dup          
+  IL_1295 ldc.i4.4     
+  IL_1296 ldstr        '
+'
+  IL_1301 stelem.ref   
+  IL_1302 dup          
+  IL_1303 ldc.i4.5     
+  IL_1304 ldloc.0      
+  IL_1305 ldfld        TrustGate::Scan
+  IL_1310 ldc.i4.s     10
+  IL_1312 callvirt     ModScanResult::FormatFindings
+  IL_1317 stelem.ref   
+  IL_1318 call         String::Concat
+  IL_1323 call         Debug::LogWarning
+  IL_1328 ldloc.0      
+  IL_1329 ret          
+  IL_1330 ldloc.0      
+  IL_1331 ldfld        TrustGate::Record
+  IL_1336 ldloc.s      V_7
+  IL_1338 call         ModTrust::CapabilitiesWithin
+  IL_1343 brtrue       IL_05f8: ldloc.0
+  IL_1348 ldloc.s      V_7
+  IL_1350 ldloc.0      
+  IL_1351 ldfld        TrustGate::Record
+  IL_1356 ldfld        ModTrustRecord::detected
+  IL_1361 call         ModCapability::Undeclared
+  IL_1366 stloc.s      V_10
+  IL_1368 ldloc.0      
+  IL_1369 ldc.i4.4     
+  IL_1370 stfld        TrustGate::State
+  IL_1375 ldloc.0      
+  IL_1376 ldloc.s      V_6
+  IL_1378 brtrue.s     IL_059b: ldstr "ui_mods_note_rescan_new_capabilities"
+  IL_1380 ldstr        'ui_mods_note_new_capabilities'
+  IL_1385 ldstr        'the new version asks for new capabilities: {0}'
+  IL_1390 ldc.i4.1     
+  IL_1391 newarr       System.Object
+  IL_1396 dup          
+  IL_1397 ldc.i4.0     
+  IL_1398 ldstr        ', '
+  IL_1403 ldloc.s      V_10
+  IL_1405 ldnull       
+  IL_1406 ldftn        ModCapability::DisplayName
+  IL_1412 newobj       Func`2::.ctor
+  IL_1417 call         Enumerable::Select
+  IL_1422 call         String::Join
+  IL_1427 stelem.ref   
+  IL_1428 call         LocHelper::GetLocalizedUIOrDefault
+  IL_1433 br.s         IL_05d0: stfld System.String ModLoader/TrustGate::Note
+  IL_1435 ldstr        'ui_mods_note_rescan_new_capabilities'
+  IL_1440 ldstr        'the game's updated mod scanner found capabilities you did not approve: {0}'
+  IL_1445 ldc.i4.1     
+  IL_1446 newarr       System.Object
+  IL_1451 dup          
+  IL_1452 ldc.i4.0     
+  IL_1453 ldstr        ', '
+  IL_1458 ldloc.s      V_10
+  IL_1460 ldnull       
+  IL_1461 ldftn        ModCapability::DisplayName
+  IL_1467 newobj       Func`2::.ctor
+  IL_1472 call         Enumerable::Select
+  IL_1477 call         String::Join
+  IL_1482 stelem.ref   
+  IL_1483 call         LocHelper::GetLocalizedUIOrDefault
+  IL_1488 stfld        TrustGate::Note
+  IL_1493 ldstr        '['
+  IL_1498 ldloc.2      
+  IL_1499 ldstr        '] Changed: new capabilities '
+  IL_1504 ldstr        ', '
+  IL_1509 ldloc.s      V_10
+  IL_1511 call         String::Join
+  IL_1516 call         String::Concat
+  IL_1521 call         Debug::Log
+  IL_1526 ldloc.0      
+  IL_1527 ret          
+  IL_1528 ldloc.0      
+  IL_1529 ldloc.s      V_6
+  IL_1531 brtrue.s     IL_0600: ldc.i4.2
+  IL_1533 ldc.i4.3     
+  IL_1534 br.s         IL_0601: stfld ModTrustState ModLoader/TrustGate::State
+  IL_1536 ldc.i4.2     
+  IL_1537 stfld        TrustGate::State
+  IL_1542 ldloc.0      
+  IL_1543 ldc.i4.1     
+  IL_1544 stfld        TrustGate::Load
+  IL_1549 ldloc.0      
+  IL_1550 ldfld        TrustGate::Record
+  IL_1555 ldloc.0      
+  IL_1556 ldfld        TrustGate::Fingerprint
+  IL_1561 ldloc.0      
+  IL_1562 ldfld        TrustGate::Scan
+  IL_1567 ldfld        ModScanResult::Capabilities
+  IL_1572 call         ModTrust::Refresh
+  IL_1577 ldloc.0      
+  IL_1578 ret          

@@ -1,0 +1,972 @@
+﻿=== System.Boolean MachineryStack::Attach(PixelElement)  static=False
+  IL_0   ldarg.1      
+  IL_1   brfalse.s    IL_0011: ldc.i4.0
+  IL_3   ldarg.0      
+  IL_4   ldfld        MachineryStack::children
+  IL_9   ldarg.1      
+  IL_10  callvirt     List`1::Contains
+  IL_15  brfalse.s    IL_0013: ldarg.0
+  IL_17  ldc.i4.0     
+  IL_18  ret          
+  IL_19  ldarg.0      
+  IL_20  ldfld        MachineryStack::children
+  IL_25  ldarg.1      
+  IL_26  callvirt     List`1::Add
+  IL_31  ldarg.1      
+  IL_32  ldarg.0      
+  IL_33  callvirt     PixelElement::SetRenderingParent
+  IL_38  pop          
+  IL_39  ldarg.1      
+  IL_40  callvirt     PixelElement::get_handler
+  IL_45  callvirt     TreeNodeRender::get_rectTransform
+  IL_50  call         Vector2::get_zero
+  IL_55  callvirt     RectTransform::set_anchoredPosition
+  IL_60  ldarg.1      
+  IL_61  ldarg.0      
+  IL_62  call         MachineryStack::get_owner
+  IL_67  call         MachineryContainerUtils::SetOwner
+  IL_72  ldarg.0      
+  IL_73  call         MachineryStack::get_owner
+  IL_78  dup          
+  IL_79  brtrue.s     IL_0054: callvirt System.Void MachineryStorageOwner::RelinkStorage()
+  IL_81  pop          
+  IL_82  br.s         IL_0059: ldarg.0
+  IL_84  callvirt     MachineryStorageOwner::RelinkStorage
+  IL_89  ldarg.0      
+  IL_90  call         MachineryStack::Validate
+  IL_95  ldc.i4.1     
+  IL_96  ret          
+=== System.Void MachineryPanelRow::Validate()  static=False
+  local List`1 V_0
+  local Int32 V_1
+  local Int32 V_2
+  local Int32[] V_3
+  local Int32[] V_4
+  local Int32 V_5
+  local Int32 V_6
+  local Int32 V_7
+  local Enumerator V_8
+  local Int32 V_9
+  local Int32 V_10
+  local Int32 V_11
+  local Int32 V_12
+  local Int32 V_13
+  local Int32 V_14
+  local Int32 V_15
+  local Int32 V_16
+  local MachineryPanel V_17
+  local Int32 V_18
+  local Int32 V_19
+  IL_0   ldarg.0      
+  IL_1   ldfld        MachineryPanelRow::validateLock
+  IL_6   brfalse.s    IL_0009: ldarg.0
+  IL_8   ret          
+  IL_9   ldarg.0      
+  IL_10  ldc.i4.1     
+  IL_11  stfld        MachineryPanelRow::validateLock
+  IL_16  ldarg.0      
+  IL_17  call         MachineryPanelRow::DisplayPanels
+  IL_22  ldsfld       <>c::<>9__52_0
+  IL_27  dup          
+  IL_28  brtrue.s     IL_0035: callvirt System.Collections.Generic.List`1<!0> System.Collections.Generic.List`1<MachineryPanel>::FindAll(System.Predicate`1<!0>)
+  IL_30  pop          
+  IL_31  ldsfld       <>c::<>9
+  IL_36  ldftn        <>c::<Validate>b__52_0
+  IL_42  newobj       Predicate`1::.ctor
+  IL_47  dup          
+  IL_48  stsfld       <>c::<>9__52_0
+  IL_53  callvirt     List`1::FindAll
+  IL_58  stloc.0      
+  IL_59  ldloc.0      
+  IL_60  callvirt     List`1::GetEnumerator
+  IL_65  stloc.s      V_8
+  IL_67  br.s         IL_0051: ldloca.s V_8
+  IL_69  ldloca.s     V_8
+  IL_71  call         Enumerator::get_Current
+  IL_76  callvirt     MachineryPanel::Validate
+  IL_81  ldloca.s     V_8
+  IL_83  call         Enumerator::MoveNext
+  IL_88  brtrue.s     IL_0045: ldloca.s V_8
+  IL_90  leave.s      IL_006a: ldarg.0
+  IL_92  ldloca.s     V_8
+  IL_94  constrained. System.Collections.Generic.List`1/Enumerator<MachineryPanel>
+  IL_100 callvirt     IDisposable::Dispose
+  IL_105 endfinally   
+  IL_106 ldarg.0      
+  IL_107 ldfld        MachineryPanelRow::columns
+  IL_112 ldc.i4.0     
+  IL_113 bgt.s        IL_0081: ldarg.0
+  IL_115 ldc.i4.1     
+  IL_116 ldloc.0      
+  IL_117 callvirt     List`1::get_Count
+  IL_122 call         Mathf::Max
+  IL_127 br.s         IL_0087: stloc.1
+  IL_129 ldarg.0      
+  IL_130 ldfld        MachineryPanelRow::columns
+  IL_135 stloc.1      
+  IL_136 ldloc.0      
+  IL_137 callvirt     List`1::get_Count
+  IL_142 brfalse.s    IL_009e: ldc.i4.0
+  IL_144 ldloc.0      
+  IL_145 callvirt     List`1::get_Count
+  IL_150 ldloc.1      
+  IL_151 add          
+  IL_152 ldc.i4.1     
+  IL_153 sub          
+  IL_154 ldloc.1      
+  IL_155 div          
+  IL_156 br.s         IL_009f: stloc.2
+  IL_158 ldc.i4.0     
+  IL_159 stloc.2      
+  IL_160 ldloc.2      
+  IL_161 newarr       System.Int32
+  IL_166 stloc.3      
+  IL_167 ldloc.1      
+  IL_168 newarr       System.Int32
+  IL_173 stloc.s      V_4
+  IL_175 ldc.i4.0     
+  IL_176 stloc.s      V_9
+  IL_178 br.s         IL_00fc: ldloc.s V_9
+  IL_180 ldloc.s      V_9
+  IL_182 ldloc.1      
+  IL_183 div          
+  IL_184 stloc.s      V_10
+  IL_186 ldloc.s      V_9
+  IL_188 ldloc.1      
+  IL_189 rem          
+  IL_190 stloc.s      V_11
+  IL_192 ldloc.3      
+  IL_193 ldloc.s      V_10
+  IL_195 ldloc.3      
+  IL_196 ldloc.s      V_10
+  IL_198 ldelem.i4    
+  IL_199 ldloc.0      
+  IL_200 ldloc.s      V_9
+  IL_202 callvirt     List`1::get_Item
+  IL_207 callvirt     MachineryPanel::get_heightPixels
+  IL_212 call         Mathf::Max
+  IL_217 stelem.i4    
+  IL_218 ldloc.s      V_4
+  IL_220 ldloc.s      V_11
+  IL_222 ldloc.s      V_4
+  IL_224 ldloc.s      V_11
+  IL_226 ldelem.i4    
+  IL_227 ldloc.0      
+  IL_228 ldloc.s      V_9
+  IL_230 callvirt     List`1::get_Item
+  IL_235 callvirt     MachineryPanel::get_widthPixels
+  IL_240 call         Mathf::Max
+  IL_245 stelem.i4    
+  IL_246 ldloc.s      V_9
+  IL_248 ldc.i4.1     
+  IL_249 add          
+  IL_250 stloc.s      V_9
+  IL_252 ldloc.s      V_9
+  IL_254 ldloc.0      
+  IL_255 callvirt     List`1::get_Count
+  IL_260 blt.s        IL_00b4: ldloc.s V_9
+  IL_262 ldc.i4.0     
+  IL_263 stloc.s      V_5
+  IL_265 ldc.i4.0     
+  IL_266 stloc.s      V_6
+  IL_268 ldc.i4.0     
+  IL_269 stloc.s      V_7
+  IL_271 ldc.i4.0     
+  IL_272 stloc.s      V_12
+  IL_274 br           IL_020c: ldloc.s V_12
+  IL_279 ldc.i4.0     
+  IL_280 stloc.s      V_13
+  IL_282 ldloc.s      V_12
+  IL_284 ldloc.1      
+  IL_285 mul          
+  IL_286 stloc.s      V_14
+  IL_288 ldloc.1      
+  IL_289 ldloc.0      
+  IL_290 callvirt     List`1::get_Count
+  IL_295 ldloc.s      V_14
+  IL_297 sub          
+  IL_298 call         Mathf::Min
+  IL_303 stloc.s      V_15
+  IL_305 ldc.i4.0     
+  IL_306 stloc.s      V_16
+  IL_308 br           IL_01bd: ldloc.s V_16
+  IL_313 ldloc.0      
+  IL_314 ldloc.s      V_14
+  IL_316 ldloc.s      V_16
+  IL_318 add          
+  IL_319 callvirt     List`1::get_Item
+  IL_324 stloc.s      V_17
+  IL_326 ldloc.2      
+  IL_327 ldc.i4.1     
+  IL_328 bgt.s        IL_0153: ldloc.s V_4
+  IL_330 ldloc.s      V_17
+  IL_332 callvirt     MachineryPanel::get_widthPixels
+  IL_337 br.s         IL_0158: stloc.s V_18
+  IL_339 ldloc.s      V_4
+  IL_341 ldloc.s      V_16
+  IL_343 ldelem.i4    
+  IL_344 stloc.s      V_18
+  IL_346 ldloc.s      V_17
+  IL_348 ldloc.s      V_18
+  IL_350 ldloc.3      
+  IL_351 ldloc.s      V_12
+  IL_353 ldelem.i4    
+  IL_354 callvirt     MachineryPanel::ResizePixels
+  IL_359 ldloc.s      V_17
+  IL_361 callvirt     MachineryPanel::get_handler
+  IL_366 callvirt     TreeNodeRender::get_rectTransform
+  IL_371 ldloc.s      V_13
+  IL_373 conv.r4      
+  IL_374 ldloc.s      V_6
+  IL_376 neg          
+  IL_377 conv.r4      
+  IL_378 newobj       Vector2::.ctor
+  IL_383 callvirt     RectTransform::set_anchoredPosition
+  IL_388 ldloc.s      V_13
+  IL_390 ldloc.s      V_18
+  IL_392 add          
+  IL_393 stloc.s      V_13
+  IL_395 ldloc.s      V_16
+  IL_397 ldloc.s      V_15
+  IL_399 ldc.i4.1     
+  IL_400 sub          
+  IL_401 bge.s        IL_01b7: ldloc.s V_16
+  IL_403 ldarg.0      
+  IL_404 ldloc.s      V_5
+  IL_406 dup          
+  IL_407 ldc.i4.1     
+  IL_408 add          
+  IL_409 stloc.s      V_5
+  IL_411 ldloc.s      V_13
+  IL_413 ldloc.s      V_6
+  IL_415 ldc.i4.1     
+  IL_416 ldloc.3      
+  IL_417 ldloc.s      V_12
+  IL_419 ldelem.i4    
+  IL_420 ldc.i4.4     
+  IL_421 sub          
+  IL_422 ldc.i4.m1    
+  IL_423 ldc.i4.m1    
+  IL_424 ldloc.3      
+  IL_425 ldloc.s      V_12
+  IL_427 ldelem.i4    
+  IL_428 call         MachineryPanelRow::PlaceSeparator
+  IL_433 ldloc.s      V_13
+  IL_435 ldc.i4.1     
+  IL_436 add          
+  IL_437 stloc.s      V_13
+  IL_439 ldloc.s      V_16
+  IL_441 ldc.i4.1     
+  IL_442 add          
+  IL_443 stloc.s      V_16
+  IL_445 ldloc.s      V_16
+  IL_447 ldloc.s      V_15
+  IL_449 blt          IL_0139: ldloc.0
+  IL_454 ldloc.s      V_7
+  IL_456 ldloc.s      V_13
+  IL_458 call         Mathf::Max
+  IL_463 stloc.s      V_7
+  IL_465 ldloc.s      V_6
+  IL_467 ldloc.3      
+  IL_468 ldloc.s      V_12
+  IL_470 ldelem.i4    
+  IL_471 add          
+  IL_472 stloc.s      V_6
+  IL_474 ldloc.s      V_12
+  IL_476 ldloc.2      
+  IL_477 ldc.i4.1     
+  IL_478 sub          
+  IL_479 bge.s        IL_0206: ldloc.s V_12
+  IL_481 ldarg.0      
+  IL_482 ldloc.s      V_5
+  IL_484 dup          
+  IL_485 ldc.i4.1     
+  IL_486 add          
+  IL_487 stloc.s      V_5
+  IL_489 ldc.i4.4     
+  IL_490 ldloc.s      V_6
+  IL_492 ldc.i4.0     
+  IL_493 ldloc.s      V_7
+  IL_495 ldc.i4.8     
+  IL_496 sub          
+  IL_497 call         Mathf::Max
+  IL_502 ldc.i4.1     
+  IL_503 ldc.i4.0     
+  IL_504 ldloc.s      V_7
+  IL_506 ldc.i4.m1    
+  IL_507 call         MachineryPanelRow::PlaceSeparator
+  IL_512 ldloc.s      V_6
+  IL_514 ldc.i4.1     
+  IL_515 add          
+  IL_516 stloc.s      V_6
+  IL_518 ldloc.s      V_12
+  IL_520 ldc.i4.1     
+  IL_521 add          
+  IL_522 stloc.s      V_12
+  IL_524 ldloc.s      V_12
+  IL_526 ldloc.2      
+  IL_527 blt          IL_0117: ldc.i4.0
+  IL_532 ldloc.s      V_5
+  IL_534 stloc.s      V_19
+  IL_536 br.s         IL_0250: ldloc.s V_19
+  IL_538 ldarg.0      
+  IL_539 ldfld        MachineryPanelRow::separators
+  IL_544 ldloc.s      V_19
+  IL_546 callvirt     List`1::get_Item
+  IL_551 callvirt     TreeNodeRender::get_image
+  IL_556 ldc.i4.0     
+  IL_557 callvirt     Behaviour::set_enabled
+  IL_562 ldarg.0      
+  IL_563 ldfld        MachineryPanelRow::separatorBackings
+  IL_568 ldloc.s      V_19
+  IL_570 callvirt     List`1::get_Item
+  IL_575 callvirt     TreeNodeRender::get_image
+  IL_580 ldc.i4.0     
+  IL_581 callvirt     Behaviour::set_enabled
+  IL_586 ldloc.s      V_19
+  IL_588 ldc.i4.1     
+  IL_589 add          
+  IL_590 stloc.s      V_19
+  IL_592 ldloc.s      V_19
+  IL_594 ldarg.0      
+  IL_595 ldfld        MachineryPanelRow::separators
+  IL_600 callvirt     List`1::get_Count
+  IL_605 blt.s        IL_021a: ldarg.0
+  IL_607 ldarg.0      
+  IL_608 ldloc.s      V_7
+  IL_610 call         MachineryPanelRow::set_widthPixels
+  IL_615 ldarg.0      
+  IL_616 ldloc.s      V_6
+  IL_618 call         MachineryPanelRow::set_heightPixels
+  IL_623 ldarg.0      
+  IL_624 call         MachineryPanelRow::get_inner
+  IL_629 ldc.i4.0     
+  IL_630 ldc.i4.0     
+  IL_631 ldarg.0      
+  IL_632 call         MachineryPanelRow::get_widthPixels
+  IL_637 ldarg.0      
+  IL_638 call         MachineryPanelRow::get_heightPixels
+  IL_643 call         MachineryStyle::Place
+  IL_648 ldarg.0      
+  IL_649 call         MachineryPanelRow::get_handler
+  IL_654 callvirt     TreeNodeRender::get_parent
+  IL_659 dup          
+  IL_660 brtrue.s     IL_0299: call T TreeNodeRender::FindParentElement<GraphNodeStorage>()
+  IL_662 pop          
+  IL_663 br.s         IL_02a9: ldarg.0
+  IL_665 call         TreeNodeRender::FindParentElement
+  IL_670 dup          
+  IL_671 brtrue.s     IL_02a4: callvirt System.Void GraphNodeStorage::Validate()
+  IL_673 pop          
+  IL_674 br.s         IL_02a9: ldarg.0
+  IL_676 callvirt     GraphNodeStorage::Validate
+  IL_681 ldarg.0      
+  IL_682 ldc.i4.0     
+  IL_683 stfld        MachineryPanelRow::validateLock
+  IL_688 ret          
+=== System.Void MachineryPanel::Validate()  static=False
+  local Int32 V_0
+  local Int32 V_1
+  local Int32 V_2
+  local Int32 V_3
+  local Int32 V_4
+  local Int32 V_5
+  local Int32 V_6
+  local Int32 V_7
+  local Int32 V_8
+  IL_0   ldarg.0      
+  IL_1   ldfld        MachineryPanel::validateLock
+  IL_6   brfalse.s    IL_0009: ldarg.0
+  IL_8   ret          
+  IL_9   ldarg.0      
+  IL_10  ldc.i4.1     
+  IL_11  stfld        MachineryPanel::validateLock
+  IL_16  ldc.i4.4     
+  IL_17  stloc.0      
+  IL_18  ldarg.0      
+  IL_19  call         MachineryPanel::get_label
+  IL_24  dup          
+  IL_25  brtrue.s     IL_001e: call System.Void MachineryLabel::Validate()
+  IL_27  pop          
+  IL_28  br.s         IL_0023: ldarg.0
+  IL_30  call         MachineryLabel::Validate
+  IL_35  ldarg.0      
+  IL_36  call         MachineryPanel::get_content
+  IL_41  call         MachineryContainerUtils::Refresh
+  IL_46  ldarg.0      
+  IL_47  call         MachineryPanel::get_label
+  IL_52  brtrue.s     IL_0039: ldc.i4.s 18
+  IL_54  ldloc.0      
+  IL_55  br.s         IL_003b: stloc.1
+  IL_57  ldc.i4.s     18
+  IL_59  stloc.1      
+  IL_60  ldarg.0      
+  IL_61  call         MachineryPanel::get_label
+  IL_66  dup          
+  IL_67  brtrue.s     IL_0049: call System.Int32 MachineryLabel::get_widthPixels()
+  IL_69  pop          
+  IL_70  ldc.i4.0     
+  IL_71  br.s         IL_004e: stloc.2
+  IL_73  call         MachineryLabel::get_widthPixels
+  IL_78  stloc.2      
+  IL_79  ldarg.0      
+  IL_80  call         MachineryPanel::get_content
+  IL_85  dup          
+  IL_86  brtrue.s     IL_005c: callvirt System.Int32 PixelElement::get_widthPixels()
+  IL_88  pop          
+  IL_89  ldc.i4.0     
+  IL_90  br.s         IL_0061: stloc.3
+  IL_92  callvirt     PixelElement::get_widthPixels
+  IL_97  stloc.3      
+  IL_98  ldarg.0      
+  IL_99  call         MachineryPanel::get_content
+  IL_104 dup          
+  IL_105 brtrue.s     IL_006f: callvirt System.Int32 PixelElement::get_heightPixels()
+  IL_107 pop          
+  IL_108 ldc.i4.0     
+  IL_109 br.s         IL_0074: stloc.s V_4
+  IL_111 callvirt     PixelElement::get_heightPixels
+  IL_116 stloc.s      V_4
+  IL_118 ldloc.2      
+  IL_119 ldloc.3      
+  IL_120 call         Mathf::Max
+  IL_125 ldc.i4.2     
+  IL_126 ldloc.0      
+  IL_127 mul          
+  IL_128 add          
+  IL_129 stloc.s      V_5
+  IL_131 ldloc.1      
+  IL_132 ldloc.s      V_4
+  IL_134 add          
+  IL_135 ldloc.0      
+  IL_136 add          
+  IL_137 stloc.s      V_6
+  IL_139 ldarg.0      
+  IL_140 ldc.i4.3     
+  IL_141 newarr       System.Int32
+  IL_146 dup          
+  IL_147 ldc.i4.0     
+  IL_148 ldloc.s      V_5
+  IL_150 stelem.i4    
+  IL_151 dup          
+  IL_152 ldc.i4.1     
+  IL_153 ldarg.0      
+  IL_154 ldfld        MachineryPanel::requestedWidth
+  IL_159 stelem.i4    
+  IL_160 dup          
+  IL_161 ldc.i4.2     
+  IL_162 ldarg.0      
+  IL_163 ldfld        MachineryPanel::minWidth
+  IL_168 stelem.i4    
+  IL_169 call         Mathf::Max
+  IL_174 call         MachineryPanel::set_widthPixels
+  IL_179 ldarg.0      
+  IL_180 ldloc.s      V_6
+  IL_182 ldarg.0      
+  IL_183 ldfld        MachineryPanel::requestedHeight
+  IL_188 call         Mathf::Max
+  IL_193 call         MachineryPanel::set_heightPixels
+  IL_198 ldarg.0      
+  IL_199 ldfld        MachineryPanel::plate
+  IL_204 ldc.i4.0     
+  IL_205 ldc.i4.0     
+  IL_206 ldarg.0      
+  IL_207 call         MachineryPanel::get_widthPixels
+  IL_212 ldarg.0      
+  IL_213 call         MachineryPanel::get_heightPixels
+  IL_218 call         MachineryStyle::Place
+  IL_223 ldarg.0      
+  IL_224 call         MachineryPanel::get_label
+  IL_229 brfalse.s    IL_0100: ldarg.0
+  IL_231 ldarg.0      
+  IL_232 ldfld        MachineryPanel::labelHost
+  IL_237 ldarg.0      
+  IL_238 call         MachineryPanel::get_widthPixels
+  IL_243 ldloc.2      
+  IL_244 sub          
+  IL_245 ldc.i4.2     
+  IL_246 div          
+  IL_247 ldc.i4.4     
+  IL_248 ldloc.2      
+  IL_249 ldc.i4.s     10
+  IL_251 call         MachineryStyle::Place
+  IL_256 ldarg.0      
+  IL_257 call         MachineryPanel::get_widthPixels
+  IL_262 ldc.i4.2     
+  IL_263 ldloc.0      
+  IL_264 mul          
+  IL_265 sub          
+  IL_266 stloc.s      V_7
+  IL_268 ldarg.0      
+  IL_269 call         MachineryPanel::get_heightPixels
+  IL_274 ldloc.1      
+  IL_275 sub          
+  IL_276 ldloc.0      
+  IL_277 sub          
+  IL_278 stloc.s      V_8
+  IL_280 ldarg.0      
+  IL_281 call         MachineryPanel::get_content
+  IL_286 brfalse.s    IL_0172: ldarg.0
+  IL_288 ldarg.0      
+  IL_289 call         MachineryPanel::get_content
+  IL_294 ldloc.s      V_7
+  IL_296 ldloc.s      V_8
+  IL_298 call         MachineryContainerUtils::TryResize
+  IL_303 ldarg.0      
+  IL_304 call         MachineryPanel::get_content
+  IL_309 callvirt     PixelElement::get_widthPixels
+  IL_314 stloc.3      
+  IL_315 ldarg.0      
+  IL_316 call         MachineryPanel::get_content
+  IL_321 callvirt     PixelElement::get_heightPixels
+  IL_326 stloc.s      V_4
+  IL_328 ldarg.0      
+  IL_329 call         MachineryPanel::get_content
+  IL_334 callvirt     PixelElement::get_handler
+  IL_339 callvirt     TreeNodeRender::get_rectTransform
+  IL_344 ldloc.s      V_7
+  IL_346 ldloc.3      
+  IL_347 sub          
+  IL_348 ldc.i4.2     
+  IL_349 div          
+  IL_350 conv.r4      
+  IL_351 ldloc.s      V_8
+  IL_353 ldloc.s      V_4
+  IL_355 sub          
+  IL_356 ldc.i4.2     
+  IL_357 div          
+  IL_358 neg          
+  IL_359 conv.r4      
+  IL_360 newobj       Vector2::.ctor
+  IL_365 callvirt     RectTransform::set_anchoredPosition
+  IL_370 ldarg.0      
+  IL_371 call         MachineryPanel::get_inner
+  IL_376 ldloc.0      
+  IL_377 ldloc.1      
+  IL_378 ldloc.s      V_7
+  IL_380 ldloc.s      V_8
+  IL_382 call         MachineryStyle::Place
+  IL_387 ldarg.0      
+  IL_388 ldc.i4.0     
+  IL_389 stfld        MachineryPanel::validateLock
+  IL_394 ret          
+=== System.Void PixelWindow::MachineryValidate()  static=False
+  local Boolean V_0
+  local Int32 V_1
+  local Int32 V_2
+  local Int32 V_3
+  local Boolean V_4
+  local Int32 V_5
+  local Int32 V_6
+  local Int32 V_7
+  local Int32 V_8
+  local Enumerator V_9
+  local MachineryButton V_10
+  IL_0   ldarg.0      
+  IL_1   call         PixelWindow::IsBareMachineryChild
+  IL_6   stloc.0      
+  IL_7   ldarg.0      
+  IL_8   call         PixelWindow::LeftPadding
+  IL_13  stloc.1      
+  IL_14  ldarg.0      
+  IL_15  call         PixelWindow::TopPadding
+  IL_20  stloc.2      
+  IL_21  ldarg.0      
+  IL_22  call         PixelWindow::BottomPadding
+  IL_27  stloc.3      
+  IL_28  ldarg.0      
+  IL_29  call         PixelWindow::get_childElement
+  IL_34  dup          
+  IL_35  brtrue.s     IL_0028: ldarg.0
+  IL_37  pop          
+  IL_38  br.s         IL_0041: ldarg.0
+  IL_40  ldarg.0      
+  IL_41  call         PixelWindow::get_widthPixels
+  IL_46  ldc.i4.2     
+  IL_47  ldloc.1      
+  IL_48  mul          
+  IL_49  sub          
+  IL_50  ldarg.0      
+  IL_51  call         PixelWindow::get_heightPixels
+  IL_56  ldloc.2      
+  IL_57  sub          
+  IL_58  ldloc.3      
+  IL_59  sub          
+  IL_60  callvirt     PixelElement::ResizePixels
+  IL_65  ldarg.0      
+  IL_66  call         PixelWindow::get_childElement
+  IL_71  dup          
+  IL_72  brtrue.s     IL_004d: callvirt System.Void PixelElement::Validate()
+  IL_74  pop          
+  IL_75  br.s         IL_0052: ldarg.0
+  IL_77  callvirt     PixelElement::Validate
+  IL_82  ldarg.0      
+  IL_83  ldc.i4.2     
+  IL_84  ldloc.1      
+  IL_85  mul          
+  IL_86  ldarg.0      
+  IL_87  call         PixelWindow::get_childElement
+  IL_92  dup          
+  IL_93  brtrue.s     IL_0063: callvirt System.Int32 PixelElement::get_widthPixels()
+  IL_95  pop          
+  IL_96  ldc.i4.0     
+  IL_97  br.s         IL_0068: add
+  IL_99  callvirt     PixelElement::get_widthPixels
+  IL_104 add          
+  IL_105 call         PixelWindow::set_widthPixels
+  IL_110 ldarg.0      
+  IL_111 ldloc.2      
+  IL_112 ldarg.0      
+  IL_113 call         PixelWindow::get_childElement
+  IL_118 dup          
+  IL_119 brtrue.s     IL_007d: callvirt System.Int32 PixelElement::get_heightPixels()
+  IL_121 pop          
+  IL_122 ldc.i4.0     
+  IL_123 br.s         IL_0082: add
+  IL_125 callvirt     PixelElement::get_heightPixels
+  IL_130 add          
+  IL_131 ldloc.3      
+  IL_132 add          
+  IL_133 call         PixelWindow::set_heightPixels
+  IL_138 ldarg.0      
+  IL_139 ldfld        PixelWindow::outsideBorder
+  IL_144 callvirt     TreeNodeRender::get_image
+  IL_149 ldc.i4.0     
+  IL_150 callvirt     Behaviour::set_enabled
+  IL_155 ldarg.0      
+  IL_156 ldfld        PixelWindow::topDragBorder
+  IL_161 callvirt     TreeNodeRender::get_image
+  IL_166 ldc.i4.0     
+  IL_167 callvirt     Behaviour::set_enabled
+  IL_172 ldarg.0      
+  IL_173 ldfld        PixelWindow::topTitleBackground
+  IL_178 callvirt     TreeNodeRender::get_image
+  IL_183 ldc.i4.0     
+  IL_184 callvirt     Behaviour::set_enabled
+  IL_189 ldarg.0      
+  IL_190 ldfld        PixelWindow::bottomResizeButton
+  IL_195 callvirt     TreeNodeRender::get_image
+  IL_200 ldc.i4.0     
+  IL_201 callvirt     Behaviour::set_enabled
+  IL_206 ldarg.0      
+  IL_207 ldfld        PixelWindow::outsideBorder
+  IL_212 callvirt     TreeNodeRender::get_rectTransform
+  IL_217 ldarg.0      
+  IL_218 call         PixelWindow::get_widthPixels
+  IL_223 conv.r4      
+  IL_224 ldarg.0      
+  IL_225 call         PixelWindow::get_heightPixels
+  IL_230 conv.r4      
+  IL_231 newobj       Vector2::.ctor
+  IL_236 callvirt     RectTransform::set_sizeDelta
+  IL_241 ldarg.0      
+  IL_242 ldfld        PixelWindow::outsideBorder
+  IL_247 callvirt     TreeNodeRender::get_rectTransform
+  IL_252 call         Vector2::get_zero
+  IL_257 callvirt     RectTransform::set_anchoredPosition
+  IL_262 ldarg.0      
+  IL_263 ldfld        PixelWindow::background
+  IL_268 callvirt     TreeNodeRender::get_image
+  IL_273 ldnull       
+  IL_274 callvirt     Image::set_sprite
+  IL_279 ldarg.0      
+  IL_280 ldfld        PixelWindow::background
+  IL_285 callvirt     TreeNodeRender::get_image
+  IL_290 ldc.r4       1
+  IL_295 ldc.r4       1
+  IL_300 ldc.r4       1
+  IL_305 ldc.r4       0
+  IL_310 newobj       Color::.ctor
+  IL_315 callvirt     Graphic::set_color
+  IL_320 ldarg.0      
+  IL_321 ldfld        PixelWindow::background
+  IL_326 callvirt     TreeNodeRender::get_image
+  IL_331 ldc.i4.1     
+  IL_332 callvirt     Behaviour::set_enabled
+  IL_337 ldarg.0      
+  IL_338 ldfld        PixelWindow::background
+  IL_343 callvirt     TreeNodeRender::get_image
+  IL_348 ldarg.0      
+  IL_349 ldfld        PixelWindow::canMove
+  IL_354 brtrue.s     IL_016c: ldc.i4.1
+  IL_356 ldarg.0      
+  IL_357 ldfld        PixelWindow::forceRaycast
+  IL_362 br.s         IL_016d: callvirt System.Void UnityEngine.UI.Graphic::set_raycastTarget(System.Boolean)
+  IL_364 ldc.i4.1     
+  IL_365 callvirt     Graphic::set_raycastTarget
+  IL_370 ldarg.0      
+  IL_371 ldfld        PixelWindow::background
+  IL_376 callvirt     TreeNodeRender::get_image
+  IL_381 call         Vector4::get_zero
+  IL_386 callvirt     Graphic::set_raycastPadding
+  IL_391 ldarg.0      
+  IL_392 ldfld        PixelWindow::background
+  IL_397 callvirt     TreeNodeRender::get_rectTransform
+  IL_402 ldarg.0      
+  IL_403 call         PixelWindow::get_widthPixels
+  IL_408 conv.r4      
+  IL_409 ldarg.0      
+  IL_410 call         PixelWindow::get_heightPixels
+  IL_415 conv.r4      
+  IL_416 newobj       Vector2::.ctor
+  IL_421 callvirt     RectTransform::set_sizeDelta
+  IL_426 ldarg.0      
+  IL_427 ldfld        PixelWindow::background
+  IL_432 callvirt     TreeNodeRender::get_rectTransform
+  IL_437 call         Vector2::get_zero
+  IL_442 callvirt     RectTransform::set_anchoredPosition
+  IL_447 ldarg.0      
+  IL_448 ldfld        PixelWindow::machineryHeader
+  IL_453 ldc.i4.0     
+  IL_454 ldc.i4.0     
+  IL_455 ldarg.0      
+  IL_456 call         PixelWindow::get_widthPixels
+  IL_461 ldc.i4.s     20
+  IL_463 call         MachineryStyle::Place
+  IL_468 ldarg.0      
+  IL_469 ldfld        PixelWindow::machineryRuleBacking
+  IL_474 ldc.i4.0     
+  IL_475 ldc.i4.s     20
+  IL_477 ldarg.0      
+  IL_478 call         PixelWindow::get_widthPixels
+  IL_483 ldc.i4.1     
+  IL_484 call         MachineryStyle::Place
+  IL_489 ldarg.0      
+  IL_490 ldfld        PixelWindow::machineryRule
+  IL_495 ldc.i4.4     
+  IL_496 ldc.i4.s     20
+  IL_498 ldc.i4.0     
+  IL_499 ldarg.0      
+  IL_500 call         PixelWindow::get_widthPixels
+  IL_505 ldc.i4.8     
+  IL_506 sub          
+  IL_507 call         Mathf::Max
+  IL_512 ldc.i4.1     
+  IL_513 call         MachineryStyle::Place
+  IL_518 ldarg.0      
+  IL_519 ldfld        PixelWindow::machineryPlate
+  IL_524 callvirt     TreeNodeRender::get_image
+  IL_529 ldloc.0      
+  IL_530 callvirt     Behaviour::set_enabled
+  IL_535 ldarg.0      
+  IL_536 ldfld        PixelWindow::machineryIntake
+  IL_541 callvirt     TreeNodeRender::get_image
+  IL_546 ldloc.0      
+  IL_547 callvirt     Behaviour::set_enabled
+  IL_552 ldloc.0      
+  IL_553 brfalse.s    IL_026f: ldarg.0
+  IL_555 ldc.i4.s     21
+  IL_557 stloc.s      V_8
+  IL_559 ldarg.0      
+  IL_560 ldfld        PixelWindow::machineryPlate
+  IL_565 ldc.i4.0     
+  IL_566 ldloc.s      V_8
+  IL_568 ldarg.0      
+  IL_569 call         PixelWindow::get_widthPixels
+  IL_574 ldarg.0      
+  IL_575 call         PixelWindow::get_heightPixels
+  IL_580 ldloc.s      V_8
+  IL_582 sub          
+  IL_583 call         MachineryStyle::Place
+  IL_588 ldarg.0      
+  IL_589 ldfld        PixelWindow::machineryIntake
+  IL_594 ldc.i4.4     
+  IL_595 ldloc.s      V_8
+  IL_597 ldc.i4.4     
+  IL_598 add          
+  IL_599 ldarg.0      
+  IL_600 call         PixelWindow::get_widthPixels
+  IL_605 ldc.i4.8     
+  IL_606 sub          
+  IL_607 ldarg.0      
+  IL_608 call         PixelWindow::get_heightPixels
+  IL_613 ldloc.s      V_8
+  IL_615 sub          
+  IL_616 ldc.i4.8     
+  IL_617 sub          
+  IL_618 call         MachineryStyle::Place
+  IL_623 ldarg.0      
+  IL_624 ldfld        PixelWindow::canMove
+  IL_629 brtrue.s     IL_0285: ldc.i4.1
+  IL_631 ldarg.0      
+  IL_632 call         PixelWindow::get_closeCallback
+  IL_637 ldnull       
+  IL_638 ceq          
+  IL_640 ldc.i4.0     
+  IL_641 ceq          
+  IL_643 br.s         IL_0286: stloc.s V_4
+  IL_645 ldc.i4.1     
+  IL_646 stloc.s      V_4
+  IL_648 ldarg.0      
+  IL_649 ldfld        PixelWindow::topCloseButton
+  IL_654 callvirt     TreeNodeRender::get_image
+  IL_659 ldloc.s      V_4
+  IL_661 callvirt     Behaviour::set_enabled
+  IL_666 ldarg.0      
+  IL_667 call         PixelWindow::get_widthPixels
+  IL_672 ldc.i4.2     
+  IL_673 sub          
+  IL_674 stloc.s      V_5
+  IL_676 ldloc.s      V_4
+  IL_678 brfalse.s    IL_02d2: ldarg.0
+  IL_680 ldloc.s      V_5
+  IL_682 ldc.i4.s     16
+  IL_684 sub          
+  IL_685 stloc.s      V_5
+  IL_687 ldarg.0      
+  IL_688 ldfld        PixelWindow::topCloseButton
+  IL_693 callvirt     TreeNodeRender::get_rectTransform
+  IL_698 ldloc.s      V_5
+  IL_700 conv.r4      
+  IL_701 ldc.r4       -2
+  IL_706 newobj       Vector2::.ctor
+  IL_711 callvirt     RectTransform::set_anchoredPosition
+  IL_716 ldloc.s      V_5
+  IL_718 ldc.i4.2     
+  IL_719 sub          
+  IL_720 stloc.s      V_5
+  IL_722 ldarg.0      
+  IL_723 ldfld        PixelWindow::headerButtons
+  IL_728 callvirt     List`1::GetEnumerator
+  IL_733 stloc.s      V_9
+  IL_735 br.s         IL_032e: ldloca.s V_9
+  IL_737 ldloca.s     V_9
+  IL_739 call         Enumerator::get_Current
+  IL_744 stloc.s      V_10
+  IL_746 ldloc.s      V_10
+  IL_748 callvirt     SelectableElement::get_isHidden
+  IL_753 brtrue.s     IL_032e: ldloca.s V_9
+  IL_755 ldloc.s      V_5
+  IL_757 ldloc.s      V_10
+  IL_759 callvirt     SelectableElement::get_widthPixels
+  IL_764 sub          
+  IL_765 stloc.s      V_5
+  IL_767 ldloc.s      V_10
+  IL_769 callvirt     SelectableElement::get_handler
+  IL_774 callvirt     TreeNodeRender::get_rectTransform
+  IL_779 ldloc.s      V_5
+  IL_781 conv.r4      
+  IL_782 ldc.i4.2     
+  IL_783 ldc.i4.s     16
+  IL_785 ldloc.s      V_10
+  IL_787 callvirt     SelectableElement::get_heightPixels
+  IL_792 sub          
+  IL_793 ldc.i4.2     
+  IL_794 div          
+  IL_795 add          
+  IL_796 neg          
+  IL_797 conv.r4      
+  IL_798 newobj       Vector2::.ctor
+  IL_803 callvirt     RectTransform::set_anchoredPosition
+  IL_808 ldloc.s      V_5
+  IL_810 ldc.i4.2     
+  IL_811 sub          
+  IL_812 stloc.s      V_5
+  IL_814 ldloca.s     V_9
+  IL_816 call         Enumerator::MoveNext
+  IL_821 brtrue.s     IL_02e1: ldloca.s V_9
+  IL_823 leave.s      IL_0347: ldarg.0
+  IL_825 ldloca.s     V_9
+  IL_827 constrained. System.Collections.Generic.List`1/Enumerator<MachineryButton>
+  IL_833 callvirt     IDisposable::Dispose
+  IL_838 endfinally   
+  IL_839 ldarg.0      
+  IL_840 call         PixelWindow::get_widthPixels
+  IL_845 ldloc.s      V_5
+  IL_847 sub          
+  IL_848 stloc.s      V_6
+  IL_850 ldarg.0      
+  IL_851 ldfld        PixelWindow::titleText
+  IL_856 callvirt     TreeNodeRender::get_text
+  IL_861 ldarg.0      
+  IL_862 call         PixelWindow::get_hasTitle
+  IL_867 callvirt     Behaviour::set_enabled
+  IL_872 ldarg.0      
+  IL_873 ldfld        PixelWindow::titleText
+  IL_878 callvirt     TreeNodeRender::get_text
+  IL_883 ldarg.0      
+  IL_884 call         PixelWindow::get_titleString
+  IL_889 dup          
+  IL_890 brtrue.s     IL_0382: callvirt System.Void TMPro.TMP_Text::set_text(System.String)
+  IL_892 pop          
+  IL_893 ldstr        ''
+  IL_898 callvirt     TMP_Text::set_text
+  IL_903 ldc.i4.0     
+  IL_904 ldarg.0      
+  IL_905 call         PixelWindow::get_widthPixels
+  IL_910 ldc.i4.2     
+  IL_911 ldloc.s      V_6
+  IL_913 mul          
+  IL_914 sub          
+  IL_915 call         Mathf::Max
+  IL_920 stloc.s      V_7
+  IL_922 ldarg.0      
+  IL_923 call         PixelWindow::get_hasTitle
+  IL_928 brtrue.s     IL_03a5: ldarg.0
+  IL_930 ldc.i4.0     
+  IL_931 br.s         IL_03b0: ldloc.s V_7
+  IL_933 ldarg.0      
+  IL_934 ldfld        PixelWindow::titleText
+  IL_939 call         MachineryStyle::TextWidth
+  IL_944 ldloc.s      V_7
+  IL_946 bgt.s        IL_0401: ldarg.0
+  IL_948 ldarg.0      
+  IL_949 ldfld        PixelWindow::titleText
+  IL_954 callvirt     TreeNodeRender::get_text
+  IL_959 ldc.i4.2     
+  IL_960 callvirt     TMP_Text::set_horizontalAlignment
+  IL_965 ldarg.0      
+  IL_966 ldfld        PixelWindow::titleText
+  IL_971 callvirt     TreeNodeRender::get_rectTransform
+  IL_976 ldloc.s      V_6
+  IL_978 conv.r4      
+  IL_979 ldc.r4       0
+  IL_984 newobj       Vector2::.ctor
+  IL_989 callvirt     RectTransform::set_anchoredPosition
+  IL_994 ldarg.0      
+  IL_995 ldfld        PixelWindow::titleText
+  IL_1000 callvirt     TreeNodeRender::get_rectTransform
+  IL_1005 ldloc.s      V_7
+  IL_1007 conv.r4      
+  IL_1008 ldc.r4       20
+  IL_1013 newobj       Vector2::.ctor
+  IL_1018 callvirt     RectTransform::set_sizeDelta
+  IL_1023 br.s         IL_045d: ldarg.0
+  IL_1025 ldarg.0      
+  IL_1026 ldfld        PixelWindow::titleText
+  IL_1031 callvirt     TreeNodeRender::get_text
+  IL_1036 ldc.i4.1     
+  IL_1037 callvirt     TMP_Text::set_horizontalAlignment
+  IL_1042 ldarg.0      
+  IL_1043 ldfld        PixelWindow::titleText
+  IL_1048 callvirt     TreeNodeRender::get_rectTransform
+  IL_1053 ldc.r4       4
+  IL_1058 ldc.r4       0
+  IL_1063 newobj       Vector2::.ctor
+  IL_1068 callvirt     RectTransform::set_anchoredPosition
+  IL_1073 ldarg.0      
+  IL_1074 ldfld        PixelWindow::titleText
+  IL_1079 callvirt     TreeNodeRender::get_rectTransform
+  IL_1084 ldc.i4.0     
+  IL_1085 ldarg.0      
+  IL_1086 call         PixelWindow::get_widthPixels
+  IL_1091 ldc.i4.4     
+  IL_1092 sub          
+  IL_1093 ldloc.s      V_6
+  IL_1095 sub          
+  IL_1096 call         Mathf::Max
+  IL_1101 conv.r4      
+  IL_1102 ldc.r4       20
+  IL_1107 newobj       Vector2::.ctor
+  IL_1112 callvirt     RectTransform::set_sizeDelta
+  IL_1117 ldarg.0      
+  IL_1118 call         PixelWindow::get_inner
+  IL_1123 callvirt     TreeNodeRender::get_rectTransform
+  IL_1128 ldloc.1      
+  IL_1129 conv.r4      
+  IL_1130 ldloc.2      
+  IL_1131 neg          
+  IL_1132 conv.r4      
+  IL_1133 newobj       Vector2::.ctor
+  IL_1138 callvirt     RectTransform::set_anchoredPosition
+  IL_1143 ret          

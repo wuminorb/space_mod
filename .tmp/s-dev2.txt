@@ -1,0 +1,27 @@
+﻿### STRINGS containing 'developer'
+  '. From December 10, 2026 a Workshop mod with these loads only when the developers have verified it (trust list `verified`, by version hash or "*"); local folders are not affected. Ask for verification before publishing.'
+      @ ModSecurityDebug::Scan
+  '[{0}] Stopped by ModSteamGuard: blocked {1} (workshop={2}, owner={3}, hash={4}). Report this mod to the developers.'
+      @ ModLoader::OnSteamGuardTripped
+  '] Stopped: mod loading is paused by the developers.'
+      @ ModLoader::ReapplyListVerdicts
+  '{0} is a Workshop mod that uses files or the internet ({1}). Such mods can only be activated once the developers have verified them; this version is not verified yet.'
+      @ ModLoader::CheckEnableCore
+  '{0} is blocked by the developers: {1}'
+      @ ModLoader::CheckEnableCore
+  'Blocked by the developers: {0}'
+      @ ModUIManager::TrustIssue
+  'change developer mode'
+      @ ModLoader::SetDeveloperMode
+      @ ModTrust::SetDeveloperMode
+  'it uses files or the internet and is not yet verified by the developers'
+      @ ModLoader::EvaluateTrust
+  'Mod loading is paused by the developers. {0}'
+      @ ModLoader::CheckEnableCore
+      @ ModUIManager::RefreshNotes
+  'Not loaded: mod loading is paused by the developers.'
+      @ ModUIManager::TrustIssue
+  'Uses files or the internet and is not verified by the developers. From the next game update such Workshop mods only load once verified; the mod author needs to request it.'
+      @ ModUIManager::GetModIssue
+  'Verified by the developers.'
+      @ ModUIManager::TrustLine

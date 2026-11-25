@@ -1,0 +1,127 @@
+﻿### STRINGS containing 'bottled_water'
+  'bottled_water'
+      @ Loadout::CreatePirateRookieLoadout
+      @ Loadout::CreatePirateVeteranLoadout
+      @ FoodItemDirectory::InitDirectory
+      @ FoodItemDirectory::BottledWater
+      @ UnusedDirectory/<>c__DisplayClass143_0::<WaterDispenser>b__0
+      @ SpriteHelper::UpdateWaterContainerSprite
+      @ VendingFountainHelper::HandleNight
+      @ WaterHelper::SpawnWaterTestingKit
+      @ WaterHelper::.cctor
+      @ DropDirectory/<>c::<GetRaiderDrop>b__41_1
+      @ DropTableDirectory/<>c::<DropTableFood>b__0_8
+      @ MachineBottlePrinter/<>c__DisplayClass8_0::<BottlePrinter>b__4
+      @ TradeSheet::GetGenericMilitaryShop
+      @ TradeSheet::GetGenericMedicalShop
+      @ TradeSheet::GetGenericFoodShop
+      @ TradeSheet::GetGenericPastelShop
+      @ TradeSheet::GetGenericTraderShop
+      @ TradeSheet::GetTraderJomaShop
+      @ TradeSheet::GetDistressSignalCargoShop
+      @ TradeSheet::GetTravellingMerchantShop
+      @ NetworkUpgradeList/<>c::<.cctor>b__136_24
+      @ NewGameData::HandleInitialItem
+      @ StoreClientList/<>c::<CreateUpperLevelCharity>b__85_0
+      @ StoreClientListEvent/<>c::<CreateIceMiner>b__2_0
+      @ StoreClientListEvent/<>c::<CreatePanicBuyerClient>b__11_0
+      @ StoreClientListEvent/<>c::<CreateCorporateBuyerClient>b__13_0
+      @ StoreClientListEvent/<>c::<CreateGenericWaterBuyer>b__14_0
+      @ StoreClientListMinor/<>c::<CreateScavWater>b__7_0
+      @ StoreClientListStory/<>c::<CreateStoryWaterVendor>b__32_0
+      @ StoreClientListTier/<>c::<CreateThirstySpacer>b__11_0
+      @ StoreClientListTier/<>c::<CreateHydrationSeeker>b__12_0
+      @ StoreClientListTier/<>c::<CreateWaterShopper>b__13_0
+      @ StoreClientListWater/<>c::<CreateWaterCompany>b__1_0
+      @ StoreClientListWater/<>c::<CreateWaterSellScav>b__2_0
+      @ StoreClientListWater/<>c::<CreateDishonestWaterSellScav>b__3_0
+      @ StoreClientListWater/<>c::<SetHonestWaterSellerDialog>b__5_0
+      @ StoreClientListWater/<>c::<SetHonestWaterSellerDialog>b__5_1
+      @ StoreClientListUnused/<>c::<CreateDebugClient2>b__8_0
+      @ DebugPanel::SpawnHydroponicKit
+      @ DebugPanel::SpawnPlantDnaKit
+  'bottled_water_premium'
+      @ FoodItemDirectory::InitDirectory
+      @ PreBuiltItemHelper::FillEvidence
+      @ DropDirectory/<>c::<GetRaiderDrop>b__41_3
+      @ DropTableDirectory/<>c::<DropTableFood>b__0_10
+      @ MachineFridge::IsChillable
+      @ TradeSheet::GetGenericFoodShop
+      @ TradeSheet::GetGenericPastelShop
+      @ TradeSheet::GetGenericTraderShop
+      @ TradeSheet::GetTraderJomaShop
+      @ TradeSheet::GetDistressSignalCargoShop
+      @ TradeSheet::GetTravellingMerchantShop
+      @ StoreRequestList::.cctor
+      @ StoreClientList/<>c::<CreateThief>b__56_0
+      @ StoreClientListEvent/<>c::<CreateCorporateBuyerClient>b__13_1
+      @ StoreClientListTier/<>c::<CreateWaterStockPiler>b__14_1
+      @ StoreClientUniqueList/<>c::<Eleanor3>b__50_0
+      @ StoreClientUniqueList/<>c::<GrandpaCheng3>b__92_0
+  'item_bottled_water_name'
+      @ FoodItemDirectory::BottledWater
+  'item_bottled_water_premium_desc'
+      @ FoodItemDirectory::BottledWaterPremium
+  'item_bottled_water_premium_flavor'
+      @ FoodItemDirectory::BottledWaterPremium
+  'item_bottled_water_premium_name'
+      @ FoodItemDirectory::BottledWaterPremium
+  'item_large_bottled_water_name'
+      @ FoodItemDirectory::LargeBottledWater
+  'item_small_bottled_water_name'
+      @ FoodItemDirectory::SmallBottledWater
+  'large_bottled_water'
+      @ FoodItemDirectory::InitDirectory
+      @ FoodItemDirectory::LargeBottledWater
+      @ PreBuiltItemHelper::CreateOldHydroponic1
+      @ SpriteHelper::UpdateWaterContainerSprite
+      @ VendingFountainHelper::HandleNight
+      @ WaterHelper::SpawnWaterTestingKit
+      @ WaterHelper::.cctor
+      @ MachineBottlePrinter/<>c__DisplayClass8_0::<BottlePrinter>b__5
+      @ NewGameData::HandleInitialItem
+      @ StoreClientList::PlaceSupplierInventory
+      @ StoreClientList/<>c::<CreateWaterSeller>b__63_0
+      @ StoreClientListEvent/<>c::<CreateIceMiner>b__2_0
+      @ StoreClientListEvent/<>c::<CreateCorporateBuyerClient>b__13_0
+      @ StoreClientListEvent/<>c::<CreateGenericWaterBuyer>b__14_0
+      @ StoreClientListTier/<>c::<CreateWaterShopper>b__13_0
+      @ StoreClientListTier/<>c::<CreateWaterStockPiler>b__14_0
+      @ StoreClientListWater/<>c::<CreateWaterCompany>b__1_0
+      @ StoreClientListWater/<>c::<SetHonestWaterSellerDialog>b__5_0
+      @ StoreClientListWater/<>c::<SetHonestWaterSellerDialog>b__5_1
+      @ StoreClientUniqueList/<>c::<CreateGeorgioIntro2>b__1_0
+      @ DebugPanel::SpawnFarmingKit
+      @ DebugPanel::SpawnHydroponicKit
+      @ DebugPanel::SpawnPlantDnaKit
+      @ DebugPanel::SpawnChemKit
+      @ DebugPanel::SpawnMarketingChemKit
+  'small_bottled_water'
+      @ Loadout::CreatePirateRookieLoadout
+      @ Loadout::CreatePirateVeteranLoadout
+      @ FoodItemDirectory::InitDirectory
+      @ FoodItemDirectory::SmallBottledWater
+      @ MaterialDirectory::CanScrapMetalTargetItem
+      @ MaterialDirectory::OnScrapMetalTargetItem
+      @ ModuleDirectory::PrinterChipSmallBottle
+      @ SpriteHelper::UpdateWaterContainerSprite
+      @ VendingFountainHelper::HandleNight
+      @ WaterHelper::SpawnWaterTestingKit
+      @ WaterHelper::.cctor
+      @ DropDirectory/<>c::<GetRaiderDrop>b__41_2
+      @ DropTableDirectory/<>c::<DropTableFood>b__0_9
+      @ MachineBottlePrinter/<>c__DisplayClass8_0::<BottlePrinter>b__3
+      @ TradeSheet::GetGenericMedicalShop
+      @ TradeSheet::GetGenericFoodShop
+      @ TradeSheet::GetGenericPastelShop
+      @ TradeSheet::GetGenericTraderShop
+      @ TradeSheet::GetTraderJomaShop
+      @ TradeSheet::GetDistressSignalCargoShop
+      @ TradeSheet::GetTravellingMerchantShop
+      @ NewGameData::HandleInitialItem
+      @ StoreClientListEvent/<>c::<CreatePanicBuyerClient>b__11_0
+      @ StoreClientListTier/<>c::<CreateWaterScavenger>b__10_0
+      @ StoreClientListTier/<>c::<CreateThirstySpacer>b__11_0
+      @ StoreClientListTier/<>c::<CreateHydrationSeeker>b__12_0
+      @ StoreClientListTier/<>c::<CreateWaterShopper>b__13_0
+      @ DebugPanel::SpawnHydroponicKit

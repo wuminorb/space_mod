@@ -1,0 +1,50 @@
+﻿=== PixelWindow MachineHelper::CreateMachineryWindow(System.Boolean,MachineryPanel[])  static=True
+  IL_0   ldarg.0      
+  IL_1   ldnull       
+  IL_2   ldc.i4.1     
+  IL_3   newobj       PixelWindow::.ctor
+  IL_8   dup          
+  IL_9   ldarg.1      
+  IL_10  newobj       MachineryPanelRow::.ctor
+  IL_15  callvirt     PixelWindow::Attach
+  IL_20  pop          
+  IL_21  ret          
+=== PixelWindow MachineHelper::CreateMachineryWindow(System.Boolean,System.Int32[],MachineryPanel[])  static=True
+  IL_0   ldarg.0      
+  IL_1   ldnull       
+  IL_2   ldc.i4.1     
+  IL_3   newobj       PixelWindow::.ctor
+  IL_8   dup          
+  IL_9   ldarg.2      
+  IL_10  newobj       MachineryPanelRow::.ctor
+  IL_15  ldarg.1      
+  IL_16  call         MachineryPanelRow::SetDisplayOrder
+  IL_21  callvirt     PixelWindow::Attach
+  IL_26  pop          
+  IL_27  ret          
+=== MachineryPanel MachineHelper::Panel(System.String,PixelElement,System.String,System.Boolean)  static=True
+  IL_0   ldarg.0      
+  IL_1   ldarg.1      
+  IL_2   ldarg.3      
+  IL_3   call         MachineHelper::WrapInIntake
+  IL_8   ldarg.2      
+  IL_9   newobj       MachineryPanel::.ctor
+  IL_14  ret          
+=== GameSlotInventory MachineHelper::GetBatterySlot(GameItem)  static=True
+  IL_0   ldarg.0      
+  IL_1   ldc.i4.0     
+  IL_2   call         MachineHelper::GetBodyStorage
+  IL_7   isinst       GameSlotInventory
+  IL_12  ret          
+=== GameInventory MachineHelper::GetSlot(GameItem,System.Int32)  static=True
+  IL_0   ldarg.0      
+  IL_1   ldarg.1      
+  IL_2   call         MachineHelper::GetBodyStorage
+  IL_7   castclass    GameInventory
+  IL_12  ret          
+=== MachineryPanel MachineHelper::PowerPanel(GameSlotInventory)  static=True
+  IL_0   call         MachineryStyle::get_IconPower
+  IL_5   ldarg.0      
+  IL_6   ldstr        'power'
+  IL_11  call         MachineHelper::IconPanel
+  IL_16  ret          

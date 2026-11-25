@@ -1,0 +1,3 @@
+﻿### STRINGS containing '.csv'
+  '*.csv'
+      @ ModLoader::LoadLocalization

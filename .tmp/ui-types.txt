@@ -1,0 +1,648 @@
+﻿### TYPE MachineHelper  base=System.Object  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, BeforeFieldInit
+  FIELD System.String POWERED static=True const=True val=POWERED
+  FIELD System.String MACHINE_PERFORMANCE_RATIO_INT static=True const=True val=MACHINE_PERFORMANCE_RATIO_INT
+  FIELD System.String MACHINE_EFFICIENCY_RATIO_INT static=True const=True val=MACHINE_EFFICIENCY_RATIO_INT
+  FIELD System.String MACHIME_QUALITY_RATIO_INT static=True const=True val=MACHINE_QUALITY_RATIO_INT
+  FIELD System.String MACHINE_PERFORMANCE_REDUCES_POWER_TAG static=True const=True val=MACHINE_PERFORMANCE_REDUCES_POWER_TAG
+  FIELD System.String MACHINE_RECHARGABLE_TAG static=True const=True val=MACHINE_RECHARGABLE_TAG
+  FIELD System.String MODULE_UPGRADE_STAGE_INT static=True const=True val=MODULE_UPGRADE_STAGE_INT
+  FIELD System.String LOCKED_WORKING_TAG static=True const=True val=LOCKED_WORKING_TAG
+  FIELD System.String STANDARD_MACHINE_TAG static=True const=True val=STANDARD_MACHINE_TAG
+  FIELD System.String DEFAULT_MODULE_BAY_CONFIG static=True const=True val=10000010001000001110000010001000001
+  FIELD System.Int32 DEFAULT_MODULE_BAY_WIDTH static=True const=True val=7
+  FIELD System.String MODULE_BAY_1_CONFIG static=True const=True val=10000010000000000000000000001000001
+  FIELD System.Int32 MODULE_BAY_1_WIDTH static=True const=True val=7
+  FIELD System.String MODULE_BAY_2_CONFIG static=True const=True val=00000000000000000000000000000000000
+  FIELD System.Int32 MODULE_BAY_2_WIDTH static=True const=True val=7
+  FIELD System.String MANUAL_TAG static=True const=True val=MACHINE_MANUAL_TAG
+  FIELD System.Single MANUAL_TOOLTIP_WIDTH_MULT static=True const=True val=2
+  METHOD Void SetupBatterySlot(GameSlotInventory itemInventoryBattery, GameItem machine) public=True static=True
+  METHOD PixelWindow CreateMachineryWindow(Boolean canMove, MachineryPanel[] panels) public=True static=True
+  METHOD PixelWindow CreateMachineryWindow(Boolean canMove, Int32[] displayOrder, MachineryPanel[] panels) public=True static=True
+  METHOD MachineryPanel Panel(String label, PixelElement content, String role, Boolean styleInventories) public=True static=True
+  METHOD MachineryPanel IconPanel(Sprite icon, PixelElement content, String role) public=True static=True
+  METHOD MachineryPanel PowerPanel(GameSlotInventory batterySlot) public=True static=True
+  METHOD MachineryPanel NotePanel(GameSlotInventory noteSlot) public=True static=True
+  METHOD PixelElement WrapInIntake(PixelElement content, Boolean styleInventories) public=True static=True
+  METHOD Boolean CanPower(GameItem machine, GameSlotInventory batterySlot) public=True static=True
+  METHOD Boolean CanPower(GameItem machine) public=True static=True
+  METHOD GraphNodeStorage GetBodyStorage(GameItem machine, Int32 index) public=True static=True
+  METHOD GameSlotInventory GetBatterySlot(GameItem machine) public=True static=True
+  METHOD Boolean HasBattery(GameItem machine) public=True static=True
+  METHOD GameInventory GetSlot(GameItem machine, Int32 index) public=True static=True
+  METHOD List`1 GetModules(GameItem machine) public=True static=True
+  METHOD GameGridInventory GetModuleInv(GameItem machine) public=True static=True
+  METHOD Boolean IsModuleBay(GameInventory inventory) public=True static=True
+  METHOD Void LockModuleInv(GameItem machine) public=True static=True
+  METHOD Void UnlockModuleInv(GameItem machine) public=True static=True
+  METHOD Void OnLoad(GameItem machine) public=True static=True
+  METHOD GameItem GetLockedModuleBayMachine(GameItem dragged, GameItem hoveredItem, GameInventory hoveredInventory) public=True static=True
+  METHOD RichText CreateLockedModuleBayDragTooltip(RichTextBuilder builder, GameItem module, GameItem machine) public=True static=True
+  METHOD GameGridInventory GetModuleGrid(GameItem machine) public=False static=True
+  METHOD Boolean CanExpand(GameItem item) public=True static=True
+  METHOD Void ExpandModule(GameGridInventory moduleGrid, GameItem item) public=True static=True
+  METHOD Void LoadUpgrade(GameItem item) public=True static=True
+  METHOD Boolean IsMachineRechargable(GameItem gameItem) public=True static=True
+  METHOD Void RechargeMachineBattery(GameItem gameItem, Int32 amount, Boolean ignoreBlackout) public=True static=True
+  METHOD Void SetupModuleBay(GameInventory moduleGrid, GameItem machine, Action onChanged, String[] allowedModuleTypes) public=True static=True
+  METHOD Void SetupManualSlot(GameSlotInventory manualSlot) public=True static=True
+  METHOD GameItem CreateManual(String nameLocKey, String flavorLocKey) public=True static=True
+  METHOD Boolean TryDrawCyclePower(GameItem machine, GameSlotInventory batterySlot) public=True static=True
+  METHOD Void OnMachineActioned(GameItem machine, GameInventory moduleGrid) public=True static=True
+  METHOD Void .ctor() public=True static=False
+  NESTED MachineHelper/<>c
+  NESTED MachineHelper/<>c__DisplayClass29_0
+  NESTED MachineHelper/<>c__DisplayClass39_0
+  NESTED MachineHelper/<>c__DisplayClass43_0
+### TYPE MachineryButton  base=SelectableElement  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, BeforeFieldInit
+  FIELD System.String <text>k__BackingField static=False const=False val=
+  FIELD UnityEngine.Sprite <icon>k__BackingField static=False const=False val=
+  FIELD System.Boolean <fillWidth>k__BackingField static=False const=False val=
+  FIELD TreeNodeRender plate static=False const=False val=
+  FIELD TreeNodeRender iconNode static=False const=False val=
+  FIELD TreeNodeRender textNode static=False const=False val=
+  FIELD System.Int32 forceWidth static=False const=False val=
+  FIELD System.Int32 forceHeight static=False const=False val=
+  FIELD System.Action callback static=False const=False val=
+  FIELD System.Boolean wasHover static=False const=False val=
+  FIELD System.String <description>k__BackingField static=False const=False val=
+  FIELD System.String onClickAudio static=False const=False val=
+  FIELD UnityEngine.Sprite faceNormal static=False const=False val=
+  FIELD UnityEngine.Sprite faceHover static=False const=False val=
+  FIELD UnityEngine.Sprite facePressed static=False const=False val=
+  FIELD UnityEngine.Sprite faceDisabled static=False const=False val=
+  PROP System.String text
+  PROP UnityEngine.Sprite icon
+  PROP System.Boolean hasText
+  PROP System.Boolean fillWidth
+  PROP System.String description
+  PROP System.Boolean hasFaceSet
+  METHOD String get_text() public=True static=False
+  METHOD Void set_text(String value) public=False static=False
+  METHOD Sprite get_icon() public=True static=False
+  METHOD Void set_icon(Sprite value) public=False static=False
+  METHOD Boolean get_hasText() public=True static=False
+  METHOD Boolean get_fillWidth() public=True static=False
+  METHOD Void set_fillWidth(Boolean value) public=True static=False
+  METHOD String get_description() public=True static=False
+  METHOD Void set_description(String value) public=True static=False
+  METHOD Void .ctor(String text, Action callback, Int32 width, Int32 height) public=True static=False
+  METHOD Void .ctor(Sprite icon, Action callback, Int32 size) public=True static=False
+  METHOD Boolean get_hasFaceSet() public=False static=False
+  METHOD Void .ctor(Sprite normal, Sprite hover, Sprite pressed, Sprite disabled, Action callback) public=True static=False
+  METHOD MachineryButton FromAtlas(String atlasPath, String name, Action callback) public=True static=True
+  METHOD MachineryButton SetFaceSprites(Sprite normal, Sprite hover, Sprite pressed, Sprite disabled) public=True static=False
+  METHOD MachineryButton SetText(String text) public=True static=False
+  METHOD MachineryButton SetIcon(Sprite sprite) public=True static=False
+  METHOD MachineryButton SetIcon(String atlasPath, String spriteName) public=True static=False
+  METHOD MachineryButton SetCallback(Action callback) public=True static=False
+  METHOD MachineryButton SetDescription(String description) public=True static=False
+  METHOD MachineryButton SetFillWidth(Boolean fill) public=True static=False
+  METHOD MachineryButton SetSize(Int32 width, Int32 height) public=True static=False
+  METHOD Void Validate() public=True static=False
+  METHOD Void ResizePixels(Int32 width, Int32 height) public=True static=False
+  METHOD Void ApplyState(Sprite sprite, Color tint, Color textColor) public=False static=False
+  METHOD Void OnDefocus() public=False static=False
+  METHOD Void OnHover() public=False static=False
+  METHOD Void OnPress() public=False static=False
+  METHOD Void OnSelect() public=False static=False
+  METHOD Void OnDeselect() public=False static=False
+  METHOD Void OnReset() public=False static=False
+  METHOD Void OnDisable() public=False static=False
+  METHOD Void OnEnable() public=False static=False
+  METHOD Void OnHide() public=False static=False
+  METHOD Void OnShow() public=False static=False
+  METHOD Boolean HasTooltip() public=True static=False
+  METHOD RichText GetTooltip() public=True static=False
+### TYPE MachineryStack  base=System.Object  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, BeforeFieldInit
+  FIELD System.Int32 <widthPixels>k__BackingField static=False const=False val=
+  FIELD System.Int32 <heightPixels>k__BackingField static=False const=False val=
+  FIELD TreeNodeRender <handler>k__BackingField static=False const=False val=
+  FIELD TreeNodeRender <inner>k__BackingField static=False const=False val=
+  FIELD MachineryStorageOwner <owner>k__BackingField static=False const=False val=
+  FIELD System.Boolean vertical static=False const=False val=
+  FIELD System.Int32 gap static=False const=False val=
+  FIELD MachineryStack/Align align static=False const=False val=
+  FIELD MachineryStack/Align mainAlign static=False const=False val=
+  FIELD System.Collections.Generic.List`1<PixelElement> children static=False const=False val=
+  FIELD PixelElement stretch static=False const=False val=
+  FIELD System.Int32 requestedWidth static=False const=False val=
+  FIELD System.Int32 requestedHeight static=False const=False val=
+  FIELD System.Boolean validateLock static=False const=False val=
+  PROP System.Boolean canResize
+  PROP System.Int32 widthPixels
+  PROP System.Int32 heightPixels
+  PROP TreeNodeRender handler
+  PROP UnityEngine.RectTransform rectTransform
+  PROP TreeNodeRender inner
+  PROP MachineryStorageOwner owner
+  PROP System.Collections.Generic.IReadOnlyList`1<PixelElement> elements
+  METHOD Boolean get_canResize() public=True static=False
+  METHOD Int32 get_widthPixels() public=True static=False
+  METHOD Void set_widthPixels(Int32 value) public=False static=False
+  METHOD Int32 get_heightPixels() public=True static=False
+  METHOD Void set_heightPixels(Int32 value) public=False static=False
+  METHOD TreeNodeRender get_handler() public=True static=False
+  METHOD Void set_handler(TreeNodeRender value) public=False static=False
+  METHOD RectTransform get_rectTransform() public=True static=False
+  METHOD TreeNodeRender get_inner() public=True static=False
+  METHOD Void set_inner(TreeNodeRender value) public=False static=False
+  METHOD MachineryStorageOwner get_owner() public=True static=False
+  METHOD Void set_owner(MachineryStorageOwner value) public=True static=False
+  METHOD IReadOnlyList`1 get_elements() public=True static=False
+  METHOD Void .ctor(Boolean vertical, Int32 gap) public=True static=False
+  METHOD MachineryStack Vertical(PixelElement[] elements) public=True static=True
+  METHOD MachineryStack Horizontal(PixelElement[] elements) public=True static=True
+  METHOD MachineryStack SetAlign(Align align) public=True static=False
+  METHOD MachineryStack SetMainAlign(Align align) public=True static=False
+  METHOD MachineryStack SetStretch(PixelElement element) public=True static=False
+  METHOD MachineryStack Add(PixelElement element) public=True static=False
+  METHOD Boolean Attach(PixelElement element) public=True static=False
+  METHOD Boolean Detach(PixelElement element) public=True static=False
+  METHOD Void CollectStorage(List`1 list) public=True static=False
+  METHOD PixelElement StretchTarget() public=False static=False
+  METHOD Void Validate() public=True static=False
+  METHOD Void ResizePixels(Int32 width, Int32 height) public=True static=False
+  METHOD Int32 WidthPixelsClamp(Int32 width) public=True static=False
+  METHOD Int32 HeightPixelsClamp(Int32 height) public=True static=False
+  METHOD Int32 XClamp(Int32 x) public=True static=False
+  METHOD Int32 YClamp(Int32 y) public=True static=False
+  NESTED MachineryStack/Align
+  NESTED MachineryStack/<>c
+### TYPE MachineryPanel  base=System.Object  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, BeforeFieldInit
+  FIELD System.Int32 <widthPixels>k__BackingField static=False const=False val=
+  FIELD System.Int32 <heightPixels>k__BackingField static=False const=False val=
+  FIELD TreeNodeRender <handler>k__BackingField static=False const=False val=
+  FIELD TreeNodeRender <inner>k__BackingField static=False const=False val=
+  FIELD MachineryStorageOwner _owner static=False const=False val=
+  FIELD System.String role static=False const=False val=
+  FIELD MachineryLabel <label>k__BackingField static=False const=False val=
+  FIELD PixelElement <content>k__BackingField static=False const=False val=
+  FIELD System.Boolean <isHidden>k__BackingField static=False const=False val=
+  FIELD TreeNodeRender plate static=False const=False val=
+  FIELD TreeNodeRender labelHost static=False const=False val=
+  FIELD System.Int32 requestedWidth static=False const=False val=
+  FIELD System.Int32 requestedHeight static=False const=False val=
+  FIELD System.Int32 minWidth static=False const=False val=
+  FIELD System.Boolean validateLock static=False const=False val=
+  PROP System.Boolean canResize
+  PROP System.Int32 widthPixels
+  PROP System.Int32 heightPixels
+  PROP TreeNodeRender handler
+  PROP UnityEngine.RectTransform rectTransform
+  PROP TreeNodeRender inner
+  PROP MachineryStorageOwner owner
+  PROP MachineryLabel label
+  PROP PixelElement content
+  PROP System.Boolean isHidden
+  METHOD Boolean get_canResize() public=True static=False
+  METHOD Int32 get_widthPixels() public=True static=False
+  METHOD Void set_widthPixels(Int32 value) public=False static=False
+  METHOD Int32 get_heightPixels() public=True static=False
+  METHOD Void set_heightPixels(Int32 value) public=False static=False
+  METHOD TreeNodeRender get_handler() public=True static=False
+  METHOD Void set_handler(TreeNodeRender value) public=False static=False
+  METHOD RectTransform get_rectTransform() public=True static=False
+  METHOD TreeNodeRender get_inner() public=True static=False
+  METHOD Void set_inner(TreeNodeRender value) public=False static=False
+  METHOD MachineryStorageOwner get_owner() public=True static=False
+  METHOD Void set_owner(MachineryStorageOwner value) public=True static=False
+  METHOD MachineryLabel get_label() public=True static=False
+  METHOD Void set_label(MachineryLabel value) public=False static=False
+  METHOD PixelElement get_content() public=True static=False
+  METHOD Void set_content(PixelElement value) public=False static=False
+  METHOD Boolean get_isHidden() public=True static=False
+  METHOD Void set_isHidden(Boolean value) public=False static=False
+  METHOD Void .ctor(String labelText, PixelElement content, String role) public=True static=False
+  METHOD Void .ctor(Sprite icon, PixelElement content, String role) public=True static=False
+  METHOD MachineryPanel SetLabel(String text) public=True static=False
+  METHOD MachineryPanel SetLabelIcon(Sprite icon) public=True static=False
+  METHOD MachineryPanel SetLabel(MachineryLabel element) public=True static=False
+  METHOD MachineryPanel SetContent(PixelElement element) public=True static=False
+  METHOD MachineryPanel SetRole(String role) public=True static=False
+  METHOD MachineryPanel SetMinWidth(Int32 width) public=True static=False
+  METHOD MachineryPanel SetHidden(Boolean hidden) public=True static=False
+  METHOD Boolean Attach(PixelElement element) public=True static=False
+  METHOD Boolean Detach(PixelElement element) public=True static=False
+  METHOD Void CollectStorage(List`1 list) public=True static=False
+  METHOD Void Validate() public=True static=False
+  METHOD Void ResizePixels(Int32 width, Int32 height) public=True static=False
+  METHOD Int32 WidthPixelsClamp(Int32 width) public=True static=False
+  METHOD Int32 HeightPixelsClamp(Int32 height) public=True static=False
+  METHOD Int32 XClamp(Int32 x) public=True static=False
+  METHOD Int32 YClamp(Int32 y) public=True static=False
+### TYPE PixelWindow  base=System.Object  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, BeforeFieldInit
+  FIELD System.Collections.Generic.List`1<GameItem> <parentItems>k__BackingField static=False const=False val=
+  FIELD System.Boolean canMove static=False const=False val=
+  FIELD WindowStyle style static=False const=False val=
+  FIELD TreeNodeRender machineryHeader static=False const=False val=
+  FIELD TreeNodeRender machineryRule static=False const=False val=
+  FIELD TreeNodeRender machineryRuleBacking static=False const=False val=
+  FIELD TreeNodeRender machineryPlate static=False const=False val=
+  FIELD TreeNodeRender machineryIntake static=False const=False val=
+  FIELD System.Collections.Generic.List`1<MachineryButton> headerButtons static=False const=False val=
+  FIELD System.Collections.Generic.List`1<GraphNodeStorage> linkedContainerStorage static=False const=False val=
+  FIELD System.Int32 <widthPixels>k__BackingField static=False const=False val=
+  FIELD System.Int32 <heightPixels>k__BackingField static=False const=False val=
+  FIELD TreeNodeRender <handler>k__BackingField static=False const=False val=
+  FIELD TreeNodeRender <inner>k__BackingField static=False const=False val=
+  FIELD PixelElement <childElement>k__BackingField static=False const=False val=
+  FIELD System.Int32 <titleHeight>k__BackingField static=False const=False val=
+  FIELD System.Int32 <xPadding>k__BackingField static=False const=False val=
+  FIELD System.Int32 <yPadding>k__BackingField static=False const=False val=
+  FIELD TreeNodeRender background static=False const=False val=
+  FIELD TreeNodeRender outsideBorder static=False const=False val=
+  FIELD TreeNodeRender topDragBorder static=False const=False val=
+  FIELD TreeNodeRender topCloseButton static=False const=False val=
+  FIELD TreeNodeRender topTitleBackground static=False const=False val=
+  FIELD TreeNodeRender bottomResizeButton static=False const=False val=
+  FIELD System.String <titleString>k__BackingField static=False const=False val=
+  FIELD TreeNodeRender titleText static=False const=False val=
+  FIELD System.Single <transparency>k__BackingField static=False const=False val=
+  FIELD System.Boolean forceRaycast static=False const=False val=
+  FIELD System.Boolean hideBorder static=False const=False val=
+  FIELD System.Boolean <isImportant>k__BackingField static=False const=False val=
+  FIELD System.Action <closeCallback>k__BackingField static=False const=False val=
+  FIELD System.Action <openCallback>k__BackingField static=False const=False val=
+  FIELD UnityEngine.Transform preDockParent static=False const=False val=
+  FIELD System.Collections.Generic.List`1<PixelWindow> dockedFloating static=True const=False val=
+  FIELD System.Boolean dockLayoutHooked static=True const=False val=
+  FIELD System.Int64 focusStampCounter static=True const=False val=
+  FIELD System.Int64 <focusStamp>k__BackingField static=False const=False val=
+  FIELD System.Boolean isLocked static=False const=False val=
+  FIELD System.Action <stateChangeActionFunc>k__BackingField static=False const=False val=
+  PROP System.Collections.Generic.List`1<GraphNodeStorage> parents
+  PROP System.Collections.Generic.List`1<GraphNodeStorage> children
+  PROP System.Collections.Generic.List`1<GameItem> parentItems
+  PROP GraphNodeStorage child
+  PROP System.Boolean canResize
+  PROP System.Int32 widthPixels
+  PROP System.Int32 heightPixels
+  PROP TreeNodeRender handler
+  PROP UnityEngine.RectTransform rectTransform
+  PROP TreeNodeRender inner
+  PROP PixelElement childElement
+  PROP System.Int32 titleHeight
+  PROP System.Int32 xPadding
+  PROP System.Int32 yPadding
+  PROP System.Boolean hasTitle
+  PROP System.String titleString
+  PROP System.Single transparency
+  PROP System.Boolean isImportant
+  PROP System.Action closeCallback
+  PROP System.Action openCallback
+  PROP System.Int64 focusStamp
+  PROP System.Action stateChangeActionFunc
+  METHOD List`1 get_parents() public=True static=False
+  METHOD List`1 get_children() public=True static=False
+  METHOD List`1 get_parentItems() public=True static=False
+  METHOD Void set_parentItems(List`1 value) public=False static=False
+  METHOD GraphNodeStorage get_child() public=True static=False
+  METHOD Boolean get_canResize() public=True static=False
+  METHOD Int32 get_widthPixels() public=True static=False
+  METHOD Void set_widthPixels(Int32 value) public=False static=False
+  METHOD Int32 get_heightPixels() public=True static=False
+  METHOD Void set_heightPixels(Int32 value) public=False static=False
+  METHOD TreeNodeRender get_handler() public=True static=False
+  METHOD Void set_handler(TreeNodeRender value) public=False static=False
+  METHOD RectTransform get_rectTransform() public=True static=False
+  METHOD TreeNodeRender get_inner() public=True static=False
+  METHOD Void set_inner(TreeNodeRender value) public=False static=False
+  METHOD PixelElement get_childElement() public=True static=False
+  METHOD Void set_childElement(PixelElement value) public=False static=False
+  METHOD Int32 get_titleHeight() public=True static=False
+  METHOD Void set_titleHeight(Int32 value) public=False static=False
+  METHOD Int32 get_xPadding() public=True static=False
+  METHOD Void set_xPadding(Int32 value) public=True static=False
+  METHOD Int32 get_yPadding() public=True static=False
+  METHOD Void set_yPadding(Int32 value) public=True static=False
+  METHOD Boolean get_hasTitle() public=True static=False
+  METHOD String get_titleString() public=True static=False
+  METHOD Void set_titleString(String value) public=False static=False
+  METHOD Single get_transparency() public=True static=False
+  METHOD Void set_transparency(Single value) public=False static=False
+  METHOD Boolean get_isImportant() public=True static=False
+  METHOD Void set_isImportant(Boolean value) public=True static=False
+  METHOD Action get_closeCallback() public=True static=False
+  METHOD Void set_closeCallback(Action value) public=True static=False
+  METHOD Action get_openCallback() public=True static=False
+  METHOD Void set_openCallback(Action value) public=True static=False
+  METHOD Void .ctor(Boolean canMove, String title, WindowStyle style) public=True static=False
+  METHOD Void .ctor(Int32 width, Int32 height, Boolean canMove, String title, WindowStyle style) public=True static=False
+  METHOD Void .ctor(Int32 width, Int32 height, Boolean canMove, Int32 xPadding, Int32 yPadding, String title, WindowStyle style) public=True static=False
+  METHOD PixelWindow SetTitle(String title) public=True static=False
+  METHOD PixelWindow SetTransparency(Single transparency) public=True static=False
+  METHOD Void Validate() public=True static=False
+  METHOD Void ResizePixels(Int32 width, Int32 height) public=True static=False
+  METHOD Canvas GetBoundsCanvas() public=False static=False
+  METHOD Void EnsureFloatingDock() public=False static=False
+  METHOD Vector2 DockAnchorOffset() public=False static=False
+  METHOD Void ReclampDockedWindows() public=True static=True
+  METHOD Void OnLetterboxLayoutChanged() public=False static=True
+  METHOD Void FixBounds() public=True static=False
+  METHOD Void FixTooltipBounds(Vector2 worldTranslation) public=False static=False
+  METHOD Int64 NextFocusStamp() public=True static=True
+  METHOD Int64 get_focusStamp() public=True static=False
+  METHOD Void set_focusStamp(Int64 value) public=False static=False
+  METHOD Void RestoreOwnersContentTabs() public=False static=False
+  METHOD PixelWindow Show() public=True static=False
+  METHOD PixelWindow Show(Vector2 mousePosition, Boolean fixTooltipBounds) public=True static=False
+  METHOD PixelWindow Show(Vector2 mousePosition, Vector2 worldTranslation, Boolean fixTooltipBounds) public=True static=False
+  METHOD PixelWindow Center() public=True static=False
+  METHOD PixelWindow Hide() public=True static=False
+  METHOD Void Destroy() public=True static=False
+  METHOD String CrumbName() public=False static=False
+  METHOD PixelWindow Lock() public=True static=False
+  METHOD PixelWindow Unlock() public=True static=False
+  METHOD Boolean IsVisible() public=True static=False
+  METHOD ValueTuple`2 Size() public=True static=False
+  METHOD Boolean Attach(PixelElement element) public=True static=False
+  METHOD Boolean Detach() public=True static=False
+  METHOD Boolean Detach(PixelElement element) public=True static=False
+  METHOD Void ToFront(Boolean force) public=True static=False
+  METHOD Void ToBack(Boolean force) public=True static=False
+  METHOD Int32 XClamp(Int32 x) public=True static=False
+  METHOD Int32 YClamp(Int32 y) public=True static=False
+  METHOD Int32 WidthPixelsClamp(Int32 width) public=True static=False
+  METHOD Int32 HeightPixelsClamp(Int32 height) public=True static=False
+  METHOD Boolean AddParent(GraphNodeStorage node) public=True static=False
+  METHOD Boolean RemoveParent(GraphNodeStorage node) public=True static=False
+  METHOD Boolean MayHaveValidInventorySlot(GameItem item) public=True static=False
+  METHOD SlotMarker TryFindOneValidInventorySlot(GameItem item) public=True static=False
+  METHOD Action get_stateChangeActionFunc() public=True static=False
+  METHOD Void set_stateChangeActionFunc(Action value) public=False static=False
+  METHOD PixelWindow AddInventoryStateChangeAction(Action action) public=True static=False
+  METHOD Boolean IsBareMachineryChild() public=False static=False
+  METHOD Int32 LeftPadding() public=False static=False
+  METHOD Int32 TopPadding() public=False static=False
+  METHOD Int32 BottomPadding() public=False static=False
+  METHOD List`1 ChildStorage() public=False static=False
+  METHOD Void RelinkStorage() public=True static=False
+  METHOD Void InitMachineryChrome() public=False static=False
+  METHOD Void MachineryValidate() public=False static=False
+  METHOD PixelWindow AddHeaderButton(MachineryButton button) public=True static=False
+  METHOD PixelWindow RemoveHeaderButton(MachineryButton button) public=True static=False
+  METHOD Void HideBorder() public=True static=False
+  METHOD Void ShowBorder() public=True static=False
+  METHOD Void .cctor() public=False static=True
+  METHOD Boolean <.ctor>b__88_2(PointerEventData r) public=False static=False
+  METHOD Boolean <.ctor>b__88_3(PointerEventData r) public=False static=False
+  METHOD Boolean <.ctor>b__88_8(PointerEventData r) public=False static=False
+  NESTED PixelWindow/<>c__DisplayClass88_0
+  NESTED PixelWindow/<>c
+### TYPE GameGridInventory  base=GameInventory  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, BeforeFieldInit
+  FIELD System.Int32 <widthPixels>k__BackingField static=False const=False val=
+  FIELD System.Int32 <heightPixels>k__BackingField static=False const=False val=
+  FIELD TreeNodeRender <handler>k__BackingField static=False const=False val=
+  FIELD TreeNodeRender <inner>k__BackingField static=False const=False val=
+  FIELD TreeNodeRender dynamicBackgroundBase static=False const=False val=
+  FIELD TreeNodeRender background static=False const=False val=
+  FIELD TreeNodeRender insideBorder static=False const=False val=
+  FIELD System.Boolean renderDynamicBackground static=False const=False val=
+  FIELD System.Collections.Generic.List`1<TreeNodeRender> dynamicBackgrounds static=False const=False val=
+  FIELD System.Collections.Generic.List`1<TreeNodeRender> dynamicR0 static=False const=False val=
+  FIELD System.Collections.Generic.List`1<TreeNodeRender> dynamicR1 static=False const=False val=
+  FIELD System.Collections.Generic.List`1<TreeNodeRender> dynamicR2 static=False const=False val=
+  FIELD System.Collections.Generic.List`1<TreeNodeRender> dynamicR3 static=False const=False val=
+  FIELD System.Collections.Generic.List`1<GameItem> items static=False const=False val=
+  FIELD System.Single <transparency>k__BackingField static=False const=False val=
+  FIELD System.Collections.Generic.List`1<TreeNodeRender> highlightSquares static=False const=False val=
+  FIELD System.Collections.Generic.Dictionary`2<System.ValueTuple`2<System.Int32,System.Int32>,UnityEngine.Sprite> cellBackdropCells static=False const=False val=
+  FIELD System.Collections.Generic.List`1<TreeNodeRender> cellBackdrops static=False const=False val=
+  FIELD GridShape <inventoryShape>k__BackingField static=False const=False val=
+  FIELD System.Int32 _lastShapeWidth static=False const=False val=
+  FIELD System.Int32 _lastShapeHeight static=False const=False val=
+  FIELD System.Int32 _lastShapeHash static=False const=False val=
+  FIELD System.Boolean _lastRenderDynamicBackground static=False const=False val=
+  FIELD System.Boolean hideBorder static=False const=False val=
+  FIELD System.Boolean machineryStyle static=False const=False val=
+  FIELD UnityEngine.Sprite solidSprite static=False const=False val=
+  PROP System.Collections.Generic.List`1<GraphNodeStorage> children
+  PROP System.Collections.Generic.List`1<GameItem> childItems
+  PROP System.Boolean canResize
+  PROP System.Int32 widthPixels
+  PROP System.Int32 heightPixels
+  PROP TreeNodeRender handler
+  PROP UnityEngine.RectTransform rectTransform
+  PROP TreeNodeRender inner
+  PROP System.Single transparency
+  PROP GridShape inventoryShape
+  PROP System.Boolean isMachineryStyle
+  PROP System.Boolean SupportsGroupPlacement
+  METHOD List`1 get_children() public=True static=False
+  METHOD List`1 get_childItems() public=True static=False
+  METHOD Boolean get_canResize() public=True static=False
+  METHOD Int32 get_widthPixels() public=True static=False
+  METHOD Void set_widthPixels(Int32 value) public=False static=False
+  METHOD Int32 get_heightPixels() public=True static=False
+  METHOD Void set_heightPixels(Int32 value) public=False static=False
+  METHOD TreeNodeRender get_handler() public=True static=False
+  METHOD Void set_handler(TreeNodeRender value) public=False static=False
+  METHOD RectTransform get_rectTransform() public=True static=False
+  METHOD TreeNodeRender get_inner() public=True static=False
+  METHOD Void set_inner(TreeNodeRender value) public=False static=False
+  METHOD Single get_transparency() public=True static=False
+  METHOD Void set_transparency(Single value) public=False static=False
+  METHOD GameGridInventory SetCellBackdrop(Int32 x, Int32 y, Sprite sprite) public=True static=False
+  METHOD Boolean HasCellBackdrop(Int32 x, Int32 y) public=True static=False
+  METHOD GameGridInventory ClearCellBackdrops() public=True static=False
+  METHOD Boolean HasFreeCell() public=True static=False
+  METHOD Boolean CanTakeAnything() public=True static=False
+  METHOD GridShape get_inventoryShape() public=True static=False
+  METHOD Void set_inventoryShape(GridShape value) public=False static=False
+  METHOD Void .ctor() public=False static=False
+  METHOD Void .ctor(Int32 width, Int32 height) public=True static=False
+  METHOD Void .ctor(String shape, Int32 width) public=True static=False
+  METHOD GameGridInventory SetShape(Int32 width, Int32 height) public=True static=False
+  METHOD GameGridInventory SetShape(String shape, Int32 width) public=True static=False
+  METHOD Vector2 GetLocalPosition(Vector2 position) public=False static=False
+  METHOD GridShape GetGridPosition(Vector2 position, GridShape shape) public=False static=False
+  METHOD Int32 WidthPixelsClamp(Int32 width) public=True static=False
+  METHOD Int32 HeightPixelsClamp(Int32 height) public=True static=False
+  METHOD Void ResizePixels(Int32 width, Int32 height) public=True static=False
+  METHOD Int32 XClamp(Int32 x) public=True static=False
+  METHOD Int32 YClamp(Int32 y) public=True static=False
+  METHOD Void Validate() public=True static=False
+  METHOD GameGridInventory SetTransparency(Single transparency) public=True static=False
+  METHOD GameGridInventory SetBackgroundSprite(String atlasPath, String spritePath) public=True static=False
+  METHOD Boolean get_isMachineryStyle() public=True static=False
+  METHOD GameGridInventory SetMachineryStyle() public=True static=False
+  METHOD GameGridInventory SetSolidSprite(String atlasPath, String spritePath) public=True static=False
+  METHOD Void ValidateBackground() public=False static=False
+  METHOD Void ForceRecomputeDynamicBackground() public=True static=False
+  METHOD Boolean Attach(PixelElement element) public=True static=False
+  METHOD Boolean Detach(PixelElement element) public=True static=False
+  METHOD Boolean AddParent(GraphNodeStorage node) public=True static=False
+  METHOD Boolean RemoveParent(GraphNodeStorage node) public=True static=False
+  METHOD Boolean IsAdjacent(SlotMarker slot, SlotMarker slot2) public=True static=False
+  METHOD Void ValidateCellBackdrops() public=False static=False
+  METHOD Void InitCellBackdrop() public=False static=False
+  METHOD Void InitHighlightSquare() public=False static=False
+  METHOD TreeNodeRender SetHighlightSquare(Int32 x, Int32 y, BackgroundColor color, Boolean doReplace) public=False static=False
+  METHOD List`1 HighlightSlot(SlotMarker slot, BackgroundColor color, Boolean doReplace) public=True static=False
+  METHOD Void ClearHighlight() public=True static=False
+  METHOD List`1 HighlightWholeInventory(BackgroundColor color) public=True static=False
+  METHOD Boolean get_SupportsGroupPlacement() public=True static=False
+  METHOD Boolean CheckShapePlacement(GameItem item, GridShape shape, List`1 ignoredItems) public=True static=False
+  METHOD Boolean CheckInventorySlotStillValid(GameItem item, GridShape tempShape, TagSystem tempState) public=True static=False
+  METHOD SlotMarker TryInventorySlot(GameItem item, Int32 requestedNum, Vector2 itemGraphicsCenterPosition, GridShape tempShape, TagSystem tempState) public=True static=False
+  METHOD SlotMarker GetIncompleteItemInventorySlot(GameItem item) public=True static=False
+  METHOD SlotMarker GetItemInventorySlot(GameItem item) public=True static=False
+  METHOD Boolean UncheckedAccept(GameItem item) public=True static=False
+  METHOD Boolean Expel(GameItem item) public=True static=False
+  METHOD Boolean MayHaveValidInventorySlot(GameItem item) public=True static=False
+  METHOD SlotMarker TryFindOneValidInventorySlot(GameItem item) public=True static=False
+  METHOD SlotMarker TryFindOneValidInventorySlot(GameItem item, Boolean keepOrientation) public=True static=False
+  METHOD SlotMarker TryFindOneValidInventorySlot_TopMiddle(GameItem item, Boolean keepOrientation) public=True static=False
+  METHOD Int32 ComputeShapeHash(GridShape shape) public=False static=False
+  METHOD Void HideBorder() public=True static=False
+  METHOD Void ShowBorder() public=True static=False
+  METHOD Boolean <.ctor>b__55_0(PointerEventData r) public=False static=False
+  NESTED GameGridInventory/<>c
+  NESTED GameGridInventory/<>c__DisplayClass92_0
+  NESTED GameGridInventory/<>c__DisplayClass93_0
+  NESTED GameGridInventory/<>c__DisplayClass94_0
+### TYPE GameInventory  base=GameInventoryFunc  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, Abstract, BeforeFieldInit
+  FIELD System.String identifier static=False const=False val=
+  FIELD System.Boolean overrideLockInsert static=False const=False val=
+  FIELD System.Boolean overrideLockRemove static=False const=False val=
+  FIELD GraphNodeStorage <parent>k__BackingField static=False const=False val=
+  PROP System.Boolean SupportsGroupPlacement
+  PROP GraphNodeStorage parent
+  PROP System.Collections.Generic.List`1<GameItem> childItems
+  PROP System.Collections.Generic.List`1<GraphNodeStorage> parents
+  PROP System.Collections.Generic.List`1<GraphNodeStorage> children
+  METHOD GameItem GetParentItem() public=True static=False
+  METHOD Boolean CheckAcceptParentShapeStateModifier(GameItem newItem, SlotMarker newSlot, GridShape newGridShape, TagSystem newState) public=True static=False
+  METHOD Boolean CheckChangeParentShapeStateModifier(GameItem newItem, SlotMarker newSlot, GridShape newGridShape, TagSystem newState) public=True static=False
+  METHOD Boolean CheckRemoveParentShapeModifier(GameItem item) public=True static=False
+  METHOD Boolean CheckInventorySlotStillValid(GameItem item, GridShape tempShape, TagSystem tempState) public=True static=False
+  METHOD SlotMarker TryInventorySlot(GameItem item, GridShape tempShape, TagSystem itemState) public=True static=False
+  METHOD SlotMarker TryInventorySlot(GameItem item, Int32 requestedNum, GridShape tempShape, TagSystem itemState) public=True static=False
+  METHOD SlotMarker TryInventorySlot(GameItem item, Int32 requestedNum, Vector2 itemGraphicsCenterPosition, GridShape tempShape, TagSystem itemState) public=True static=False
+  METHOD SlotMarker GetItemInventorySlot(GameItem item) public=True static=False
+  METHOD SlotMarker GetIncompleteItemInventorySlot(GameItem item) public=True static=False
+  METHOD List`1 HighlightSlot(SlotMarker slot, BackgroundColor color, Boolean doReplace) public=True static=False
+  METHOD Void ClearHighlight() public=True static=False
+  METHOD List`1 HighlightWholeInventory(BackgroundColor color) public=True static=False
+  METHOD Boolean get_SupportsGroupPlacement() public=True static=False
+  METHOD Boolean CheckShapePlacement(GameItem item, GridShape shape, List`1 ignoredItems) public=True static=False
+  METHOD Boolean UncheckedAccept(GameItem item) public=True static=False
+  METHOD Boolean Expel(GameItem item) public=True static=False
+  METHOD Int64 GetTotalValue(List`1 party, GameCharacterItem vendor) public=True static=False
+  METHOD GameInventory UncheckedAcceptAll(List`1 items) public=True static=False
+  METHOD GameInventory TryAcceptAll(GameItem item) public=True static=False
+  METHOD GameInventory ExpelAll() public=True static=False
+  METHOD GraphNodeStorage get_parent() public=True static=False
+  METHOD Void set_parent(GraphNodeStorage value) public=False static=False
+  METHOD List`1 get_childItems() public=True static=False
+  METHOD List`1 get_parents() public=True static=False
+  METHOD List`1 get_children() public=True static=False
+  METHOD Boolean IsAdjacent(SlotMarker slot, SlotMarker slot2) public=True static=False
+  METHOD Void Validate() public=True static=False
+  METHOD Boolean MayHaveValidInventorySlot(GameItem item) public=True static=False
+  METHOD SlotMarker TryFindOneValidInventorySlot(GameItem item) public=True static=False
+  METHOD Boolean AddParent(GraphNodeStorage node) public=True static=False
+  METHOD Boolean RemoveParent(GraphNodeStorage node) public=True static=False
+  METHOD Boolean IsInsertLocked() public=True static=False
+  METHOD Boolean IsRemoveLocked() public=True static=False
+  METHOD Void LockInv() public=True static=False
+  METHOD Void UnlockInv() public=True static=False
+  METHOD Void .ctor() public=False static=False
+  METHOD Void <UncheckedAcceptAll>b__22_0(GameItem item) public=False static=False
+  METHOD Void <ExpelAll>b__24_0(GameItem i) public=False static=False
+  NESTED GameInventory/<>c__DisplayClass4_0
+  NESTED GameInventory/<>c
+  NESTED GameInventory/<>c__DisplayClass5_0
+  NESTED GameInventory/<>c__DisplayClass21_0
+### TYPE GameSlotInventory  base=GameInventory  public=True  attrs=AnsiClass, NotPublic, AutoLayout, Public, BeforeFieldInit
+  FIELD System.Int32 <widthPixels>k__BackingField static=False const=False val=
+  FIELD System.Int32 <heightPixels>k__BackingField static=False const=False val=
+  FIELD TreeNodeRender <handler>k__BackingField static=False const=False val=
+  FIELD TreeNodeRender <inner>k__BackingField static=False const=False val=
+  FIELD System.Boolean stealUI static=False const=False val=
+  FIELD System.Boolean isUIDown static=False const=False val=
+  FIELD PixelElement stolenUI static=False const=False val=
+  FIELD System.Int32 defaultOrientation static=False const=False val=
+  FIELD TreeNodeRender background static=False const=False val=
+  FIELD TreeNodeRender insideBorder static=False const=False val=
+  FIELD TreeNodeRender stolenInner static=False const=False val=
+  FIELD TreeNodeRender backgroundImage static=False const=False val=
+  FIELD GameItem currentItem static=False const=False val=
+  FIELD TreeNodeRender highlight static=False const=False val=
+  FIELD System.Int32 defaultGridWidth static=False const=False val=
+  FIELD System.Int32 defaultGridHeight static=False const=False val=
+  FIELD System.String tooltipName static=False const=False val=
+  FIELD System.Single <transparency>k__BackingField static=False const=False val=
+  FIELD TreeNodeRender cellNode static=False const=False val=
+  FIELD System.Boolean <isHidden>k__BackingField static=False const=False val=
+  FIELD System.Boolean validateLock static=False const=False val=
+  PROP System.Collections.Generic.List`1<GraphNodeStorage> children
+  PROP System.Collections.Generic.List`1<GameItem> childItems
+  PROP System.Boolean canResize
+  PROP System.Int32 widthPixels
+  PROP System.Int32 heightPixels
+  PROP TreeNodeRender handler
+  PROP UnityEngine.RectTransform rectTransform
+  PROP TreeNodeRender inner
+  PROP GameItem childItem
+  PROP System.Single transparency
+  PROP System.Boolean isMachineryStyle
+  PROP System.Boolean isHidden
+  METHOD List`1 get_children() public=True static=False
+  METHOD List`1 get_childItems() public=True static=False
+  METHOD Boolean get_canResize() public=True static=False
+  METHOD Int32 get_widthPixels() public=True static=False
+  METHOD Void set_widthPixels(Int32 value) public=False static=False
+  METHOD Int32 get_heightPixels() public=True static=False
+  METHOD Void set_heightPixels(Int32 value) public=False static=False
+  METHOD TreeNodeRender get_handler() public=True static=False
+  METHOD Void set_handler(TreeNodeRender value) public=False static=False
+  METHOD RectTransform get_rectTransform() public=True static=False
+  METHOD TreeNodeRender get_inner() public=True static=False
+  METHOD Void set_inner(TreeNodeRender value) public=False static=False
+  METHOD GameItem get_childItem() public=True static=False
+  METHOD Single get_transparency() public=True static=False
+  METHOD Void set_transparency(Single value) public=False static=False
+  METHOD Void .ctor() public=True static=False
+  METHOD Void .ctor(Int32 defaultGridWidth, Int32 defaultGridHeight, Boolean stealUI, Boolean isUIDown) public=True static=False
+  METHOD Void .ctor(String backgroundAtlas, String backgroundSprite, Boolean stealUI, Boolean isUIDown) public=True static=False
+  METHOD GameSlotInventory SetTransparency(Single transparency) public=True static=False
+  METHOD Boolean get_isMachineryStyle() public=True static=False
+  METHOD GameSlotInventory SetMachineryStyle() public=True static=False
+  METHOD GameSlotInventory SetBackgroundFadeSprite(String backgroundAtlas, String backgroundSprite, Single opacity, Single lightness) public=True static=False
+  METHOD GameSlotInventory SetBackgroundSprite(String backgroundAtlas, String backgroundSprite, Single opacity, Single lightness) public=True static=False
+  METHOD GameSlotInventory SetBackgroundSprite(String backgroundAtlas, String backgroundSprite, Color color) public=True static=False
+  METHOD GameSlotInventory ClearBackgroundSprite() public=True static=False
+  METHOD Int32 WidthPixelsClamp(Int32 width) public=True static=False
+  METHOD Int32 HeightPixelsClamp(Int32 height) public=True static=False
+  METHOD Void ResizePixels(Int32 width, Int32 height) public=True static=False
+  METHOD Int32 XClamp(Int32 x) public=True static=False
+  METHOD Int32 YClamp(Int32 y) public=True static=False
+  METHOD Boolean get_isHidden() public=True static=False
+  METHOD Void set_isHidden(Boolean value) public=False static=False
+  METHOD Void Hide() public=True static=False
+  METHOD Void Show() public=True static=False
+  METHOD Void Validate() public=True static=False
+  METHOD Boolean Attach(PixelElement element) public=True static=False
+  METHOD Boolean Detach(PixelElement element) public=True static=False
+  METHOD Boolean AddParent(GraphNodeStorage node) public=True static=False
+  METHOD Boolean RemoveParent(GraphNodeStorage node) public=True static=False
+  METHOD Boolean IsAdjacent(SlotMarker slot, SlotMarker slot2) public=True static=False
+  METHOD List`1 HighlightSlot(SlotMarker slot, BackgroundColor color, Boolean doReplace) public=True static=False
+  METHOD Void ClearHighlight() public=True static=False
+  METHOD List`1 HighlightWholeInventory(BackgroundColor color) public=True static=False
+  METHOD Boolean MayHaveValidInventorySlot(GameItem item) public=True static=False
+  METHOD Vector2 GetLocalPosition(Vector2 position) public=False static=False
+  METHOD Boolean CheckInventorySlotStillValid(GameItem item, GridShape tempShape, TagSystem tempState) public=True static=False
+  METHOD SlotMarker TryInventorySlot(GameItem item, Int32 requestedNum, Vector2 itemGraphicsCenterPosition, GridShape tempShape, TagSystem tempState) public=True static=False
+  METHOD SlotMarker GetIncompleteItemInventorySlot(GameItem item) public=True static=False
+  METHOD SlotMarker GetItemInventorySlot(GameItem item) public=True static=False
+  METHOD Boolean UncheckedAccept(GameItem item) public=True static=False
+  METHOD Boolean Expel(GameItem item) public=True static=False
+  METHOD SlotMarker TryFindOneValidInventorySlot(GameItem item) public=True static=False
+  METHOD GameSlotInventory SetTooltipName(String name) public=True static=False
+  METHOD Boolean HasTooltip() public=True static=False
+  METHOD RichText GetTooltip() public=True static=False
+  METHOD RichText GetTooltipAdvanced() public=True static=False
+  METHOD Boolean <.ctor>b__44_0(PointerEventData r) public=False static=False

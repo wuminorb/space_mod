@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Manifest>
   <ID>print_bottle</ID>
-  <Name>打印酒瓶</Name>
+  <Name>打印酒瓶 / 6L 大桶</Name>
   <Author>your_name</Author>
-  <ModVersion>0.2.1</ModVersion>
-  <Description>让水瓶打印机的「标准水瓶」那一档打印酒瓶（wine_bottle），替换原本 750 mL 的瓶装水。
-耗电、输出区判定、解锁条件都沿用原版：累计升级 3 次解锁，单次 6 点电。
-按 F8 可在控制台看到 [打印酒瓶] 的日志；按 F9 的 Spawn 列可以单独生成酒瓶。</Description>
+  <ModVersion>0.3.0</ModVersion>
+  <Description>水瓶打印机扩展：
+· 原版三档（小 / 标准 / 大瓶装水）恢复原样，750 mL 标准水瓶照常打印；
+· 新增两个按钮：打印酒瓶（wine_bottle，8 点电）、打印 6L 大桶（桶装水 water_jug，16 点电）；
+· 输出区容量翻倍：4×4 → 8×4，升级后 10×4 / 12×4，解锁条件仍是原版累计升级 3 次 / 9 次。
+只改机器窗口和打印逻辑，不写存档、不改存档结构；停用后机器与存档回到原版行为。
+按 F8 可在控制台看到 [打印酒瓶] 的日志；按 F9 的 Spawn 列可单独生成酒瓶和 6L 桶。</Description>
   <GameVersions>
     <Version>1.0.0</Version>
   </GameVersions>

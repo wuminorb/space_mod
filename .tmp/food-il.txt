@@ -1,0 +1,117 @@
+﻿=== GameItem FoodItemDirectory::WaterJug()  static=False
+  IL_0   ldarg.0      
+  IL_1   callvirt     Directory`1::Empty
+  IL_6   ldstr        'item_water_jug_name'
+  IL_11  call         Array::Empty
+  IL_16  call         LocHelper::GetLocalizedItem
+  IL_21  callvirt     GameItem::SetName
+  IL_26  ldstr        'Items/water_container4'
+  IL_31  ldstr        'xl'
+  IL_36  callvirt     GameItem::SetSpriteAndShape
+  IL_41  dup          
+  IL_42  ldc.i4.s     15
+  IL_44  conv.i8      
+  IL_45  callvirt     GameItem::SetValue
+  IL_50  pop          
+  IL_51  dup          
+  IL_52  ldstr        'water_jug'
+  IL_57  callvirt     GameItem::set_identifier
+  IL_62  dup          
+  IL_63  ldc.i4       6000
+  IL_68  ldc.i4.s     15
+  IL_70  ldc.i4.0     
+  IL_71  ldc.i4.0     
+  IL_72  ldc.i4.0     
+  IL_73  ldc.i4.1     
+  IL_74  ldc.i4.4     
+  IL_75  call         WaterHelper::InitLiquidContainerItem
+  IL_80  dup          
+  IL_81  call         AudioHelper::InitPlasticBottle
+  IL_86  ret          
+=== GameItem FoodItemDirectory::LargeBottledWater()  static=False
+  IL_0   ldarg.0      
+  IL_1   callvirt     Directory`1::Empty
+  IL_6   ldstr        'item_large_bottled_water_name'
+  IL_11  call         Array::Empty
+  IL_16  call         LocHelper::GetLocalizedItem
+  IL_21  callvirt     GameItem::SetName
+  IL_26  ldstr        'Items/water_container3'
+  IL_31  ldstr        'large'
+  IL_36  callvirt     GameItem::SetSpriteAndShape
+  IL_41  dup          
+  IL_42  ldc.i4.s     9
+  IL_44  conv.i8      
+  IL_45  callvirt     GameItem::set_unitValue
+  IL_50  dup          
+  IL_51  ldstr        'large_bottled_water'
+  IL_56  callvirt     GameItem::set_identifier
+  IL_61  dup          
+  IL_62  ldc.i4       2000
+  IL_67  ldc.i4.s     9
+  IL_69  ldc.i4.0     
+  IL_70  ldc.i4.0     
+  IL_71  ldc.i4.0     
+  IL_72  ldc.i4.1     
+  IL_73  ldc.i4.3     
+  IL_74  call         WaterHelper::InitLiquidContainerItem
+  IL_79  dup          
+  IL_80  call         AudioHelper::InitPlasticBottle
+  IL_85  ret          
+=== GameItem FoodItemDirectory::BottledWater()  static=False
+  IL_0   ldarg.0      
+  IL_1   callvirt     Directory`1::Empty
+  IL_6   ldstr        'item_bottled_water_name'
+  IL_11  call         Array::Empty
+  IL_16  call         LocHelper::GetLocalizedItem
+  IL_21  callvirt     GameItem::SetName
+  IL_26  ldstr        'Items/water_container3'
+  IL_31  ldstr        'normal'
+  IL_36  callvirt     GameItem::SetSpriteAndShape
+  IL_41  dup          
+  IL_42  ldc.i4.5     
+  IL_43  conv.i8      
+  IL_44  callvirt     GameItem::set_unitValue
+  IL_49  dup          
+  IL_50  ldstr        'bottled_water'
+  IL_55  callvirt     GameItem::set_identifier
+  IL_60  dup          
+  IL_61  ldc.i4       750
+  IL_66  ldc.i4.5     
+  IL_67  ldc.i4.0     
+  IL_68  ldc.i4.0     
+  IL_69  ldc.i4.0     
+  IL_70  ldc.i4.1     
+  IL_71  ldc.i4.3     
+  IL_72  call         WaterHelper::InitLiquidContainerItem
+  IL_77  dup          
+  IL_78  call         AudioHelper::InitPlasticBottle
+  IL_83  ret          
+=== GameItem FoodItemDirectory::SmallBottledWater()  static=False
+  IL_0   ldarg.0      
+  IL_1   callvirt     Directory`1::Empty
+  IL_6   ldstr        'item_small_bottled_water_name'
+  IL_11  call         Array::Empty
+  IL_16  call         LocHelper::GetLocalizedItem
+  IL_21  callvirt     GameItem::SetName
+  IL_26  ldstr        'Items/water_container3'
+  IL_31  ldstr        'small'
+  IL_36  callvirt     GameItem::SetSpriteAndShape
+  IL_41  dup          
+  IL_42  ldc.i4.4     
+  IL_43  conv.i8      
+  IL_44  callvirt     GameItem::set_unitValue
+  IL_49  dup          
+  IL_50  ldstr        'small_bottled_water'
+  IL_55  callvirt     GameItem::set_identifier
+  IL_60  dup          
+  IL_61  ldc.i4       450
+  IL_66  ldc.i4.4     
+  IL_67  ldc.i4.0     
+  IL_68  ldc.i4.0     
+  IL_69  ldc.i4.0     
+  IL_70  ldc.i4.1     
+  IL_71  ldc.i4.3     
+  IL_72  call         WaterHelper::InitLiquidContainerItem
+  IL_77  dup          
+  IL_78  call         AudioHelper::InitPlasticBottle
+  IL_83  ret          

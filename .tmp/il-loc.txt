@@ -1,0 +1,157 @@
+﻿=== System.String ModHelper::GetLocalized(System.String,System.String,System.Object[])  static=True
+  local <>c__DisplayClass13_0 V_0
+  local LoadedMod V_1
+  local String V_2
+  local Locale V_3
+  local String V_4
+  local Dictionary`2 V_5
+  local String V_6
+  local LocaleIdentifier V_7
+  local Dictionary`2 V_8
+  local String V_9
+  local String V_10
+  IL_0   newobj       <>c__DisplayClass13_0::.ctor
+  IL_5   stloc.0      
+  IL_6   ldloc.0      
+  IL_7   ldarg.0      
+  IL_8   stfld        <>c__DisplayClass13_0::modId
+  IL_13  call         ModLoader::get_Mods
+  IL_18  ldloc.0      
+  IL_19  ldftn        <>c__DisplayClass13_0::<GetLocalized>b__0
+  IL_25  newobj       Predicate`1::.ctor
+  IL_30  callvirt     List`1::Find
+  IL_35  stloc.1      
+  IL_36  ldnull       
+  IL_37  stloc.2      
+  IL_38  ldloc.1      
+  IL_39  brfalse.s    IL_0095: ldloc.2
+  IL_41  call         LocalizationSettings::get_SelectedLocale
+  IL_46  stloc.3      
+  IL_47  ldloc.3      
+  IL_48  ldnull       
+  IL_49  call         Object::op_Inequality
+  IL_54  brtrue.s     IL_003f: ldloc.3
+  IL_56  ldstr        'en'
+  IL_61  br.s         IL_004e: stloc.s V_4
+  IL_63  ldloc.3      
+  IL_64  callvirt     Locale::get_Identifier
+  IL_69  stloc.s      V_7
+  IL_71  ldloca.s     V_7
+  IL_73  call         LocaleIdentifier::get_Code
+  IL_78  stloc.s      V_4
+  IL_80  ldloc.1      
+  IL_81  ldfld        LoadedMod::Localization
+  IL_86  ldloc.s      V_4
+  IL_88  ldloca.s     V_5
+  IL_90  callvirt     Dictionary`2::TryGetValue
+  IL_95  brfalse.s    IL_0072: ldloc.1
+  IL_97  ldloc.s      V_5
+  IL_99  ldarg.1      
+  IL_100 ldloca.s     V_6
+  IL_102 callvirt     Dictionary`2::TryGetValue
+  IL_107 brfalse.s    IL_0072: ldloc.1
+  IL_109 ldloc.s      V_6
+  IL_111 stloc.2      
+  IL_112 br.s         IL_0095: ldloc.2
+  IL_114 ldloc.1      
+  IL_115 ldfld        LoadedMod::Localization
+  IL_120 ldstr        'en'
+  IL_125 ldloca.s     V_8
+  IL_127 callvirt     Dictionary`2::TryGetValue
+  IL_132 brfalse.s    IL_0095: ldloc.2
+  IL_134 ldloc.s      V_8
+  IL_136 ldarg.1      
+  IL_137 ldloca.s     V_9
+  IL_139 callvirt     Dictionary`2::TryGetValue
+  IL_144 brfalse.s    IL_0095: ldloc.2
+  IL_146 ldloc.s      V_9
+  IL_148 stloc.2      
+  IL_149 ldloc.2      
+  IL_150 brtrue.s     IL_00ec: ldarg.2
+  IL_152 ldsfld       ModHelper::warnedLocalizationKeys
+  IL_157 ldloc.0      
+  IL_158 ldfld        <>c__DisplayClass13_0::modId
+  IL_163 ldstr        ':'
+  IL_168 ldarg.1      
+  IL_169 call         String::Concat
+  IL_174 callvirt     HashSet`1::Add
+  IL_179 brfalse.s    IL_00ea: ldarg.1
+  IL_181 ldc.i4.5     
+  IL_182 newarr       System.String
+  IL_187 dup          
+  IL_188 ldc.i4.0     
+  IL_189 ldstr        '[ModHelper] Localization key ''
+  IL_194 stelem.ref   
+  IL_195 dup          
+  IL_196 ldc.i4.1     
+  IL_197 ldarg.1      
+  IL_198 stelem.ref   
+  IL_199 dup          
+  IL_200 ldc.i4.2     
+  IL_201 ldstr        '' not found for mod ''
+  IL_206 stelem.ref   
+  IL_207 dup          
+  IL_208 ldc.i4.3     
+  IL_209 ldloc.0      
+  IL_210 ldfld        <>c__DisplayClass13_0::modId
+  IL_215 stelem.ref   
+  IL_216 dup          
+  IL_217 ldc.i4.4     
+  IL_218 ldstr        '' (current locale or en). Returning the key itself.'
+  IL_223 stelem.ref   
+  IL_224 call         String::Concat
+  IL_229 call         Debug::LogWarning
+  IL_234 ldarg.1      
+  IL_235 ret          
+  IL_236 ldarg.2      
+  IL_237 brfalse.s    IL_015b: ldloc.2
+  IL_239 ldarg.2      
+  IL_240 ldlen        
+  IL_241 brfalse.s    IL_015b: ldloc.2
+  IL_243 ldloc.2      
+  IL_244 ldarg.2      
+  IL_245 call         String::Format
+  IL_250 stloc.s      V_10
+  IL_252 leave.s      IL_015d: ldloc.s V_10
+  IL_254 pop          
+  IL_255 ldsfld       ModHelper::warnedLocalizationKeys
+  IL_260 ldloc.0      
+  IL_261 ldfld        <>c__DisplayClass13_0::modId
+  IL_266 ldstr        ':'
+  IL_271 ldarg.1      
+  IL_272 ldstr        ':format'
+  IL_277 call         String::Concat
+  IL_282 callvirt     HashSet`1::Add
+  IL_287 brfalse.s    IL_0156: ldloc.2
+  IL_289 ldc.i4.5     
+  IL_290 newarr       System.String
+  IL_295 dup          
+  IL_296 ldc.i4.0     
+  IL_297 ldstr        '[ModHelper] Localization entry ''
+  IL_302 stelem.ref   
+  IL_303 dup          
+  IL_304 ldc.i4.1     
+  IL_305 ldarg.1      
+  IL_306 stelem.ref   
+  IL_307 dup          
+  IL_308 ldc.i4.2     
+  IL_309 ldstr        '' in mod ''
+  IL_314 stelem.ref   
+  IL_315 dup          
+  IL_316 ldc.i4.3     
+  IL_317 ldloc.0      
+  IL_318 ldfld        <>c__DisplayClass13_0::modId
+  IL_323 stelem.ref   
+  IL_324 dup          
+  IL_325 ldc.i4.4     
+  IL_326 ldstr        '' is not a valid format string.'
+  IL_331 stelem.ref   
+  IL_332 call         String::Concat
+  IL_337 call         Debug::LogWarning
+  IL_342 ldloc.2      
+  IL_343 stloc.s      V_10
+  IL_345 leave.s      IL_015d: ldloc.s V_10
+  IL_347 ldloc.2      
+  IL_348 ret          
+  IL_349 ldloc.s      V_10
+  IL_351 ret          

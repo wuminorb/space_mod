@@ -1,0 +1,19 @@
+﻿### STRINGS containing 'mech_bottle_printer'
+  'mech_bottle_printer_btn_print_large'
+      @ MachineBottlePrinter::CreateMachineInventoryWindow
+  'mech_bottle_printer_btn_print_normal'
+      @ MachineBottlePrinter::CreateMachineInventoryWindow
+  'mech_bottle_printer_btn_print_small'
+      @ MachineBottlePrinter::CreateMachineInventoryWindow
+  'mech_bottle_printer_label_control'
+      @ MachineBottlePrinter::CreateMachineInventoryWindow
+  'mech_bottle_printer_label_output'
+      @ MachineBottlePrinter::CreateMachineInventoryWindow
+  'mech_bottle_printer_tooltip_print_large'
+      @ MachineBottlePrinter::CreateTooltip
+  'mech_bottle_printer_tooltip_print_normal'
+      @ MachineBottlePrinter::CreateTooltip
+  'mech_bottle_printer_tooltip_print_small'
+      @ MachineBottlePrinter::CreateTooltip
+  'mech_bottle_printer_tooltip_upgrade'
+      @ MachineBottlePrinter::CreateTooltip

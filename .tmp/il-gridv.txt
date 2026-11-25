@@ -1,0 +1,79 @@
+﻿=== System.Void GameGridInventory::Validate()  static=False
+  local Int32 V_0
+  local Enumerator V_1
+  IL_0   ldsfld       UISettings::current
+  IL_5   ldfld        UISettings::gridSize
+  IL_10  stloc.0      
+  IL_11  ldarg.0      
+  IL_12  ldarg.0      
+  IL_13  call         GameGridInventory::get_inventoryShape
+  IL_18  callvirt     GridShape::get_width
+  IL_23  ldloc.0      
+  IL_24  mul          
+  IL_25  call         GameGridInventory::set_widthPixels
+  IL_30  ldarg.0      
+  IL_31  ldarg.0      
+  IL_32  call         GameGridInventory::get_inventoryShape
+  IL_37  callvirt     GridShape::get_height
+  IL_42  ldloc.0      
+  IL_43  mul          
+  IL_44  call         GameGridInventory::set_heightPixels
+  IL_49  ldarg.0      
+  IL_50  call         GameGridInventory::ValidateBackground
+  IL_55  ldarg.0      
+  IL_56  call         GameGridInventory::ValidateCellBackdrops
+  IL_61  ldarg.0      
+  IL_62  ldfld        GameGridInventory::items
+  IL_67  callvirt     List`1::GetEnumerator
+  IL_72  stloc.1      
+  IL_73  br.s         IL_0057: ldloca.s V_1
+  IL_75  ldloca.s     V_1
+  IL_77  call         Enumerator::get_Current
+  IL_82  callvirt     GameItem::Validate
+  IL_87  ldloca.s     V_1
+  IL_89  call         Enumerator::MoveNext
+  IL_94  brtrue.s     IL_004b: ldloca.s V_1
+  IL_96  leave.s      IL_0070: ldarg.0
+  IL_98  ldloca.s     V_1
+  IL_100 constrained. System.Collections.Generic.List`1/Enumerator<GameItem>
+  IL_106 callvirt     IDisposable::Dispose
+  IL_111 endfinally   
+  IL_112 ldarg.0      
+  IL_113 ldfld        GameGridInventory::insideBorder
+  IL_118 callvirt     TreeNodeRender::get_image
+  IL_123 ldc.r4       1
+  IL_128 ldc.r4       1
+  IL_133 ldc.r4       1
+  IL_138 ldc.r4       1
+  IL_143 ldarg.0      
+  IL_144 call         GameGridInventory::get_transparency
+  IL_149 sub          
+  IL_150 newobj       Color::.ctor
+  IL_155 callvirt     Graphic::set_color
+  IL_160 ldarg.0      
+  IL_161 ldfld        GameGridInventory::background
+  IL_166 callvirt     TreeNodeRender::get_image
+  IL_171 ldc.r4       1
+  IL_176 ldc.r4       1
+  IL_181 ldc.r4       1
+  IL_186 ldc.r4       1
+  IL_191 ldarg.0      
+  IL_192 call         GameGridInventory::get_transparency
+  IL_197 sub          
+  IL_198 newobj       Color::.ctor
+  IL_203 callvirt     Graphic::set_color
+  IL_208 ldarg.0      
+  IL_209 ldfld        GameGridInventory::hideBorder
+  IL_214 brfalse.s    IL_00e9: ret
+  IL_216 ldarg.0      
+  IL_217 ldfld        GameGridInventory::insideBorder
+  IL_222 callvirt     TreeNodeRender::get_image
+  IL_227 ldc.i4.0     
+  IL_228 callvirt     Behaviour::set_enabled
+  IL_233 ret          
+=== System.Int32 GameGridInventory::get_widthPixels()  static=False
+  IL_0   ldarg.0      
+  IL_1   ldfld        GameGridInventory::<widthPixels>k__BackingField
+  IL_6   ret          
+=== System.Void GameInventory::Validate()  static=False
+  <no body>
